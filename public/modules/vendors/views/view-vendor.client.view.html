@@ -1,0 +1,17 @@
+<section data-ng-controller="VendorsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h3>View Vendor</h3>
+	</div>
+	<customer-brief-details customer="vendor" to="{
+			enableEdit: true,
+			enableCreateNotes: false,
+			enableViewNotes: false,
+			enableProfileView: true,
+			enablePropertyCreate: true,
+			enableCreatePropertySearchProfile: false,
+			enableViewPropertySearchProfile: false,
+			customerType:'vendors',
+		}">
+	</customer-brief-details>
+
+</section>

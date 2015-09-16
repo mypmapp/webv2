@@ -1,0 +1,31 @@
+<ul class="sidebar-nav" data-ng-show="authentication.user">
+    <li>
+       <h3><a href="/#!/dash"><i class="glyphicon glyphicon-list"></i> Dashboard</a></h3>
+    </li>
+    <div data-ng-repeat="menuItem in menu.items">
+        <div ng-if="'+' === menuItem.navUrl">
+            <li><h3>{{menuItem.navText}}</h3></li>
+        </div>
+        <div ng-if="'+' != menuItem.navUrl">
+            <li>
+                <a href="{{menuItem.navUrl}}"><i class="{{menuItem.navIon}}"></i> {{menuItem.navText}}</a>
+            </li>
+        </div>
+    </div>
+    <li class="divider"><hr></li>
+    <li>
+        <h3>Beta Rel 0.01</h3> <i class="glyphicon glyphicon-heart-empty"></i> Powered by AbleBlue Ltd
+    </li>
+</ul>
+<ul class="sidebar-nav" data-ng-hide="authentication.user">
+    <li>
+        <h3><a href="/#!/signup"><i class="glyphicon glyphicon-thumbs-up"></i> Signup</a></h3>
+    </li>
+    <li>
+        <h3><a href="/#!/signin"><i class="glyphicon glyphicon-log-in"></i> Signin</a></h3>
+    </li>
+    <li>
+        <h3>Beta Rel 0.01</h3> <i class="glyphicon glyphicon-heart-empty"></i> Powered by AbleBlue Ltd
+    </li>
+
+</ul>

@@ -1,0 +1,19 @@
+<section data-ng-controller="ContactnotesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Contactnotes</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="contactnote in contactnotes" data-ng-href="#!/contactnotes/{{contactnote._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="contactnote.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="contactnote.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="contactnote.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!contactnotes.$resolved || contactnotes.length">
+    	No Contactnotes yet, why don't you <a href="/#!/contactnotes/create">create one</a>?
+    </div>
+</section>

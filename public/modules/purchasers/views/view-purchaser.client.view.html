@@ -1,0 +1,11 @@
+<section data-ng-controller="PurchasersController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h3>View Purchaser</h3>
+	</div>
+	<customer-brief-details customer="purchaser" to="{
+			enableEdit: true,
+			enableNotes: false,
+			customerType:'purchasers',
+		}">
+	</customer-brief-details>
+</section>

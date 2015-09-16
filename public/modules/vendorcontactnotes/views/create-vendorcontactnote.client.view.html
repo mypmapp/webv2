@@ -1,0 +1,19 @@
+<section data-ng-controller="VendorcontactnotesController" data-ng-init="findVendorOne()">
+    <div class="page-header">
+        <h1>Update Vendor Notes</h1>
+    </div>
+    <customer-brief-details customer="vendor">
+    </customer-brief-details>
+    <form name="contactNotesForm" class="form-horizontal" data-ng-submit="create(vendor)" novalidate>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Update Notes</h3>
+                <text-angular ng-model="htmlVariable"></text-angular>
+                <br>
+                <div class="pull-right" data-ng-show="authentication.user">
+                    <input type="submit" class="btn btn-primary" value="Save Notes">
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

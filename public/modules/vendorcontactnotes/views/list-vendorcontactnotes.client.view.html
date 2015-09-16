@@ -1,0 +1,29 @@
+<section data-ng-controller="VendorcontactnotesController" data-ng-init="findAllVendor()">
+    <div class="page-header">
+        <h3>Vendor Contact Notes</h3>
+    </div>
+    <div class="row" data-ng-show="!vendors.$resolved || vendors.length">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                        <input type="text" class="form-control" placeholder="Search any part of vendor"
+                               ng-model="searchText">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div data-ng-repeat="cnvendor in vendors  | filter:searchText">
+            <customer-brief-details customer="cnvendor" to="{
+			enableEdit: false,
+			enableViewNotes: true,
+			enableCreateNotes:true,
+			customerType:'vendors',
+		}">
+            </customer-brief-details>
+        </div>
+    </div>
+  </section>

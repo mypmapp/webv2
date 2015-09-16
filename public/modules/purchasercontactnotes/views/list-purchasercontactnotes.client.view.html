@@ -1,0 +1,36 @@
+<section data-ng-controller="PurchasercontactnotesController" data-ng-init="findAllPurchasers()">
+    <div class="page-header">
+        <h3>Purchaser Contact Notes</h3>
+    </div>
+    <div class="row" data-ng-show="!purchasers.$resolved || purchasers.length">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                        <input type="text" class="form-control" placeholder="Search any part of purchaser"
+                               ng-model="searchText">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div data-ng-repeat="purchaser in purchasers  | filter:searchText">
+            <customer-brief-details customer="purchaser" to="{
+			enableEdit: false,
+			enableCreateNotes: true,
+			enableViewNotes: true,
+			enableProfileView: false,
+			enablePropertyCreate: false,
+			enableCreatePropertySearchProfile: false,
+			enableViewPropertySearchProfile: false,
+			customerType:'purchasers',
+		}">
+            </customer-brief-details>
+        </div>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-if="purchasers.$resolved && !purchasers.length">
+        No purchasers yet, why don't you <a href="/#!/purchasers/create">create purchaser</a>?
+    </div>
+</section>

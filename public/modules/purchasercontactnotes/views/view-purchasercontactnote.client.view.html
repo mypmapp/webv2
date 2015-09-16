@@ -1,0 +1,31 @@
+<section data-ng-controller="PurchasercontactnotesController" data-ng-init="findPurchaserOne()">
+	<div class="page-header">
+		<h3>Purchaser Contact Notes</h3>
+	</div>
+	<customer-brief-details customer="purchaser">
+	</customer-brief-details>
+	<br>
+	<div class="well" data-ng-init="find()">
+
+		<div class="text-right">
+			<a class="btn btn-success" href="#!/notes/purchasers/{{purchaser._id}}/create">Add Contact Note</a>
+		</div>
+		<hr>
+		<div data-ng-repeat="cnote in purchasercontactnotes | filter: { purchaser: purchaser._id }">
+			<div class="row">
+				<div class="col-md-12">
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<i>Posted By</i>
+					<span data-ng-bind="cnote.user.displayName"></span>
+					<span class="pull-right" data-ng-bind="cnote.created | date:'mediumDate'"></span>
+					<p ng-bind-html="cnote.notes"></p>
+				</div>
+			</div>
+			<hr>
+		</div>
+
+	</div>

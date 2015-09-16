@@ -1,0 +1,32 @@
+<section data-ng-controller="VendorsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Vendors</h1>
+    </div>
+    <div class="row" data-ng-show="!vendors.$resolved || vendors.length">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                        <input type="text" class="form-control" placeholder="Search any part of vendor"
+                               ng-model="searchText">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div data-ng-repeat="vendor in vendors  | filter:searchText">
+        <customer-brief-details customer="vendor" to="{
+			enableEdit: true,
+			enableCreateNotes: false,
+			enableViewNotes: false,
+			enableProfileView: true,
+			enablePropertyCreate: false,
+			customerType:'vendors',
+		}">
+        </customer-brief-details>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-if="vendors.$resolved && !vendors.length">
+        No vendors yet, why don't you <a href="/#!/vendors/create">create vendor</a>?
+    </div>
+</section>
