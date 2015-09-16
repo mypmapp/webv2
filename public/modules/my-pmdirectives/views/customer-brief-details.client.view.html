@@ -14,7 +14,7 @@
         </div>
         <div class="col-lg-9">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <h4><strong>Address:</strong></h4>
                     <h5 data-ng-bind="customer.addressLine1"></h5>
                     <h5 data-ng-bind="customer.addressLine2"></h5>
@@ -22,44 +22,15 @@
                     <h5 data-ng-bind="customer.addressLine4"></h5>
                     <h5 data-ng-bind="customer.postcode"></h5>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <h4><strong>Contact Phone:</strong></h4>
                     <h5 data-ng-bind="customer.phonePrimary"></h5>
                     <h5 data-ng-bind="customer.phoneSecondary"></h5>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <h4><strong>Contact Email:</strong></h4>
                     <h5 data-ng-bind="customer.emailPrimary"></h5>
                     <h5 data-ng-bind="customer.emailSecondary"></h5>
-                </div>
-                <div class="col-lg-3">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li class="active" ng-show="templateOptions.enableEdit"><a
-                                        href="#!/{{templateOptions.customerType}}/{{customer._id}}/edit">Edit
-                                    Customer</a></li>
-                                <li class="active" ng-show="templateOptions.enableViewNotes"><a
-                                        href="#!/notes/{{templateOptions.customerType}}/{{customer._id}}/view">View
-                                    Notes</a></li>
-                                <li class="active" ng-show="templateOptions.enableCreateNotes"><a
-                                        href="#!/notes/{{templateOptions.customerType}}/{{customer._id}}/create">Create
-                                    Notes</a></li>
-                                <li class="active" ng-show="templateOptions.enableProfileView"><a
-                                        href="#!/profile/{{templateOptions.customerType}}/{{customer._id}}/view">View
-                                    Complete Profile</a></li>
-                                <li class="active" ng-show="templateOptions.enablePropertyCreate"><a
-                                        href="#!/property/{{templateOptions.customerType}}/{{customer._id}}/create">Create
-                                    Property</a></li>
-                                <li class="active" ng-show="templateOptions.enableCreatePropertySearchProfile"><a
-                                        href="#!/purchaser/searchprofile/{{templateOptions.customerType}}/{{customer._id}}/create">Create
-                                    Search Profile</a></li>
-                                <li class="active" ng-show="templateOptions.enableViewPropertySearchProfile"><a
-                                        href="#!/purchaser/searchprofile/{{templateOptions.customerType}}/{{customer._id}}/view">View
-                                    Search Profile</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="row">
@@ -74,6 +45,34 @@
                     </small>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <br/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <a ng-show="templateOptions.enableEdit" class="btn btn-success" role="button"
+               href="#!/{{templateOptions.customerType}}/{{customer._id}}/edit">Edit Customer</a>
+            <a ng-show="templateOptions.enableViewNotes" class="btn btn-success" role="button"
+               href="#!/notes/{{templateOptions.customerType}}/{{customer._id}}/view">View Notes</a>
+            <a ng-show="templateOptions.enableCreateNotes" class="btn btn-success" role="button"
+               href="#!/notes/{{templateOptions.customerType}}/{{customer._id}}/create">Create
+                Notes</a>
+            <a ng-show="templateOptions.enableProfileView" class="btn btn-success" role="button"
+               href="#!/profile/{{templateOptions.customerType}}/{{customer._id}}/view">View
+                Complete Profile</a>
+            <a ng-show="templateOptions.enablePropertyCreate" class="btn btn-success" role="button"
+               href="#!/property/{{templateOptions.customerType}}/{{customer._id}}/create">Create
+                Property</a>
+            <a ng-show="templateOptions.enableCreatePropertySearchProfile" class="btn btn-success" role="button"
+               href="#!/purchaser/searchprofile/{{templateOptions.customerType}}/{{customer._id}}/create">Create
+                Search Profile</a>
+            <a ng-show="templateOptions.enableViewPropertySearchProfile" class="btn btn-success" role="button"
+               href="#!/purchaser/searchprofile/{{templateOptions.customerType}}/{{customer._id}}/view">View
+                Search Profile</a>
         </div>
     </div>
 </div>
