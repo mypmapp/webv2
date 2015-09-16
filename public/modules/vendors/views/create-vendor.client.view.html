@@ -96,17 +96,6 @@
                 <form class="tab-pane" id="third" name="thirdForm" rc-submit rc-step novalidate>
                     <h2>Enter Address Details</h2>
 
-                    <div class="form-group move-down">
-                        <label for="Autocomplete2">Autocomplete Model</label>
-                        <input type="text" id="Autocomplete2" ng-model="autocomplete" class="form-control" ng-autocomplete options="optionsG" details="details"/>
-
-                        <br>
-                        <b>autocomplete</b>: {{autocomplete}}
-                        <br><br>
-                        <b>details (formatted address)</b>: {{details.formatted_address}}
-
-                    </div>
-
                     <div class="form-group" ng-class="{'has-error': rc.thirdForm.needsAttention(thirdForm.addressLine1)}">
                         <label class="control-label">Address Line1</label>
                         <input name="addressLine1" class="form-control" type="text" required

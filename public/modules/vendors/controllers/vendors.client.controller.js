@@ -17,54 +17,6 @@ angular.module('vendors').controller('VendorsController', ['$scope', '$statePara
 			defaultImage: 'mm'
 		};
 
-		//Google Places
-
-		$scope.result = ''
-		//    $scope.details = ''
-		$scope.optionsG = {};
-
-		$scope.form = {
-			type: 'geocode',
-			bounds: {SWLat: 49, SWLng: -97, NELat: 50, NELng: -96},
-			country: 'ca',
-			typesEnabled: false,
-			boundsEnabled: false,
-			componentEnabled: false,
-			watchEnter: true
-		}
-
-		//set options from form selections
-		$scope.checkForm = function() {
-
-			$scope.optionsG = {};
-
-			$scope.optionsG.watchEnter = $scope.form.watchEnter
-
-			if ($scope.form.typesEnabled) {
-				$scope.optionsG.types = $scope.form.type
-			}
-			if ($scope.form.boundsEnabled) {
-
-				var SW = new google.maps.LatLng($scope.form.bounds.SWLat, $scope.form.bounds.SWLng)
-				var NE = new google.maps.LatLng($scope.form.bounds.NELat, $scope.form.bounds.NELng)
-				var bounds = new google.maps.LatLngBounds(SW, NE);
-				$scope.optionsG.bounds = bounds
-
-			}
-			if ($scope.form.componentEnabled) {
-				$scope.optionsG.country = $scope.form.country
-			}
-		};
-
-		//watch form for changes
-		$scope.watchForm = function () {
-			return $scope.form
-		};
-		$scope.$watch($scope.watchForm, function () {
-			$scope.checkForm()
-		}, true);
-
-
 
 		$scope.saveState = function() {
 			var deferred = $q.defer();
@@ -120,7 +72,7 @@ angular.module('vendors').controller('VendorsController', ['$scope', '$statePara
 
 		// Remove existing Vendor
 		$scope.remove = function(vendor) {
-			if ( vendor ) { 
+			if ( vendor ) {
 				vendor.$remove();
 
 				for (var i in $scope.vendors) {
@@ -153,7 +105,7 @@ angular.module('vendors').controller('VendorsController', ['$scope', '$statePara
 
 		// Find existing Vendor
 		$scope.findOne = function() {
-			$scope.vendor = Vendors.get({ 
+			$scope.vendor = Vendors.get({
 				vendorId: $stateParams.vendorId
 			});
 		};

@@ -16,6 +16,6 @@ angular.module('vendorcontactnotes').config(['$stateProvider',
             state('vendorNotesView', {
                 url: '/notes/vendors/:vendorId/view',
                 templateUrl: 'modules/vendorcontactnotes/views/view-vendorcontactnote.client.view.html'
-            })
+            });
     }
 ]);

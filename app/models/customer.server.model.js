@@ -13,25 +13,25 @@ var CustomerSchema = new Schema({
 	title: {
 		type: String,
 		default: 'Mr.',
-		required: 'Please fill Vendor title',
+		required: 'Please fill title',
 		trim: true
 	},
 	firstName: {
 		type: String,
 		default: '',
-		required: 'Please fill Vendor first name',
+		required: 'Please fill first name',
 		trim: true
 	},
 	lastName: {
 		type: String,
 		default: '',
-		required: 'Please fill Vendor last name',
+		required: 'Please fill last name',
 		trim: true
 	},
 	emailPrimary: {
 		type: String,
 		default: '',
-		required: 'Please fill Vendor primary email',
+		required: 'Please fill primary email',
 		trim: true
 	},
 	emailSecondary: {
@@ -42,7 +42,7 @@ var CustomerSchema = new Schema({
 	phonePrimary: {
 		type: String,
 		default: '',
-		//required: 'Please fill Vendor primary phone',
+		required: 'Please fill primary phone',
 		trim: true
 	},
 	phoneSecondary: {
@@ -53,7 +53,7 @@ var CustomerSchema = new Schema({
 	addressLine1: {
 		type: String,
 		default: '',
-		//required: 'Please fill Vendor address line1',
+		required: 'Please fill address line1',
 		trim: true
 	},
 	addressLine2: {
@@ -64,7 +64,7 @@ var CustomerSchema = new Schema({
 	addressLine3: {
 		type: String,
 		default: '',
-		required: 'Please fill Vendor address line3',
+		required: 'Please fill address line3',
 		trim: true
 	},
 	addressLine4: {
@@ -75,9 +75,10 @@ var CustomerSchema = new Schema({
 	postcode: {
 		type: String,
 		default: '',
-		required: 'Please fill Vendor postcode',
+		required: 'Please fill postcode',
 		trim: true
 	}
+
 });
 
 module.exports = {

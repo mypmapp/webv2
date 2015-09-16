@@ -73,7 +73,7 @@ exports.delete = function(req, res) {
  * List of Vendorcontactnotes
  */
 exports.list = function(req, res) { 
-	Vendorcontactnote.find().sort('-created').populate('user', 'displayName').exec(function(err, vendorcontactnotes) {
+	Vendorcontactnote.find().sort('-created').populate('Vendor').populate('user', 'displayName').exec(function(err, vendorcontactnotes) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

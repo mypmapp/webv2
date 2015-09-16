@@ -1,0 +1,19 @@
+<section data-ng-controller="AddressstoresController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Addressstores</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="addressstore in addressstores" data-ng-href="#!/addressstores/{{addressstore._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="addressstore.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="addressstore.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="addressstore.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!addressstores.$resolved || addressstores.length">
+    	No Addressstores yet, why don't you <a href="/#!/addressstores/create">create one</a>?
+    </div>
+</section>

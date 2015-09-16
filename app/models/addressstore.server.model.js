@@ -7,9 +7,9 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Address Schema
+ * Addressstore Schema
  */
-var AddressSchema = new Schema({
+var AddressstoreSchema = new Schema({
 	addressLine1: {
 		type: String,
 		default: '',
@@ -48,4 +48,4 @@ var AddressSchema = new Schema({
 	}
 });
 
-mongoose.model('Address', AddressSchema);
+mongoose.model('Addressstore', AddressstoreSchema);

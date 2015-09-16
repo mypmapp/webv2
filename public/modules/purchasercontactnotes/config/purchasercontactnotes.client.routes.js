@@ -16,6 +16,6 @@ angular.module('purchasercontactnotes').config(['$stateProvider',
 			state('purchaserNotesView', {
 				url: '/notes/purchasers/:purchaserId/view',
 				templateUrl: 'modules/purchasercontactnotes/views/view-purchasercontactnote.client.view.html'
-			})
+			});
 	}
 ]);
