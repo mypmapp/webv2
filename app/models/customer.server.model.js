@@ -77,6 +77,11 @@ var CustomerSchema = new Schema({
 		default: '',
 		required: 'Please fill postcode',
 		trim: true
+	},
+	country: {
+		type: String,
+		default: 'United Kingdom',
+		trim: true
 	}
 
 });

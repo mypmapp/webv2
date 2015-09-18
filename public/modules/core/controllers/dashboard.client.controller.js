@@ -8,5 +8,6 @@ angular.module('core').controller('DashboardController',['$scope', 'Authenticati
 
 		// If user is not signed in then redirect back home
 		if (!$scope.user) $location.path('/');
+
 	}
 ]);

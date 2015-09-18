@@ -31,6 +31,7 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/helpers/uniqueArrayItems.js',
+				'public/lib/helpers/angular-messages.min.js',
 				'public/lib/bootstrap/dist/js/bootstrap.min.js',
 				'public/lib/angularjs-utilities-master/lib/jquery.bootstrap.wizard.js',
 				'public/lib/angularjs-utilities-master/src/directives/rcSubmit.js',

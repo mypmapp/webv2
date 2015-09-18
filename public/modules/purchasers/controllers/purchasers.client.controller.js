@@ -10,10 +10,28 @@ angular.module('purchasers').controller('PurchasersController', ['$scope', '$sta
 		// If user is not signed in then redirect back home
 		if (!$scope.user) $location.path('/');
 
-		$scope.options = {
-			secure: true,
-			size: 150,
-			defaultImage: 'mm'
+		$scope.CallBackFinishSearch = function(mode) {
+			console.log('Do Something, I am called, Mod:=' + mode);
+			console.log($scope.address.FormattedAddress);
+			if(mode!='edit')
+			{
+				if($scope.address.FormattedAddress.Unit) $scope.addressLine1 = $scope.address.FormattedAddress.Unit;
+				if($scope.address.FormattedAddress.Street) $scope.addressLine2 = $scope.address.FormattedAddress.Street;
+				if($scope.address.FormattedAddress.Town) $scope.addressLine3 = $scope.address.FormattedAddress.Town;
+				if($scope.address.FormattedAddress.County) $scope.addressLine4 = $scope.address.FormattedAddress.County;
+				if($scope.address.FormattedAddress.PostCode) $scope.postcode = $scope.address.FormattedAddress.PostCode;
+				if($scope.address.FormattedAddress.Country) $scope.country = $scope.address.FormattedAddress.Country;
+			}
+			else
+			{
+				if($scope.address.FormattedAddress.Unit) $scope.purchaser.addressLine1 = $scope.address.FormattedAddress.Unit;
+				if($scope.address.FormattedAddress.Street) $scope.purchaser.addressLine2 = $scope.address.FormattedAddress.Street;
+				if($scope.address.FormattedAddress.Town) $scope.purchaser.addressLine3 = $scope.address.FormattedAddress.Town;
+				if($scope.address.FormattedAddress.County) $scope.purchaser.addressLine4 = $scope.address.FormattedAddress.County;
+				if($scope.address.FormattedAddress.PostCode) $scope.purchaser.postcode = $scope.address.FormattedAddress.PostCode;
+				if($scope.address.FormattedAddress.Country) $scope.purchaser.country = $scope.address.FormattedAddress.Country;
+			}
+
 		};
 
 		$scope.saveState = function() {
@@ -53,7 +71,8 @@ angular.module('purchasers').controller('PurchasersController', ['$scope', '$sta
 				addressLine2:$scope.addressLine2,
 				addressLine3:$scope.addressLine3,
 				addressLine4:$scope.addressLine4,
-				postcode:$scope.postalCode,
+				postcode:$scope.postcode,
+				country:$scope.country
 			});
 
 			// Redirect after save

@@ -42,7 +42,11 @@
     <div class="row">
         <div class="col-md-3">
             <br>
-            <ui-gravatar gravatar-email="emailPrimary" gravatar-options="options"></ui-gravatar>
+            <ui-gravatar gravatar-email="emailPrimary" gravatar-options="{
+			secure: true,
+			size: 150,
+			defaultImage: 'mm'
+		}"></ui-gravatar>
         </div>
         <div class="col-md-9">
             <div class="tab-content">
@@ -95,7 +99,13 @@
                 </form>
                 <form class="tab-pane" id="third" name="thirdForm" rc-submit rc-step novalidate>
                     <h2>Enter Address Details</h2>
-
+                    <div class="form-group">
+                        <label class="control-label">
+                            Find Address
+                            , Start search with street name
+                        </label>
+                        <google-places address=address ng-model="address.FormattedAddress" my-find-finish-callback="CallBackFinishSearch('edit')" class="form-control" placeholder="Find Address" value="Find Address"/>
+                    </div>
                     <div class="form-group" ng-class="{'has-error': rc.thirdForm.needsAttention(thirdForm.addressLine1)}">
                         <label class="control-label">Address Line1</label>
                         <input name="addressLine1" class="form-control" type="text" required
@@ -162,24 +172,20 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">Address:</label>
-
-                        <p class="form-control-static">
-                            {{ purchaser.addressLine1 }}
-                            <br/>
-                            {{ purchaser.addressLine2 }}
-                            <br/>
-                            {{ purchaser.addressLine3 }}
-                            <br/>
-                            {{ purchaser.addressLine4 }}
-                            <br/>
-                            {{ purchaser.postalCode }}
-                        </p>
+                        <ul class="list-unstyled">
+                            <li data-ng-bind="purchaser.addressLine1"></li>
+                            <li data-ng-bind="purchaser.addressLine2"></li>
+                            <li data-ng-bind="purchaser.addressLine3"></li>
+                            <li data-ng-bind="purchaser.addressLine4"></li>
+                            <li data-ng-bind="purchaser.postcode"></li>
+                            <li data-ng-bind="purchaser.country"></li>
+                        </ul>
                     </div>
                 </form>
             </div>
             <div class="form-group">
                 <div class="pull-left">
-                    <a class="btn btn-success" href="/#!/dash">Cancel</a>
+                    <a class="btn btn-success" href="/#!/purchasers">Cancel</a>
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-default" ng-click="rc.sampleWizard.backward()"
