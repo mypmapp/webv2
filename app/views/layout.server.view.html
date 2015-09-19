@@ -47,16 +47,12 @@
 	<div id="wrapper">
 		<!-- Sidebar -->
 		<div id="sidebar-wrapper" data-ng-include="'/modules/core/views/sidebar.client.view.html'"  data-ng-controller="SidebarController"></div>
+		<div data-ng-include="'/modules/core/views/header.client.view.html'" data-ng-controller="HeaderController"></div>
 		<!-- /#sidebar-wrapper -->
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<div class="row">
-					<div data-ng-include="'/modules/core/views/header.client.view.html'" data-ng-controller="HeaderController"></div>
-				</div>
-				<div class="row">
 					{% block content %}{% endblock %}
-				</div>
 			</div>
 		</div>
 	</div>

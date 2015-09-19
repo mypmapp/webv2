@@ -1,205 +1,143 @@
-<section data-ng-controller="VendorsController" rc-wizard="sampleWizard" rc-disabled="rc.firstForm.submitInProgress">
-    <div class="page-header">
-        <h1>Register Vendor</h1>
-    </div>
+<section data-ng-controller="VendorsController">
     <div class="row">
         <div class="col-md-12">
-            <div class="bs-callout bs-callout-info">
-                <h4>Tip!</h4>
+            <h1>Register Vendor</h1>
+            <form name="regVendor" data-ng-submit="create()" novalidate>
+                <fieldset>
+                    <div class="well">
+                        <h2>Personal Details</h2>
 
-                <p>Add the Adlayout-top-nav class to the body tag to get this layout. This feature can also be used
-                    with a sidebar! So use this class if you want to remove the custom dropdown menus from the
-                    navbar and use regular links instead.</p>
-            </div>
-            <ul class="nav rc-nav-wizard">
-                <li class="active">
-                    <a class="active" href="#first" data-toggle="tab">
-                        <span class="badge">1</span>
-                        <span>Personal Details</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#second" data-toggle="tab">
-                        <span class="badge">2</span>
-                        <span>Contact Details</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#third" data-toggle="tab">
-                        <span class="badge">2</span>
-                        <span>Address Details</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#last" data-toggle="tab">
-                        <span class="badge">3</span>
-                        <span>Confirmation</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <br>
-            <ui-gravatar gravatar-email="emailPrimary"  gravatar-options="{
-			secure: true,
-			size: 150,
-			defaultImage: 'mm'
-		}"></ui-gravatar>
-        </div>
-        <div class="col-md-9">
-            <div class="tab-content">
-                <form class="tab-pane active" id="first" name="firstForm"
-                      rc-submit rc-step novalidate>
-                    <h2>Enter Personal Details</h2>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.title.$dirty && regVendor.title.$invalid }">
+                            <label class="control-label" for="title">Title</label>
+                            <div class="controls">
+                                <input name="title" type="text" data-ng-model="title" id="title"
+                                       class="form-control input-lg" placeholder="Title" required>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.firstName.$dirty && regVendor.firstName.$invalid }">
+                            <label class="control-label" for="firstName">First Name</label>
+                            <div class="controls">
+                                <input name="firstName" type="text" data-ng-model="firstName" id="firstName"
+                                       class="form-control input-lg" placeholder="First Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.lastName.$dirty && regVendor.lastName.$invalid }">
+                            <label class="control-label" for="lastName">Last Name</label>
+                            <div class="controls">
+                                <input name="lastName" type="text" data-ng-model="lastName" id="lastName"
+                                       class="form-control input-lg" placeholder="Last Name" required>
+                            </div>
+                        </div>
 
-                    <div class="form-group"
-                         ng-class="{'has-error': rc.firstForm.needsAttention(firstForm.title)}">
-                        <label class="control-label">Title</label>
-                        <input name="title" class="form-control" type="text" required
-                               ng-model="title"/>
                     </div>
-                    <div class="form-group"
-                         ng-class="{'has-error': rc.firstForm.needsAttention(firstForm.firstName)}">
-                        <label class="control-label">First Name</label>
-                        <input name="firstName" class="form-control" type="text" required
-                               ng-model="firstName"/>
+                    <div class="well">
+                        <h2>Contact Details</h2>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.phonePrimary.$dirty && regVendor.phonePrimary.$invalid }">
+                            <label class="control-label" for="phonePrimary">Primary Phone#</label>
+                            <div class="controls">
+                                <input name="phonePrimary" type="text" data-ng-model="phonePrimary" id="phonePrimary"
+                                       class="form-control input-lg" placeholder="Phone Primary" required>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.phoneSecondary.$dirty && regVendor.phoneSecondary.$invalid }">
+                            <label class="control-label" for="phoneSecondary">Primary Secondary#</label>
+                            <div class="controls">
+                                <input name="phoneSecondary" type="text" data-ng-model="phoneSecondary"
+                                       id="phoneSecondary" class="form-control input-lg"
+                                       placeholder="Secondary Primary">
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.emailPrimary.$dirty && regVendor.emailPrimary.$invalid }">
+                            <label class="control-label" for="emailPrimary">Primary Email</label>
+                            <div class="controls">
+                                <input name="emailPrimary" type="text" data-ng-model="emailPrimary" id="emailPrimary"
+                                       class="form-control input-lg" placeholder="Email Primary" required>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.emailSecondary.$dirty && regVendor.emailSecondary.$invalid }">
+                            <label class="control-label" for="emailSecondary">Secondary Email</label>
+                            <div class="controls">
+                                <input name="emailSecondary" type="text" data-ng-model="emailSecondary"
+                                       id="emailSecondary" class="form-control input-lg" placeholder="Email Secondary">
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group"
-                         ng-class="{'has-error': rc.firstForm.needsAttention(firstForm.lastName)}">
-                        <label class="control-label">Last Name</label>
-                        <input name="lastName" class="form-control" type="text" required
-                               ng-model="lastName"/>
+                    <div class="well">
+                        <h2>Address Lookup</h2>
+                        <label>Lookup Address: Start by searching street name</label>
+                        <google-places address=address ng-model="address.FormattedAddress"
+                                       my-find-finish-callback="CallBackFinishSearch('new')"
+                                       class="form-control input-lg"
+                                       placeholder="Find Address" value="Find Address"/>
                     </div>
-                </form>
-                <form class="tab-pane" id="second" name="secondForm" rc-submit rc-step novalidate>
-                    <h2>Enter Contact Details</h2>
+                    <div class="well">
+                        <h2>Address Details</h2>
 
-                    <div class="form-group" ng-class="{'has-error': rc.secondForm.needsAttention(secondForm.emailPrimary)}">
-                        <label class="control-label">Email Primary</label>
-                        <input name="emailPrimary" class="form-control" type="text" required
-                               ng-model="emailPrimary"/>
-                    </div>
-                    <div class="form-group" >
-                        <label class="control-label">Email Secondary</label>
-                        <input name="emailSecondary" class="form-control" type="text"
-                               ng-model="emailSecondary"/>
-                    </div>
-                    <div class="form-group" ng-class="{'has-error': rc.secondForm.needsAttention(secondForm.phonePrimary)}" >
-                        <label class="control-label">Phone Primary</label>
-                        <input name="phonePrimary" class="form-control" type="text" required
-                               ng-model="phonePrimary"/>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.addressLine1.$dirty && regVendor.addressLine1.$invalid }">
+                            <label class="control-label" for="addressLine1">Address Line1</label>
+                            <div class="controls">
+                                <input name="addressLine1" type="text" data-ng-model="addressLine1" id="addressLine1"
+                                       class="form-control input-lg" placeholder="Address Line1" required>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.addressLine2.$dirty && regVendor.addressLine2.$invalid }">
+                            <label class="control-label" for="addressLine2">Address Line2</label>
+                            <div class="controls">
+                                <input name="addressLine2" type="text" data-ng-model="addressLine2" id="addressLine2"
+                                       class="form-control input-lg" placeholder="Address Line2" required>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.addressLine3.$dirty && regVendor.addressLine3.$invalid }">
+                            <label class="control-label" for="addressLine3">Address Line3</label>
+                            <div class="controls">
+                                <input name="addressLine3" type="text" data-ng-model="addressLine3" id="addressLine3"
+                                       class="form-control input-lg" placeholder="Address Line3" required>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.addressLine4.$dirty && regVendor.addressLine4.$invalid }">
+                            <label class="control-label" for="addressLine4">Address Line4</label>
+                            <div class="controls">
+                                <input name="addressLine4" type="text" data-ng-model="addressLine4" id="addressLine4"
+                                       class="form-control input-lg" placeholder="Address Line4" required>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.postcode.$dirty && regVendor.postcode.$invalid }">
+                            <label class="control-label" for="postcode">Zip/Postcode</label>
+                            <div class="controls">
+                                <input name="postcode" type="text" data-ng-model="postcode" id="postcode"
+                                       class="form-control input-lg" placeholder="Zip/Postcode" required>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{ 'has-error': regVendor.country.$dirty && regVendor.country.$invalid }">
+                            <label class="control-label" for="country">Zip/Country</label>
+                            <div class="controls">
+                                <input name="country" type="text" data-ng-model="country" id="country"
+                                       class="form-control input-lg" placeholder="Country" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Phone Secondary</label>
-                        <input name="phoneSecondary" class="form-control" type="text"
-                               ng-model="phoneSecondary"/>
+                        <input type="submit" class="btn btn-default btn-lg">
                     </div>
-                </form>
-                <form class="tab-pane" id="third" name="thirdForm" rc-submit rc-step novalidate>
-                    <h2>Enter Address Details</h2>
+                    <div data-ng-show="error" class="text-danger">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </fieldset>
+            </form>
 
-                    <div class="form-group">
-                        <label class="control-label">
-                            Find Address
-                            , Start search with street name
-                        </label>
-                        <google-places address=address ng-model="address.FormattedAddress" my-find-finish-callback="CallBackFinishSearch('new')" class="form-control" placeholder="Find Address" value="Find Address"/>
-                    </div>
-                    <div class="form-group" ng-class="{'has-error': rc.thirdForm.needsAttention(thirdForm.addressLine1)}">
-                        <label class="control-label">Address Line1</label>
-                        <input name="addressLine1" class="form-control" type="text" required
-                               ng-model="addressLine1"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Address Line2</label>
-                        <input name="addressLine3" class="form-control" type="text"
-                               ng-model="addressLine2"/>
-                    </div>
-                    <div class="form-group" ng-class="{'has-error': rc.thirdForm.needsAttention(thirdForm.addressLine3)}">
-                        <label class="control-label">Address Line3/City</label>
-                        <input name="addressLine3" class="form-control" type="text"
-                               ng-model="addressLine3" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Address Line4</label>
-                        <input name="addressLine4" class="form-control" type="text"
-                               ng-model="addressLine4"/>
-                    </div>
-                    <div class="form-group" ng-class="{'has-error': rc.thirdForm.needsAttention(thirdForm.postalCode)}">
-                        <label class="control-label">Postcode</label>
-                        <input name="postcode" class="form-control" type="text" required
-                               ng-model="postcode"/>
-                    </div>
-                    <div class="form-group" ng-class="{'has-error': rc.thirdForm.needsAttention(thirdForm.postalCode)}">
-                        <label class="control-label">Country</label>
-                        <input name="country" class="form-control" type="text" required
-                               ng-model="country"/>
-                    </div>
-                </form>
-                <form class="tab-pane" id="last" name="lastForm" rc-submit="completeWizard('new')" rc-step>
-                    <h2>Confirmation</h2>
-
-                    <div class="form-group">
-                        <label class="control-label">Title:</label>
-
-                        <p class="form-control-static">{{ title }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">First Name:</label>
-
-                        <p class="form-control-static">{{ firstName }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Last Name:</label>
-
-                        <p class="form-control-static">{{ lastName }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Email Primary:</label>
-
-                        <p class="form-control-static">{{ emailPrimary}}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Email Secondary:</label>
-
-                        <p class="form-control-static">{{ emailSecondary }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Phone Primary:</label>
-
-                        <p class="form-control-static">{{ phonePrimary }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Phone Secondary:</label>
-
-                        <p class="form-control-static">{{ phoneSecondary }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Address:</label>
-                        <ul class="list-unstyled">
-                            <li data-ng-bind="addressLine1"></li>
-                            <li data-ng-bind="addressLine2"></li>
-                            <li data-ng-bind="addressLine3"></li>
-                            <li data-ng-bind="addressLine4"></li>
-                            <li data-ng-bind="postcode"></li>
-                            <li data-ng-bind="country"></li>
-                        </ul>
-                    </div>
-                </form>
-            </div>
-            <div class="form-group">
-                <div class="pull-right">
-                    <a class="btn btn-default" ng-click="rc.sampleWizard.backward()"
-                       ng-show="rc.sampleWizard.currentIndex > rc.sampleWizard.firstIndex">Back</a>
-                    <a class="btn btn-primary" data-loading-text="Please Wait..."
-                       ng-click="rc.sampleWizard.forward()"
-                       ng-show="rc.sampleWizard.currentIndex < rc.sampleWizard.navigationLength">Continue</a>
-                    <a class="btn btn-primary" ng-click="rc.sampleWizard.forward()"
-                       ng-show="rc.sampleWizard.currentIndex == rc.sampleWizard.navigationLength">Complete</a>
-                </div>
-            </div>
         </div>
     </div>
 </section>

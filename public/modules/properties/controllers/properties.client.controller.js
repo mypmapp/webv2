@@ -1,8 +1,8 @@
 'use strict';
 
 // Properties controller
-angular.module('properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Properties',
-	function($scope, $stateParams, $location, Authentication, Properties) {
+angular.module('properties').controller('PropertiesController', ['$scope', '$stateParams', '$location','$http', 'Authentication', 'Properties',
+	function($scope, $stateParams, $location,$http, Authentication, Properties) {
 		$scope.authentication = Authentication;
 
 		// Create new Property
@@ -11,6 +11,13 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
 			var property = new Properties ({
 				name: this.name
 			});
+
+			$scope.goNext = function(i){
+
+				$('[href=#step'+(i+1)+']').tab('show');
+				return false;
+
+			}
 
 			// Redirect after save
 			property.$save(function(response) {

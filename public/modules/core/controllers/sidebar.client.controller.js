@@ -13,9 +13,9 @@ angular.module('core').controller('SidebarController', ['$scope', 'Authenticatio
                 {navUrl:'/#!/notes/vendors',navText:'Vendor Notes', navGroup:'comments',navIon:'glyphicon glyphicon-pencil'},
 
                 {navUrl:'+',navText:'Property', navGroup:'property',navIon:'divider'},
-                {navUrl:'#!/property/create',navText:'Register Property', navGroup:'property',navIon:'glyphicon glyphicon-home'},
-                {navUrl:'#!/property/pdf',navText:'Create Property PDF', navGroup:'property',navIon:'glyphicon glyphicon-file'},
-                {navUrl:'#!/property/search',navText:'Search Property', navGroup:'property',navIon:'glyphicon glyphicon-zoom-in'},
+                {navUrl:'#!/properties/create',navText:'Register Property', navGroup:'property',navIon:'glyphicon glyphicon-home'},
+                {navUrl:'#!//properties/pdf',navText:'Create Property PDF', navGroup:'property',navIon:'glyphicon glyphicon-file'},
+                {navUrl:'#!//properties/view',navText:'Search Property', navGroup:'property',navIon:'glyphicon glyphicon-zoom-in'},
                 {navUrl:'#!/purchaser/register/search',navText:'Purchaser Request(s)', navGroup:'property',navIon:'glyphicon glyphicon-copy'},
 
                 {navUrl:'+',navText:'Purchaser', navGroup:'purchaser',navIon:'divider'},

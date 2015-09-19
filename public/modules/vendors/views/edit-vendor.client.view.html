@@ -1,208 +1,154 @@
-<section data-ng-controller="VendorsController" rc-wizard="sampleWizard" data-ng-init="findOne()" rc-disabled="rc.firstForm.submitInProgress">
-    <div class="page-header">
-        <h1>Edit Vendor</h1>
-    </div>
+<section data-ng-controller="VendorsController" data-ng-init="findOne()">
     <div class="row">
         <div class="col-md-12">
-            <div class="bs-callout bs-callout-info">
-                <h4>Tip!</h4>
+            <h1>Edit Registered Vendor</h1>
+            <form name="regVendor"  data-ng-submit="update(regVendor.$valid)" novalidate>
+                <fieldset>
+                    <div class="well">
+                        <h2>Personal Details</h2>
 
-                <p>Add the Adlayout-top-nav class to the body tag to get this layout. This feature can also be used
-                    with a sidebar! So use this class if you want to remove the custom dropdown menus from the
-                    navbar and use regular links instead.</p>
-            </div>
-            <ul class="nav rc-nav-wizard">
-                <li class="active">
-                    <a class="active" href="#first" data-toggle="tab">
-                        <span class="badge">1</span>
-                        <span>Personal Details</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#second" data-toggle="tab">
-                        <span class="badge">2</span>
-                        <span>Contact Details</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#third" data-toggle="tab">
-                        <span class="badge">2</span>
-                        <span>Address Details</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#last" data-toggle="tab">
-                        <span class="badge">3</span>
-                        <span>Confirmation</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <br>
-            <ui-gravatar gravatar-email="emailPrimary" gravatar-options="{
-			secure: true,
-			size: 150,
-			defaultImage: 'mm'
-		}"></ui-gravatar>
-        </div>
-        <div class="col-md-9">
-            <div class="tab-content">
-                <form class="tab-pane active" id="first" name="firstForm"
-                      rc-submit rc-step novalidate>
-                    <h2>Enter Personal Details</h2>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.title.$invalid}">
+                            <label class="control-label" for="title">Title</label>
+                            <div class="controls">
+                                <input name="title" type="text" data-ng-model="vendor.title" id="title" class="form-control input-lg" placeholder="Title" required>
+                            </div>
+                            <div ng-show="submitted && regVendor.title.$invalid" class="help-block">
+                                <p ng-show="regVendor.title.$error.required" class="text-danger">Title is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.firstName.$invalid}">
+                            <label class="control-label" for="firstName">First Name</label>
+                            <div class="controls">
+                                <input name="firstName" type="text" data-ng-model="vendor.firstName" id="firstName" class="form-control input-lg" placeholder="First Name" required>
+                            </div>
+                            <div ng-show="submitted && regVendor.firstName.$invalid" class="help-block">
+                                <p ng-show="regVendor.firstName.$error.required" class="text-danger">First name is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.lastName.$invalid}">
+                            <label class="control-label" for="lastName">Last Name</label>
+                            <div class="controls">
+                                <input name="lastName" type="text" data-ng-model="vendor.lastName" id="lastName" class="form-control input-lg" placeholder="Last Name" required>
+                            </div>
+                            <div ng-show="submitted && regVendor.lastName.$invalid" class="help-block">
+                                <p ng-show="regVendor.lastName.$error.required" class="text-danger">Last name is required</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <h2>Contact Details</h2>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.phonePrimary.$invalid}">
+                            <label class="control-label" for="phonePrimary">Phone Primary#</label>
+                            <div class="controls">
+                                <input name="phonePrimary" type="text" data-ng-model="vendor.phonePrimary" id="phonePrimary" class="form-control input-lg" placeholder="Primary Phone" required>
+                            </div>
+                            <div ng-show="submitted && regVendor.phonePrimary.$invalid" class="help-block">
+                                <p ng-show="regVendor.phonePrimary.$error.required" class="text-danger">Phone Primary is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.phoneSecondary.$invalid}">
+                            <label class="control-label" for="phoneSecondary">Phone Secondary#</label>
+                            <div class="controls">
+                                <input name="phoneSecondary" type="text" data-ng-model="vendor.phoneSecondary" id="phoneSecondary" class="form-control input-lg" placeholder="Secondary Phone">
+                            </div>
+                            <div ng-show="submitted && regVendor.phoneSecondary.$invalid" class="help-block">
+                                <p ng-show="regVendor.phoneSecondary.$error.required" class="text-danger">Phone Secondary is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.emailPrimary.$invalid}">
+                            <label class="control-label" for="emailPrimary">Primary Email</label>
+                            <div class="controls">
+                                <input name="emailPrimary" type="text" data-ng-model="vendor.emailPrimary" id="emailPrimary" class="form-control input-lg" placeholder="Email Primary">
+                            </div>
+                            <div ng-show="submitted && regVendor.emailPrimary.$invalid" class="help-block">
+                                <p ng-show="regVendor.emailPrimary.$error.required" class="text-danger">Email Primary is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.emailSecondary.$invalid}">
+                            <label class="control-label" for="emailSecondary">Secondary Email</label>
+                            <div class="controls">
+                                <input name="emailSecondary" type="text" data-ng-model="vendor.emailSecondary" id="emailSecondary" class="form-control input-lg" placeholder="Email Secondary">
+                            </div>
+                            <div ng-show="submitted && regVendor.emailSecondary.$invalid" class="help-block">
+                                <p ng-show="regVendor.emailSecondary.$error.required" class="text-danger">Email Secondary is required</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <h2>Address Lookup</h2>
+                        <label>Lookup Address: Start by searching street name</label>
+                        <google-places address=address ng-model="address.FormattedAddress"
+                                       my-find-finish-callback="CallBackFinishSearch('new')"
+                                       class="form-control input-lg"
+                                       placeholder="Find Address" value="Find Address"/>
+                    </div>
+                    <div class="well">
+                        <h2>Address Details</h2>
 
-                    <div class="form-group"
-                         ng-class="{'has-error': rc.firstForm.needsAttention(firstForm.title)}">
-                        <label class="control-label">Title</label>
-                        <input name="title" class="form-control" type="text" required
-                               data-ng-model="vendor.title" />
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.addressLine1.$invalid}">
+                            <label class="control-label" for="addressLine1">Address Line1</label>
+                            <div class="controls">
+                                <input name="addressLine1" type="text" data-ng-model="vendor.addressLine1" id="addressLine1" class="form-control input-lg" placeholder="Address Line1">
+                            </div>
+                            <div ng-show="submitted && regVendor.addressLine1.$invalid" class="help-block">
+                                <p ng-show="regVendor.addressLine1.$error.required" class="text-danger">Address Line1 is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.addressLine2.$invalid}">
+                            <label class="control-label" for="addressLine2">Address Line2</label>
+                            <div class="controls">
+                                <input name="addressLine2" type="text" data-ng-model="vendor.addressLine2" id="addressLine2" class="form-control input-lg" placeholder="Address Line2">
+                            </div>
+                            <div ng-show="submitted && regVendor.addressLine2.$invalid" class="help-block">
+                                <p ng-show="regVendor.addressLine2.$error.required" class="text-danger">Address Line2 is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.addressLine3.$invalid}">
+                            <label class="control-label" for="addressLine3">Address Line3</label>
+                            <div class="controls">
+                                <input name="addressLine3" type="text" data-ng-model="vendor.addressLine3" id="addressLine3" class="form-control input-lg" placeholder="Address Line3">
+                            </div>
+                            <div ng-show="submitted && regVendor.addressLine3.$invalid" class="help-block">
+                                <p ng-show="regVendor.addressLine3.$error.required" class="text-danger">Address Line3 is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.addressLine4.$invalid}">
+                            <label class="control-label" for="addressLine4">Address Line4</label>
+                            <div class="controls">
+                                <input name="addressLine4" type="text" data-ng-model="vendor.addressLine4" id="addressLine4" class="form-control input-lg" placeholder="Address Line4">
+                            </div>
+                            <div ng-show="submitted && regVendor.addressLine4.$invalid" class="help-block">
+                                <p ng-show="regVendor.addressLine4.$error.required" class="text-danger">Address Line4 is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.postcode.$invalid}">
+                            <label class="control-label" for="postcode">Zip/Postcode</label>
+                            <div class="controls">
+                                <input name="postcode" type="text" data-ng-model="vendor.postcode" id="postcode" class="form-control input-lg" placeholder="Zip/Postcode">
+                            </div>
+                            <div ng-show="submitted && regVendor.postcode.$invalid" class="help-block">
+                                <p ng-show="regVendor.postcode.$error.required" class="text-danger">Zip/Postcode is required</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && regVendor.country.$invalid}">
+                            <label class="control-label" for="country">Country</label>
+                            <div class="controls">
+                                <input name="country" type="text" data-ng-model="vendor.country" id="country" class="form-control input-lg" placeholder="Country">
+                            </div>
+                            <div ng-show="submitted && regVendor.country.$invalid" class="help-block">
+                                <p ng-show="regVendor.country.$error.required" class="text-danger">Country is required</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group"
-                         ng-class="{'has-error': rc.firstForm.needsAttention(firstForm.firstName)}">
-                        <label class="control-label">First Name</label>
-                        <input name="firstName" class="form-control" type="text" required
-                               data-ng-model="vendor.firstName"/>
+                    <div class="form-group">
+                        <input type="submit" value="Update Registered Vendor" class="btn btn-default btn-lg">
                     </div>
-                    <div class="form-group"
-                         ng-class="{'has-error': rc.firstForm.needsAttention(firstForm.lastName)}">
-                        <label class="control-label">Last Name</label>
-                        <input name="lastName" class="form-control" type="text" required
-                               data-ng-model="vendor.lastName"/>
+                    <div data-ng-show="error" class="text-danger">
+                        <strong data-ng-bind="error"></strong>
                     </div>
-                </form>
-                <form class="tab-pane" id="second" name="secondForm" rc-submit rc-step novalidate>
-                    <h2>Enter Contact Details</h2>
+                </fieldset>
+            </form>
 
-                    <div class="form-group" ng-class="{'has-error': rc.secondForm.needsAttention(secondForm.emailPrimary)}">
-                        <label class="control-label">Email Primary</label>
-                        <input name="emailPrimary" class="form-control" type="text" required
-                               data-ng-model="vendor.emailPrimary"/>
-                    </div>
-                    <div class="form-group" >
-                        <label class="control-label">Email Secondary</label>
-                        <input name="emailSecondary" class="form-control" type="text"
-                               data-ng-model="vendor.emailSecondary"/>
-                    </div>
-                    <div class="form-group" ng-class="{'has-error': rc.secondForm.needsAttention(secondForm.phonePrimary)}" >
-                        <label class="control-label">Phone Primary</label>
-                        <input name="phonePrimary" class="form-control" type="text" required
-                               data-ng-model="vendor.phonePrimary"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Phone Secondary</label>
-                        <input name="phoneSecondary" class="form-control" type="text"
-                               data-ng-model="vendor.phoneSecondary"/>
-                    </div>
-                </form>
-                <form class="tab-pane" id="third" name="thirdForm" rc-submit rc-step novalidate>
-                    <h2>Enter Address Details</h2>
-                    <div class="form-group">
-                        <label class="control-label">
-                            Find Address
-                            , Start search with street name
-                        </label>
-                        <google-places address=address ng-model="address.FormattedAddress" my-find-finish-callback="CallBackFinishSearch('edit')" class="form-control" placeholder="Find Address" value="Find Address"/>
-                    </div>
-
-                    <div class="form-group" ng-class="{'has-error': rc.thirdForm.needsAttention(thirdForm.addressLine1)}">
-                        <label class="control-label">Address Line1</label>
-                        <input name="addressLine1" class="form-control" type="text" required
-                               data-ng-model="vendor.addressLine1"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Address Line2</label>
-                        <input name="addressLine3" class="form-control" type="text"
-                               data-ng-model="vendor.addressLine2"/>
-                    </div>
-                    <div class="form-group" ng-class="{'has-error': rc.thirdForm.needsAttention(thirdForm.addressLine3)}">
-                        <label class="control-label">Address Line3/City</label>
-                        <input name="addressLine3" class="form-control" type="text"
-                               data-ng-model="vendor.addressLine3"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Address Line4</label>
-                        <input name="addressLine4" class="form-control" type="text"
-                               data-ng-model="vendor.addressLine4"/>
-                    </div>
-                    <div class="form-group" ng-class="{'has-error': rc.thirdForm.needsAttention(thirdForm.postalCode)}">
-                        <label class="control-label">Postcode</label>
-                        <input name="postcode" class="form-control" type="text" required
-                               data-ng-model="vendor.postcode"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Country</label>
-                        <input name="country" class="form-control" type="text"
-                               data-ng-model="vendor.country"/>
-                    </div>
-                </form>
-                <form class="tab-pane" id="last" name="lastForm" rc-submit="completeWizard('edit')" rc-step>
-                    <h2>Confirmation</h2>
-
-                    <div class="form-group">
-                        <label class="control-label">Title:</label>
-
-                        <p class="form-control-static">{{ vendor.title }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">First Name:</label>
-
-                        <p class="form-control-static">{{ vendor.firstName }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Last Name:</label>
-
-                        <p class="form-control-static">{{ vendor.lastName }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Email Primary:</label>
-
-                        <p class="form-control-static">{{ vendor.emailPrimary}}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Email Secondary:</label>
-
-                        <p class="form-control-static">{{ vendor.emailSecondary }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Phone Primary:</label>
-
-                        <p class="form-control-static">{{ vendor.phonePrimary }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Phone Secondary:</label>
-
-                        <p class="form-control-static">{{ vendor.phoneSecondary }}</p>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Address:</label>
-                        <ul class="list-unstyled">
-                            <li data-ng-bind="vendor.addressLine1"></li>
-                            <li data-ng-bind="vendor.addressLine2"></li>
-                            <li data-ng-bind="vendor.addressLine3"></li>
-                            <li data-ng-bind="vendor.addressLine4"></li>
-                            <li data-ng-bind="vendor.postcode"></li>
-                            <li data-ng-bind="vendor.country"></li>
-                        </ul>
-                    </div>
-                </form>
-            </div>
-            <div class="form-group">
-                <div class="pull-left">
-                    <a class="btn btn-success" href="/#!/vendors">Cancel</a>
-                </div>
-                <div class="pull-right">
-                    <a class="btn btn-default" ng-click="rc.sampleWizard.backward()"
-                       ng-show="rc.sampleWizard.currentIndex > rc.sampleWizard.firstIndex">Back</a>
-                    <a class="btn btn-primary" data-loading-text="Please Wait..."
-                       ng-click="rc.sampleWizard.forward()"
-                       ng-show="rc.sampleWizard.currentIndex < rc.sampleWizard.navigationLength">Continue</a>
-                    <a class="btn btn-primary" ng-click="rc.sampleWizard.forward()"
-                       ng-show="rc.sampleWizard.currentIndex == rc.sampleWizard.navigationLength">Complete</a>
-                </div>
-            </div>
         </div>
     </div>
 </section>
