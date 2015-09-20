@@ -64,12 +64,17 @@
 									   class="form-control input-lg" placeholder="Country" required>
 							</div>
 						</div>
+						<div class="form-group">
+							<label class="control-label" for="gmap">Map</label>
+							<div class="controls">
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="well">
 					<h2>Price Details</h2>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<div class="form-group"
 								 ng-class="{ 'has-error': regForm.priceAsking.$dirty && regForm.priceAsking.$invalid }">
 								<label class="control-label" for="priceAsking">Asking Price</label>
@@ -79,7 +84,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<div class="form-group"
 								 ng-class="{ 'has-error': regForm.priceType.$dirty && regForm.priceType.$invalid }">
 								<label class="control-label" for="priceType">Price Type</label>
@@ -106,6 +111,25 @@
 								</div>
 							</div>
 						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.chainType.$dirty && regForm.chainType.$invalid }">
+								<label class="control-label" for="priceType">Chain Situation</label>
+								<div class="controls">
+									<select name="chainType" class="form-control input-lg" id="chainType" ng-model="chainType">
+										<option value="">-- Choose --</option>
+										<option value="unknown">Unknown</option>
+										<option value="no_chain" selected="selected">No chain</option>
+										<option value="already_bought">Already purchased</option>
+										<option value="currently_looking">Currently looking</option>
+										<option value="moving_abroad">Moving abroad</option>
+										<option value="moving_to_rented">Moving to rented</option>
+										<option value="other">Other</option>
+										<option value="tenanted">Tenanted</option>
+									</select>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="well">
@@ -114,7 +138,7 @@
 						<div class="col-md-4">
 							<div class="form-group"
 								 ng-class="{ 'has-error': regForm.propertyType.$dirty && regForm.propertyType.$invalid }">
-								<label class="control-label" for="propertyType">Tenure</label>
+								<label class="control-label" for="propertyType">Property Type</label>
 								<div class="controls">
 									<select name="propertyType" class="form-control input-lg" id="propertyType" ng-model="propertyType">
 											<option value="">-- Choose --</option>
@@ -317,6 +341,84 @@
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h2>External Information</h2>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.parkingType.$dirty && regForm.parkingType.$invalid }">
+								<label class="control-label" for="parkingType">Parking Type</label>
+								<div class="controls">
+									<select name="parkingType" class="form-control input-lg" id="parkingType" ng-model="parkingType">
+										<option value="" selected="selected">-- Choose --</option>
+										<option value="none">None</option>
+										<option value="street-parking">Street Parking</option>
+										<option value="Off-street-parking">Off Street Parking</option>
+										<option value="garage">Garage</option>
+										<option value="single-garage-and-driveway">Single Garage and Driveway</option>
+										<option value="double garage">Double Garage</option>
+										<option value="double-garage-and-driveway">Double Garage and Driveway</option>
+										<option value="private-driveway">Private Driveway</option>
+										<option value="permit-holder">Permit Holder</option>
+										<option value="allocated-parking-spot">Allocated Parking Spot</option>
+										<option value="underground-parking">Underground Parking</option>
+										<option value="secure-gated-allocated-parking">Secure Gated Allocated Parking</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.haveLand.$dirty && regForm.haveLand.$invalid }">
+								<label class="control-label" for="haveLand">Land</label>
+								<div class="controls">
+									<select name="haveLand" class="form-control input-lg" id="haveLand" ng-model="haveLand">
+										<option value="" selected="selected">-- Choose --</option>
+										<option value="none">Yes</option>
+										<option value="part">No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.haveGarden.$dirty && regForm.haveGarden.$invalid }">
+								<label class="control-label" for="haveGarden">Garden</label>
+								<div class="controls">
+									<select name="haveGarden" class="form-control input-lg" id="haveGarden" ng-model="haveGarden">
+										<option value="" selected="selected">-- Choose --</option>
+										<option value="none">Yes</option>
+										<option value="part">No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h2>Add Images</h2>
+					<div class="row">
+
+					</div>
+				</div>
+				<div class="well">
+					<h2>Add Floorplans</h2>
+					<div class="row">
+
+					</div>
+				</div>
+				<div class="well">
+					<h2>Add EPC</h2>
+					<div class="row">
+
+					</div>
+				</div>
+				<div class="well">
+					<h2>Add Identification</h2>
+					<div class="row">
+
 					</div>
 				</div>
 			</fieldset>
