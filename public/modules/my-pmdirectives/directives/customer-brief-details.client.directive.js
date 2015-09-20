@@ -11,11 +11,7 @@ angular.module('my-pmdirectives').directive('customerBriefDetails', [
 			},
 
 			controller: function ($scope) {
-				$scope.options = {
-					secure: true,
-					size: 150,
-					defaultImage: 'mm'
-				};
+				//console.log($scope.templateOptions.customerType);
 			}
 		};
 	}

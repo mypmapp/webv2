@@ -1,0 +1,154 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1 data-ng-show="templateOptions.customerType==='vendor'">Edit Register Vendor</h1>
+		<h1 data-ng-show="templateOptions.customerType==='purchaser'">Edit Register Purchaser</h1>
+		<form name="regEditForm"  data-ng-submit="update(regEditForm.$valid)" novalidate>
+			<fieldset>
+				<div class="well">
+					<h2>Personal Details</h2>
+
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.title.$invalid}">
+						<label class="control-label" for="title">Title</label>
+						<div class="controls">
+							<input name="title" type="text" data-ng-model="customer.title" id="title" class="form-control input-lg" placeholder="Title" required>
+						</div>
+						<div ng-show="submitted && regEditForm.title.$invalid" class="help-block">
+							<p ng-show="regEditForm.title.$error.required" class="text-danger">Title is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.firstName.$invalid}">
+						<label class="control-label" for="firstName">First Name</label>
+						<div class="controls">
+							<input name="firstName" type="text" data-ng-model="customer.firstName" id="firstName" class="form-control input-lg" placeholder="First Name" required>
+						</div>
+						<div ng-show="submitted && regEditForm.firstName.$invalid" class="help-block">
+							<p ng-show="regEditForm.firstName.$error.required" class="text-danger">First name is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.lastName.$invalid}">
+						<label class="control-label" for="lastName">Last Name</label>
+						<div class="controls">
+							<input name="lastName" type="text" data-ng-model="customer.lastName" id="lastName" class="form-control input-lg" placeholder="Last Name" required>
+						</div>
+						<div ng-show="submitted && regEditForm.lastName.$invalid" class="help-block">
+							<p ng-show="regEditForm.lastName.$error.required" class="text-danger">Last name is required</p>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h2>Contact Details</h2>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.phonePrimary.$invalid}">
+						<label class="control-label" for="phonePrimary">Phone Primary#</label>
+						<div class="controls">
+							<input name="phonePrimary" type="text" data-ng-model="customer.phonePrimary" id="phonePrimary" class="form-control input-lg" placeholder="Primary Phone" required>
+						</div>
+						<div ng-show="submitted && regEditForm.phonePrimary.$invalid" class="help-block">
+							<p ng-show="regEditForm.phonePrimary.$error.required" class="text-danger">Phone Primary is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.phoneSecondary.$invalid}">
+						<label class="control-label" for="phoneSecondary">Phone Secondary#</label>
+						<div class="controls">
+							<input name="phoneSecondary" type="text" data-ng-model="customer.phoneSecondary" id="phoneSecondary" class="form-control input-lg" placeholder="Secondary Phone">
+						</div>
+						<div ng-show="submitted && regEditForm.phoneSecondary.$invalid" class="help-block">
+							<p ng-show="regEditForm.phoneSecondary.$error.required" class="text-danger">Phone Secondary is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.emailPrimary.$invalid}">
+						<label class="control-label" for="emailPrimary">Primary Email</label>
+						<div class="controls">
+							<input name="emailPrimary" type="text" data-ng-model="customer.emailPrimary" id="emailPrimary" class="form-control input-lg" placeholder="Email Primary">
+						</div>
+						<div ng-show="submitted && regEditForm.emailPrimary.$invalid" class="help-block">
+							<p ng-show="regEditForm.emailPrimary.$error.required" class="text-danger">Email Primary is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.emailSecondary.$invalid}">
+						<label class="control-label" for="emailSecondary">Secondary Email</label>
+						<div class="controls">
+							<input name="emailSecondary" type="text" data-ng-model="customer.emailSecondary" id="emailSecondary" class="form-control input-lg" placeholder="Email Secondary">
+						</div>
+						<div ng-show="submitted && regEditForm.emailSecondary.$invalid" class="help-block">
+							<p ng-show="regEditForm.emailSecondary.$error.required" class="text-danger">Email Secondary is required</p>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h2>Address Lookup</h2>
+					<label>Lookup Address: Start by searching street name</label>
+					<google-places address=address ng-model="address.FormattedAddress"
+								   my-find-finish-callback="CallBackFinishSearch('new')"
+								   class="form-control input-lg"
+								   placeholder="Find Address" value="Find Address"/>
+				</div>
+				<div class="well">
+					<h2>Address Details</h2>
+
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.addressLine1.$invalid}">
+						<label class="control-label" for="addressLine1">Address Line1</label>
+						<div class="controls">
+							<input name="addressLine1" type="text" data-ng-model="customer.addressLine1" id="addressLine1" class="form-control input-lg" placeholder="Address Line1">
+						</div>
+						<div ng-show="submitted && regEditForm.addressLine1.$invalid" class="help-block">
+							<p ng-show="regEditForm.addressLine1.$error.required" class="text-danger">Address Line1 is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.addressLine2.$invalid}">
+						<label class="control-label" for="addressLine2">Address Line2</label>
+						<div class="controls">
+							<input name="addressLine2" type="text" data-ng-model="customer.addressLine2" id="addressLine2" class="form-control input-lg" placeholder="Address Line2">
+						</div>
+						<div ng-show="submitted && regEditForm.addressLine2.$invalid" class="help-block">
+							<p ng-show="regEditForm.addressLine2.$error.required" class="text-danger">Address Line2 is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.addressLine3.$invalid}">
+						<label class="control-label" for="addressLine3">Address Line3</label>
+						<div class="controls">
+							<input name="addressLine3" type="text" data-ng-model="customer.addressLine3" id="addressLine3" class="form-control input-lg" placeholder="Address Line3">
+						</div>
+						<div ng-show="submitted && regEditForm.addressLine3.$invalid" class="help-block">
+							<p ng-show="regEditForm.addressLine3.$error.required" class="text-danger">Address Line3 is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.addressLine4.$invalid}">
+						<label class="control-label" for="addressLine4">Address Line4</label>
+						<div class="controls">
+							<input name="addressLine4" type="text" data-ng-model="customer.addressLine4" id="addressLine4" class="form-control input-lg" placeholder="Address Line4">
+						</div>
+						<div ng-show="submitted && regEditForm.addressLine4.$invalid" class="help-block">
+							<p ng-show="regEditForm.addressLine4.$error.required" class="text-danger">Address Line4 is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.postcode.$invalid}">
+						<label class="control-label" for="postcode">Zip/Postcode</label>
+						<div class="controls">
+							<input name="postcode" type="text" data-ng-model="customer.postcode" id="postcode" class="form-control input-lg" placeholder="Zip/Postcode">
+						</div>
+						<div ng-show="submitted && regEditForm.postcode.$invalid" class="help-block">
+							<p ng-show="regEditForm.postcode.$error.required" class="text-danger">Zip/Postcode is required</p>
+						</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : submitted && regEditForm.country.$invalid}">
+						<label class="control-label" for="country">Country</label>
+						<div class="controls">
+							<input name="country" type="text" data-ng-model="customer.country" id="country" class="form-control input-lg" placeholder="Country">
+						</div>
+						<div ng-show="submitted && regEditForm.country.$invalid" class="help-block">
+							<p ng-show="regEditForm.country.$error.required" class="text-danger">Country is required</p>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<input data-ng-show="templateOptions.customerType==='vendor'" type="submit" value="Update Registered Vendor" class="btn btn-default btn-lg">
+					<input data-ng-show="templateOptions.customerType==='purchaser'" type="submit" value="Update Registered Purchaser" class="btn btn-default btn-lg">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+
+	</div>
+</div>

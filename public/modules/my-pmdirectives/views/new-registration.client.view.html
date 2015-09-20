@@ -1,0 +1,141 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1 data-ng-show="templateOptions.customerType==='vendor'">Register Vendor</h1>
+		<h1 data-ng-show="templateOptions.customerType==='purchaser'">Register Purchaser</h1>
+		<form name="regForm" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="well">
+					<h2>Personal Details</h2>
+
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.title.$dirty && regForm.title.$invalid }">
+						<label class="control-label" for="title">Title</label>
+						<div class="controls">
+							<input name="title" type="text" data-ng-model="title" id="title"
+								   class="form-control input-lg" placeholder="Title" required>
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.firstName.$dirty && regForm.firstName.$invalid }">
+						<label class="control-label" for="firstName">First Name</label>
+						<div class="controls">
+							<input name="firstName" type="text" data-ng-model="firstName" id="firstName"
+								   class="form-control input-lg" placeholder="First Name" required>
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.lastName.$dirty && regForm.lastName.$invalid }">
+						<label class="control-label" for="lastName">Last Name</label>
+						<div class="controls">
+							<input name="lastName" type="text" data-ng-model="lastName" id="lastName"
+								   class="form-control input-lg" placeholder="Last Name" required>
+						</div>
+					</div>
+
+				</div>
+				<div class="well">
+					<h2>Contact Details</h2>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.phonePrimary.$dirty && regForm.phonePrimary.$invalid }">
+						<label class="control-label" for="phonePrimary">Primary Phone#</label>
+						<div class="controls">
+							<input name="phonePrimary" type="text" data-ng-model="phonePrimary" id="phonePrimary"
+								   class="form-control input-lg" placeholder="Phone Primary" required>
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.phoneSecondary.$dirty && regForm.phoneSecondary.$invalid }">
+						<label class="control-label" for="phoneSecondary">Primary Secondary#</label>
+						<div class="controls">
+							<input name="phoneSecondary" type="text" data-ng-model="phoneSecondary"
+								   id="phoneSecondary" class="form-control input-lg"
+								   placeholder="Secondary Primary">
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.emailPrimary.$dirty && regForm.emailPrimary.$invalid }">
+						<label class="control-label" for="emailPrimary">Primary Email</label>
+						<div class="controls">
+							<input name="emailPrimary" type="text" data-ng-model="emailPrimary" id="emailPrimary"
+								   class="form-control input-lg" placeholder="Email Primary" required>
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.emailSecondary.$dirty && regForm.emailSecondary.$invalid }">
+						<label class="control-label" for="emailSecondary">Secondary Email</label>
+						<div class="controls">
+							<input name="emailSecondary" type="text" data-ng-model="emailSecondary"
+								   id="emailSecondary" class="form-control input-lg" placeholder="Email Secondary">
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h2>Address Lookup</h2>
+					<label>Lookup Address: Start by searching street name</label>
+					<google-places address=address ng-model="address.FormattedAddress"
+								   my-find-finish-callback="CallBackFinishSearch('new')"
+								   class="form-control input-lg"
+								   placeholder="Find Address" value="Find Address"/>
+				</div>
+				<div class="well">
+					<h2>Address Details</h2>
+
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.addressLine1.$dirty && regForm.addressLine1.$invalid }">
+						<label class="control-label" for="addressLine1">Address Line1</label>
+						<div class="controls">
+							<input name="addressLine1" type="text" data-ng-model="addressLine1" id="addressLine1"
+								   class="form-control input-lg" placeholder="Address Line1" required>
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.addressLine2.$dirty && regForm.addressLine2.$invalid }">
+						<label class="control-label" for="addressLine2">Address Line2</label>
+						<div class="controls">
+							<input name="addressLine2" type="text" data-ng-model="addressLine2" id="addressLine2"
+								   class="form-control input-lg" placeholder="Address Line2" required>
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.addressLine3.$dirty && regForm.addressLine3.$invalid }">
+						<label class="control-label" for="addressLine3">Address Line3</label>
+						<div class="controls">
+							<input name="addressLine3" type="text" data-ng-model="addressLine3" id="addressLine3"
+								   class="form-control input-lg" placeholder="Address Line3" required>
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.addressLine4.$dirty && regForm.addressLine4.$invalid }">
+						<label class="control-label" for="addressLine4">Address Line4</label>
+						<div class="controls">
+							<input name="addressLine4" type="text" data-ng-model="addressLine4" id="addressLine4"
+								   class="form-control input-lg" placeholder="Address Line4" required>
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.postcode.$dirty && regForm.postcode.$invalid }">
+						<label class="control-label" for="postcode">Zip/Postcode</label>
+						<div class="controls">
+							<input name="postcode" type="text" data-ng-model="postcode" id="postcode"
+								   class="form-control input-lg" placeholder="Zip/Postcode" required>
+						</div>
+					</div>
+					<div class="form-group"
+						 ng-class="{ 'has-error': regForm.country.$dirty && regForm.country.$invalid }">
+						<label class="control-label" for="country">Zip/Country</label>
+						<div class="controls">
+							<input name="country" type="text" data-ng-model="country" id="country"
+								   class="form-control input-lg" placeholder="Country" required>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default btn-lg">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
