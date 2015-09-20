@@ -11,8 +11,6 @@ angular.module('my-pmdirectives').directive('newRegistration', ['Vendors','Purch
 
 			controller: function ($scope) {
 
-				console.log($scope.templateOptions.customerType);
-
 				$scope.CallBackFinishSearch = function(mode) {
 					if($scope.address.FormattedAddress.Unit) $scope.addressLine1 = $scope.address.FormattedAddress.Unit;
 					if($scope.address.FormattedAddress.Street) $scope.addressLine2 = $scope.address.FormattedAddress.Street;

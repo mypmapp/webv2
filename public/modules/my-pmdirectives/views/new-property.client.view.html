@@ -1,0 +1,325 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1>Register New Property</h1>
+		<form name="regPropertyForm"  novalidate>
+			<fieldset>
+				<div class="well">
+					<h2>Property Address</h2>
+					<div class="well">
+						<h4>Address Lookup</h4>
+						<label>Lookup Address: Start by searching street name</label>
+						<google-places address=address ng-model="address.FormattedAddress"
+									   my-find-finish-callback="CallBackFinishSearch('new')"
+									   class="form-control input-lg"
+									   placeholder="Find Address" value="Find Address"/>
+					</div>
+					<div class="well">
+						<h2>Address Details</h2>
+
+						<div class="form-group"
+							 ng-class="{ 'has-error': regForm.addressLine1.$dirty && regForm.addressLine1.$invalid }">
+							<label class="control-label" for="addressLine1">Address Line1</label>
+							<div class="controls">
+								<input name="addressLine1" type="text" data-ng-model="addressLine1" id="addressLine1"
+									   class="form-control input-lg" placeholder="Address Line1" required>
+							</div>
+						</div>
+						<div class="form-group"
+							 ng-class="{ 'has-error': regForm.addressLine2.$dirty && regForm.addressLine2.$invalid }">
+							<label class="control-label" for="addressLine2">Address Line2</label>
+							<div class="controls">
+								<input name="addressLine2" type="text" data-ng-model="addressLine2" id="addressLine2"
+									   class="form-control input-lg" placeholder="Address Line2" required>
+							</div>
+						</div>
+						<div class="form-group"
+							 ng-class="{ 'has-error': regForm.addressLine3.$dirty && regForm.addressLine3.$invalid }">
+							<label class="control-label" for="addressLine3">Address Line3</label>
+							<div class="controls">
+								<input name="addressLine3" type="text" data-ng-model="addressLine3" id="addressLine3"
+									   class="form-control input-lg" placeholder="Address Line3" required>
+							</div>
+						</div>
+						<div class="form-group"
+							 ng-class="{ 'has-error': regForm.addressLine4.$dirty && regForm.addressLine4.$invalid }">
+							<label class="control-label" for="addressLine4">Address Line4</label>
+							<div class="controls">
+								<input name="addressLine4" type="text" data-ng-model="addressLine4" id="addressLine4"
+									   class="form-control input-lg" placeholder="Address Line4" required>
+							</div>
+						</div>
+						<div class="form-group"
+							 ng-class="{ 'has-error': regForm.postcode.$dirty && regForm.postcode.$invalid }">
+							<label class="control-label" for="postcode">Zip/Postcode</label>
+							<div class="controls">
+								<input name="postcode" type="text" data-ng-model="postcode" id="postcode"
+									   class="form-control input-lg" placeholder="Zip/Postcode" required>
+							</div>
+						</div>
+						<div class="form-group"
+							 ng-class="{ 'has-error': regForm.country.$dirty && regForm.country.$invalid }">
+							<label class="control-label" for="country">Zip/Country</label>
+							<div class="controls">
+								<input name="country" type="text" data-ng-model="country" id="country"
+									   class="form-control input-lg" placeholder="Country" required>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h2>Price Details</h2>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.priceAsking.$dirty && regForm.priceAsking.$invalid }">
+								<label class="control-label" for="priceAsking">Asking Price</label>
+								<div class="controls">
+									<input name="priceAsking" type="text" data-ng-model="priceAsking" id="priceAsking"
+										   class="form-control input-lg" placeholder="Asking Price" required>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.priceType.$dirty && regForm.priceType.$invalid }">
+								<label class="control-label" for="priceType">Price Type</label>
+								<div class="controls">
+									<select name="priceType" class="form-control input-lg" id="priceType" ng-model="priceType">
+										<option value="">-- Choose --</option>
+										<option value="Unknown" selected="selected">Unknown</option>
+										<option value="none">None</option>
+										<option value="ono">Or Nearest Offer</option>
+										<option value="guide">Guide Price</option>
+										<option value="fixed">Fixed Price</option>
+										<option value="oieo">Offers in Excess of</option>
+										<option value="oiro">Offers in Region of</option>
+										<option value="sbt">Sale by Tender</option>
+										<option value="poa">POA</option>
+										<option value="from">From</option>
+										<option value="lease">Leasehold</option>
+										<option value="shared">Shared ownership</option>
+										<option value="over">Offers Over</option>
+										<option value="part">Part buy, part rent</option>
+										<option value="equity">Shared Equity</option>
+										<option value="loan">Equity loan</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h2>Property Details</h2>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.propertyType.$dirty && regForm.propertyType.$invalid }">
+								<label class="control-label" for="propertyType">Tenure</label>
+								<div class="controls">
+									<select name="propertyType" class="form-control input-lg" id="propertyType" ng-model="propertyType">
+											<option value="">-- Choose --</option>
+											<option value="2" selected="selected">Bungalow</option>
+											<option value="1">Detached House</option>
+											<option value="3">Terraced House</option>
+											<option value="4">Semi-detached House</option>
+											<option value="5">Townhouse</option>
+											<option value="6">Flat</option>
+											<option value="7">End of terrace House</option>
+											<option value="8">Link-Detached House</option>
+											<option value="9">Penthouse</option>
+											<option value="10">Maisonette</option>
+											<option value="11">Apartment</option>
+											<option value="12">Studio Flat</option>
+											<option value="13">House Share</option>
+											<option value="18">Land</option>
+											<option value="19">End Town House</option>
+											<option value="20">Link-Terraced House</option>
+											<option value="21">End Property</option>
+											<option value="26">Detached Barn Conversion</option>
+											<option value="35">Barn Conversion</option>
+											<option value="27">Cottage</option>
+											<option value="28">House</option>
+											<option value="31">Retirement Property</option>
+											<option value="32">House/Flats</option>
+											<option value="33">Equestrian Property</option>
+											<option value="34">Houseboat</option>
+											<option value="36">Coach House</option>
+											<option value="37">Static Caravan</option>
+											<option value="38">Farm House</option>
+											<option value="39">Bungalow with Annexe</option>
+											<option value="40">Garage</option>
+											<option value="41">Mobile Home</option>
+											<option value="42">Block of Apartments</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.tenureType.$dirty && regForm.tenureType.$invalid }">
+								<label class="control-label" for="tenureType">Tenure</label>
+								<div class="controls">
+									<select name="tenureType" class="form-control input-lg" id="tenureType" ng-model="tenureType">
+										<option value="">-- Choose --</option>
+										<option value="unknown" selected="selected">Unknown</option>
+										<option value="freehold">Freehold</option>
+										<option value="shared freehold">Shared Freehold</option>
+										<option value="leasehold">Leasehold</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.propertyAgeYrs.$dirty && regForm.propertyAgeYrs.$invalid }">
+								<label class="control-label" for="country">Property Age In Years</label>
+								<div class="controls">
+									<input name="propertyAgeYrs" type="text" data-ng-model="propertyAgeYrs" id="propertyAgeYrs"
+										   class="form-control input-lg" placeholder="Property Age In Years" required>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.numberOfBeds.$dirty && regForm.numberOfBeds.$invalid }">
+								<label class="control-label" for="numberOfBeds">No. of Beds</label>
+								<div class="controls">
+									<input name="numberOfBeds" type="text" data-ng-model="numberOfBeds" id="numberOfBeds"
+										   class="form-control input-lg" placeholder="No. of Beds" required>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.numberOfReceptions.$dirty && regForm.numberOfReceptions.$invalid }">
+								<label class="control-label" for="numberOfReceptions">No. of Receptions</label>
+								<div class="controls">
+									<input name="numberOfReceptions" type="text" data-ng-model="numberOfReceptions" id="numberOfReceptions"
+										   class="form-control input-lg" placeholder="No. of Reception" required>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.numberOfBathrooms.$dirty && regForm.numberOfBathrooms.$invalid }">
+								<label class="control-label" for="numberOfBathrooms">No. of Bathrooms</label>
+								<div class="controls">
+									<input name="numberOfBathrooms" type="text" data-ng-model="numberOfBathrooms" id="numberOfBathrooms"
+										   class="form-control input-lg" placeholder="No. of Bathrooms" required>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h2>Council Tax Details</h2>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.councilTaxBand.$dirty && regForm.councilTaxBand.$invalid }">
+								<label class="control-label" for="councilTaxBand">Council Tax Band</label>
+								<div class="controls">
+									<input name="councilTaxBand" type="text" data-ng-model="councilTaxBand" id="councilTaxBand"
+										   class="form-control input-lg" placeholder="Council Tax Band" required>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.councilTaxCost.$dirty && regForm.councilTaxCost.$invalid }">
+								<label class="control-label" for="councilTaxCost">Council Tax Cost</label>
+								<div class="controls">
+									<input name="councilTaxCost" type="text" data-ng-model="councilTaxCost" id="councilTaxCost"
+										   class="form-control input-lg" placeholder="Council Tax Term" required>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.councilTaxCostTerm.$dirty && regForm.councilTaxCostTerm.$invalid }">
+								<label class="control-label">Council Tax Term</label>
+								<div class="controls">
+									<select name="councilTaxCostTerm" class="form-control input-lg" id="councilTaxCostTerm" ng-model="councilTaxCostTerm">
+										<option value="">-- Choose --</option>
+										<option value="Per Annum">Per Annum</option>
+										<option value="Per Month">Per Month</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<h2>Details</h2>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.keyFeatures.$dirty && regForm.keyFeatures.$invalid }">
+								<label class="control-label" for="keyFeatures">Key Features</label>
+								<div class="controls">
+								<textarea name="keyFeatures" type="text" data-ng-model="keyFeatures" id="keyFeatures"
+										  class="form-control input-lg" required/>
+									<em>Please enter at least 3 key features separated by a comma ','.</em>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label">Details</label>
+								<div class="controls">
+									<text-angular ng-model="propertyDesc"></text-angular>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.heatingType.$dirty && regForm.heatingType.$invalid }">
+								<label class="control-label" for="heatingType">Heating Type</label>
+								<div class="controls">
+									<select name="heatingType" class="form-control input-lg" id="heatingType" ng-model="heatingType">
+										<option value="" selected="selected">-- Choose --</option>
+										<option value="gas">Gas</option>
+										<option value="oil">Oil</option>
+										<option value="electric">Electric</option>
+										<option value="solid fuel">Solid Fuel</option>
+										<option value="other">Other</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.doubleGlazing.$dirty && regForm.doubleGlazing.$invalid }">
+								<label class="control-label" for="heatingType">Double Glazing</label>
+								<div class="controls">
+									<select name="doubleGlazing" class="form-control input-lg" id="doubleGlazing" ng-model="doubleGlazing">
+										<option value="" selected="selected">-- Choose --</option>
+										<option value="none">None</option>
+										<option value="part">Part</option>
+										<option value="all">All</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group"
+								 ng-class="{ 'has-error': regForm.solidWoodFlooring.$dirty && regForm.solidWoodFlooring.$invalid }">
+								<label class="control-label" for="solidWoodFlooring">Solid Wood Flooring</label>
+								<div class="controls">
+									<select name="solidWoodFlooring" class="form-control input-lg" id="solidWoodFlooring" ng-model="solidWoodFlooring">
+										<option value="" selected="selected">-- Choose --</option>
+										<option value="none">None</option>
+										<option value="part">Part</option>
+										<option value="all">All</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
