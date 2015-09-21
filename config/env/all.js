@@ -42,6 +42,7 @@ module.exports = {
 				'public/lib/textAngular/dist/textAngular-rangy.min.js',
 				'public/lib/textAngular/dist/textAngular-sanitize.min.js',
 				'public/lib/textAngular/dist/textAngular.min.js',
+				'public/lib/angular-file-upload/dist/angular-file-upload.min.js',
 			]
 		},
 		css: [
