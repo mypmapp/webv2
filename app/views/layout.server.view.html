@@ -44,13 +44,13 @@
 </head>
 
 <body class="ng-cloak">
-	<div id="wrapper">
+	<div class="wrapper">
 		<!-- Sidebar -->
-		<div id="sidebar-wrapper" data-ng-include="'/modules/core/views/sidebar.client.view.html'"  data-ng-controller="SidebarController"></div>
+		<div class="sidebar-wrapper" data-ng-include="'/modules/core/views/sidebar.client.view.html'"  data-ng-controller="SidebarController"></div>
 		<div data-ng-include="'/modules/core/views/header.client.view.html'" data-ng-controller="HeaderController"></div>
 		<!-- /#sidebar-wrapper -->
 		<!-- Page Content -->
-		<div id="page-content-wrapper">
+		<div class="page-content-wrapper">
 			<div class="container-fluid">
 					{% block content %}{% endblock %}
 			</div>
