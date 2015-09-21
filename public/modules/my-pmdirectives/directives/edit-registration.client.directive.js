@@ -13,6 +13,9 @@ angular.module('my-pmdirectives').directive('editRegistration', ['Vendors','Purc
 			controller: function ($scope) {
 				$scope.update = function()
 				{
+					$scope.$broadcast('show-errors-check-validity');
+					if ($scope.regEditForm.$invalid) { return; }
+
 					if($scope.templateOptions.customerType==='vendor')
 					{
 						$scope.updateVendor();

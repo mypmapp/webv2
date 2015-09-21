@@ -5,7 +5,7 @@
 
 		<div class="row">
 			<div class="col-md-4">
-				<div class="form-group"
+				<div class="form-group required"
 					 ng-class="{ 'has-error': regForm.roomName.$dirty && regForm.roomName.$invalid }">
 					<label class="control-label" for="roomName">Room Name</label>
 
@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="form-group"
+				<div class="form-group required"
 					 ng-class="{ 'has-error': regForm.roomType.$dirty && regForm.roomType.$invalid }">
 					<label class="control-label" for="roomType">Room Type</label>
 
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="form-group"
+				<div class="form-group required"
 					 ng-class="{ 'has-error': regForm.unitOfMeasure.$dirty && regForm.unitOfMeasure.$invalid }">
 					<label class="control-label" for="unitOfMeasure">Unit of Measurement</label>
 
@@ -43,7 +43,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-3">
-				<div class="form-group">
+				<div class="form-group required">
 					<label class="control-label">Room Width (ft/in)</label>
 
 					<div class="controls">
@@ -53,7 +53,7 @@
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="form-group">
+				<div class="form-group required">
 					<label class="control-label">&nbsp;</label>
 
 					<div class="controls">
@@ -64,7 +64,7 @@
 			</div>
 
 			<div class="col-md-3">
-				<div class="form-group">
+				<div class="form-group required">
 					<label class="control-label">Room Length (ft/in)</label>
 
 					<div class="controls">
@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="form-group">
+				<div class="form-group required">
 					<label class="control-label">&nbsp;</label>
 
 					<div class="controls">
@@ -89,7 +89,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<div class="form-group">
+				<div class="form-group required">
 					<label class="control-label">Room Details</label>
 					<div class="controls">
 						<text-angular ng-model="roomDetails"></text-angular>
@@ -100,7 +100,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group pull-right">
-					<input type="submit" value="Add Room" class="btn btn-default btn-lg">
+					<input type="submit" ng-disabled="userForm.$invalid" value="Add Room" class="btn btn-default btn-lg">
 				</div>
 			</div>
 		</div>

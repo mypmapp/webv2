@@ -18,7 +18,7 @@
                     <div class="well">
                         <h2>Address Details</h2>
 
-                        <div class="form-group"
+                        <div class="form-group required"
                              ng-class="{ 'has-error': regForm.addressLine1.$dirty && regForm.addressLine1.$invalid }">
                             <label class="control-label" for="addressLine1">Address Line1</label>
 
@@ -27,7 +27,7 @@
                                        class="form-control input-lg" placeholder="Address Line1" required>
                             </div>
                         </div>
-                        <div class="form-group"
+                        <div class="form-group required"
                              ng-class="{ 'has-error': regForm.addressLine2.$dirty && regForm.addressLine2.$invalid }">
                             <label class="control-label" for="addressLine2">Address Line2</label>
 
@@ -36,7 +36,7 @@
                                        class="form-control input-lg" placeholder="Address Line2" required>
                             </div>
                         </div>
-                        <div class="form-group"
+                        <div class="form-group required"
                              ng-class="{ 'has-error': regForm.addressLine3.$dirty && regForm.addressLine3.$invalid }">
                             <label class="control-label" for="addressLine3">Address Line3</label>
 
@@ -45,7 +45,7 @@
                                        class="form-control input-lg" placeholder="Address Line3" required>
                             </div>
                         </div>
-                        <div class="form-group"
+                        <div class="form-group required"
                              ng-class="{ 'has-error': regForm.addressLine4.$dirty && regForm.addressLine4.$invalid }">
                             <label class="control-label" for="addressLine4">Address Line4</label>
 
@@ -54,7 +54,7 @@
                                        class="form-control input-lg" placeholder="Address Line4" required>
                             </div>
                         </div>
-                        <div class="form-group"
+                        <div class="form-group required"
                              ng-class="{ 'has-error': regForm.postcode.$dirty && regForm.postcode.$invalid }">
                             <label class="control-label" for="postcode">Zip/Postcode</label>
 
@@ -63,7 +63,7 @@
                                        class="form-control input-lg" placeholder="Zip/Postcode" required>
                             </div>
                         </div>
-                        <div class="form-group"
+                        <div class="form-group required"
                              ng-class="{ 'has-error': regForm.country.$dirty && regForm.country.$invalid }">
                             <label class="control-label" for="country">Zip/Country</label>
 
@@ -79,7 +79,7 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.priceAsking.$dirty && regForm.priceAsking.$invalid }">
                                 <label class="control-label" for="priceAsking">Asking Price</label>
 
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.priceType.$dirty && regForm.priceType.$invalid }">
                                 <label class="control-label" for="priceType">Price Type</label>
 
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.chainType.$dirty && regForm.chainType.$invalid }">
                                 <label class="control-label" for="priceType">Chain Situation</label>
 
@@ -146,7 +146,7 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.propertyType.$dirty && regForm.propertyType.$invalid }">
                                 <label class="control-label" for="propertyType">Property Type</label>
 
@@ -191,7 +191,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.tenureType.$dirty && regForm.tenureType.$invalid }">
                                 <label class="control-label" for="tenureType">Tenure</label>
 
@@ -208,7 +208,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.propertyAgeYrs.$dirty && regForm.propertyAgeYrs.$invalid }">
                                 <label class="control-label" for="country">Property Age In Years</label>
 
@@ -220,7 +220,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.numberOfBeds.$dirty && regForm.numberOfBeds.$invalid }">
                                 <label class="control-label" for="numberOfBeds">No. of Beds</label>
 
@@ -232,7 +232,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.numberOfReceptions.$dirty && regForm.numberOfReceptions.$invalid }">
                                 <label class="control-label" for="numberOfReceptions">No. of Receptions</label>
 
@@ -244,7 +244,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.numberOfBathrooms.$dirty && regForm.numberOfBathrooms.$invalid }">
                                 <label class="control-label" for="numberOfBathrooms">No. of Bathrooms</label>
 
@@ -262,7 +262,7 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.councilTaxBand.$dirty && regForm.councilTaxBand.$invalid }">
                                 <label class="control-label" for="councilTaxBand">Council Tax Band</label>
 
@@ -274,7 +274,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.councilTaxCost.$dirty && regForm.councilTaxCost.$invalid }">
                                 <label class="control-label" for="councilTaxCost">Council Tax Cost</label>
 
@@ -286,7 +286,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.councilTaxCostTerm.$dirty && regForm.councilTaxCostTerm.$invalid }">
                                 <label class="control-label">Council Tax Term</label>
 
@@ -307,7 +307,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.keyFeatures.$dirty && regForm.keyFeatures.$invalid }">
                                 <label class="control-label" for="keyFeatures">Key Features</label>
 
@@ -319,7 +319,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-group">
+                            <div class="form-group required">
                                 <label class="control-label">Details</label>
 
                                 <div class="controls">
@@ -330,7 +330,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.heatingType.$dirty && regForm.heatingType.$invalid }">
                                 <label class="control-label" for="heatingType">Heating Type</label>
 
@@ -348,7 +348,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.doubleGlazing.$dirty && regForm.doubleGlazing.$invalid }">
                                 <label class="control-label" for="heatingType">Double Glazing</label>
 
@@ -364,7 +364,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.solidWoodFlooring.$dirty && regForm.solidWoodFlooring.$invalid }">
                                 <label class="control-label" for="solidWoodFlooring">Solid Wood Flooring</label>
 
@@ -386,7 +386,7 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.parkingType.$dirty && regForm.parkingType.$invalid }">
                                 <label class="control-label" for="parkingType">Parking Type</label>
 
@@ -412,7 +412,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.haveLand.$dirty && regForm.haveLand.$invalid }">
                                 <label class="control-label" for="haveLand">Land</label>
 
@@ -427,7 +427,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"
+                            <div class="form-group required"
                                  ng-class="{ 'has-error': regForm.haveGarden.$dirty && regForm.haveGarden.$invalid }">
                                 <label class="control-label" for="haveGarden">Garden</label>
 
@@ -446,7 +446,6 @@
                 <div id="roomEntry" data-ng-include="'/modules/my-pmdirectives/views/room-form.client.view.html'"></div>
                 <div class="well">
                     <h2>Add Property Images</h2>
-
                     <div class="row">
                         <div class="col-md-3">
 
@@ -454,28 +453,31 @@
 
                             <div ng-show="uploader.isHTML5">
                                 <!-- 3. nv-file-over uploader="link" over-class="className" -->
-                                <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
-                                    Base drop zone
-                                </div>
+                                <!--<div class="well my-drop-zone" nv-file-over="" uploader="uploader">-->
+                                <!--Base drop zone-->
+                                <!--</div>-->
 
                                 <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
                                 <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
-                                    <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well my-drop-zone">
+                                    <div nv-file-over="" uploader="uploader" over-class="another-file-over-class"
+                                         class="well my-drop-zone">
                                         Another drop zone with its own settings
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
-                            Multiple
-                            <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+                            <input type="file" nv-file-select="" uploader="uploader" multiple/><br/>
 
-                            <!--Single-->
-                            <!--<input type="file" nv-file-select="" uploader="uploader" />-->
                         </div>
                         <div class="col-md-9" style="margin-bottom: 40px">
-                            <h3>Upload queue</h3>
+                            <h2>Upload only images</h2>
+                            <em>(*.jpg, *.png, *.jpeg, *.bmp, *.gif)</em>
+
+                            <h3>The queue</h3>
+
                             <p>Queue length: {{ uploader.queue.length }}</p>
+
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -488,23 +490,38 @@
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="item in uploader.queue">
-                                    <td><strong>{{ item.file.name }}</strong></td>
-                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                    <td>
+                                        <strong>{{ item.file.name }}</strong>
+                                        <!-- Image preview -->
+                                        <!--auto height-->
+                                        <!--<div ng-thumb="{ file: item.file, width: 100 }"></div>-->
+                                        <!--auto width-->
+                                        <div ng-show="uploader.isHTML5"
+                                             ng-thumb="{ file: item._file, height: 100 }"></div>
+                                        <!--fixed width and height -->
+                                        <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
+                                    </td>
+                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB
+                                    </td>
                                     <td ng-show="uploader.isHTML5">
                                         <div class="progress" style="margin-bottom: 0;">
-                                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                            <div class="progress-bar" role="progressbar"
+                                                 ng-style="{ 'width': item.progress + '%' }"></div>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                        <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                        <span ng-show="item.isCancel"><i
+                                                class="glyphicon glyphicon-ban-circle"></i></span>
                                         <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
                                     </td>
                                     <td nowrap>
-                                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()"
+                                                ng-disabled="item.isReady || item.isUploading || item.isSuccess">
                                             <span class="glyphicon glyphicon-upload"></span> Upload
                                         </button>
-                                        <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                        <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()"
+                                                ng-disabled="!item.isUploading">
                                             <span class="glyphicon glyphicon-ban-circle"></span> Cancel
                                         </button>
                                         <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
@@ -514,30 +531,34 @@
                                 </tr>
                                 </tbody>
                             </table>
+
                             <div>
                                 <div>
                                     Queue progress:
                                     <div class="progress" style="">
-                                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                                        <div class="progress-bar" role="progressbar"
+                                             ng-style="{ 'width': uploader.progress + '%' }"></div>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                                <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()"
+                                        ng-disabled="!uploader.getNotUploadedItems().length">
                                     <span class="glyphicon glyphicon-upload"></span> Upload all
                                 </button>
-                                <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                                <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()"
+                                        ng-disabled="!uploader.isUploading">
                                     <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
                                 </button>
-                                <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                                <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()"
+                                        ng-disabled="!uploader.queue.length">
                                     <span class="glyphicon glyphicon-trash"></span> Remove all
                                 </button>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
                 <div class="well">
                     <h2>Add Floorplans</h2>
-
                     <div class="row">
 
                     </div>
@@ -568,7 +589,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
+                            <div class="form-group required">
                                 <label class="control-label">Directions/Landmarks etc.</label>
 
                                 <div class="controls">
@@ -580,8 +601,8 @@
                 </div>
                 <div class="form-group pull-right">
                     <input type="submit" value="Save For Later" class="btn btn-default btn-lg">
-                    <input type="submit" value="Save & Publish" class="btn btn-default btn-lg">
-                    <input type="submit" value="Save & Preview" class="btn btn-default btn-lg">
+                    <input type="submit" ng-disabled="userForm.$invalid" value="Save & Publish" class="btn btn-default btn-lg">
+                    <input type="submit" ng-disabled="userForm.$invalid" value="Save & Preview" class="btn btn-default btn-lg">
                 </div>
             </fieldset>
         </form>

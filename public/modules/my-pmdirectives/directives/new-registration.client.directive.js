@@ -22,6 +22,8 @@ angular.module('my-pmdirectives').directive('newRegistration', ['Vendors','Purch
 
 				$scope.create = function()
 				{
+					$scope.$broadcast('show-errors-check-validity');
+					if ($scope.regForm.$invalid) { return; }
 					console.log('Create Called Do Something');
 					if($scope.templateOptions.customerType==='vendor')
 					{

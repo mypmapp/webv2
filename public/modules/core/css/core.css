@@ -44,4 +44,7 @@
 .move-down {
 	margin-top: 100px;
 }
-
+.form-group.required .control-label:after {
+	content:"*";
+	color:red;
+}
