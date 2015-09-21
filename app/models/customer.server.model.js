@@ -82,8 +82,7 @@ var CustomerSchema = new Schema({
 		type: String,
 		default: 'United Kingdom',
 		trim: true
-	}
-
+	},
 });
 
 module.exports = {

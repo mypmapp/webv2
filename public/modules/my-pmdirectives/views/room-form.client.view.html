@@ -1,0 +1,108 @@
+<ng-form name="roomForm">
+	<div class="well">
+
+		<h2>Add Room Details</h2>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group"
+					 ng-class="{ 'has-error': regForm.roomName.$dirty && regForm.roomName.$invalid }">
+					<label class="control-label" for="roomName">Room Name</label>
+
+					<div class="controls">
+						<input name="roomName" type="text" data-ng-model="roomName" id="roomName"
+							   class="form-control input-lg" placeholder="Room Name" required>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group"
+					 ng-class="{ 'has-error': regForm.roomType.$dirty && regForm.roomType.$invalid }">
+					<label class="control-label" for="roomType">Room Type</label>
+
+					<div class="controls">
+						<input name="roomType" type="text" data-ng-model="roomType" id="roomType"
+							   class="form-control input-lg" placeholder="Room Type" required>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group"
+					 ng-class="{ 'has-error': regForm.unitOfMeasure.$dirty && regForm.unitOfMeasure.$invalid }">
+					<label class="control-label" for="unitOfMeasure">Unit of Measurement</label>
+
+					<div class="controls">
+						<select name="unitOfMeasure" class="form-control input-lg" id="unitOfMeasure"
+								ng-model="unitOfMeasure">
+							<option value="meters-centimeters" selected="selected">Meters / Centimeters</option>
+							<option value="feet-inches">Feet / Inches</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="form-group">
+					<label class="control-label">Room Width (ft/in)</label>
+
+					<div class="controls">
+						<input name="roomWidthFt" type="text" data-ng-model="roomWidthFt" id="roomWidthFt"
+							   class="form-control input-lg" placeholder="Room Width Ft" required>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label class="control-label">&nbsp;</label>
+
+					<div class="controls">
+						<input name="roomWidthIn" type="text" data-ng-model="roomWidthIn" id="roomWidthIn"
+							   class="form-control input-lg" placeholder="Room Width In" required>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="form-group">
+					<label class="control-label">Room Length (ft/in)</label>
+
+					<div class="controls">
+						<input name="roomLengthFt" type="text" data-ng-model="roomLengthFt"
+							   id="roomLengthFt"
+							   class="form-control input-lg" placeholder="Room Length Ft" required>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label class="control-label">&nbsp;</label>
+
+					<div class="controls">
+						<input name="roomLengthIn" type="text" data-ng-model="roomLengthIn"
+							   id="roomLengthIn"
+							   class="form-control input-lg" placeholder="Room Length In" required>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="control-label">Room Details</label>
+					<div class="controls">
+						<text-angular ng-model="roomDetails"></text-angular>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group pull-right">
+					<input type="submit" value="Add Room" class="btn btn-default btn-lg">
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-form>
