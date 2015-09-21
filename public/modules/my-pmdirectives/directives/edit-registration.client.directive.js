@@ -92,6 +92,6 @@ angular.module('my-pmdirectives').directive('editRegistration', ['Vendors','Purc
 				};
 
 			}
-		}
+		};
 	}
 ]);

@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Created by sri on 17/09/15.
  */
@@ -46,7 +47,7 @@ var googlePlacesDirective = function() {
                 types: ['geocode']
             };
 
-            var autocomplete = new google.maps.places.Autocomplete($("#google_places_ac")[0], options);
+            var autocomplete = new google.maps.places.Autocomplete($('#google_places_ac')[0], options);
 
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                 var place = autocomplete.getPlace();

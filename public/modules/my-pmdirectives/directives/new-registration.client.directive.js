@@ -33,7 +33,7 @@ angular.module('my-pmdirectives').directive('newRegistration', ['Vendors','Purch
 						$scope.createPurchaser();
 					}
 
-				}
+				};
 
 				// Create new Vendor
 				$scope.createVendor = function() {

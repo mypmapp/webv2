@@ -17,7 +17,7 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
 				$('[href=#step'+(i+1)+']').tab('show');
 				return false;
 
-			}
+			};
 
 			// Redirect after save
 			property.$save(function(response) {
