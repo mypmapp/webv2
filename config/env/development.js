@@ -2,6 +2,7 @@
 
 module.exports = {
 	db: 'mongodb://localhost/mypm-dev',
+	//db: 'mongodb://0dev:fighter1@ds033123.mongolab.com:33123/mypmapp-dev',
 	app: {
 		title: 'MYPM - Development Environment'
 	},
