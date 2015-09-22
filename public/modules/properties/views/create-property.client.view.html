@@ -30,10 +30,8 @@
                                 <input type="checkbox" ng-change="ChkRegAddressChanged()" ng-model="chkRegAddress" ng-true-value="1" ng-false-value="0"> same as registered.
                             </h4>
                             <label>Lookup Address: Start by searching street name</label>
-                            <google-places address=address ng-model="address.FormattedAddress"
-                                           my-find-finish-callback="CallBackFinishSearch('new')"
-                                           class="form-control input-lg"
-                                           placeholder="Find Address" value="Find Address"/>
+                            <google-places address=address ng-model="address.FormattedAddress" my-find-finish-callback="CallBackFinishSearch('new')" class="form-control input-lg" placeholder="Find Address" value="Find Address">\
+                            </google-places>
                         </div>
                         <div class="well">
                             <h2>Address Details</h2>

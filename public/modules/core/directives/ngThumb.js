@@ -1,14 +1,19 @@
-/**
- * Created by sri on 21/09/15.
- */
 'use strict';
+
+
+
+
+
+    // Angular File Upload module does not include this directive
+    // Only for example
+
 
 /**
  * The ng-thumb directive
  * @author: nerv
  * @version: 0.1.2, 2014-01-09
  */
-angular.module('my-pmdirectives').directive('ngThumb', ['$window', function($window) {
+angular.module('core').directive('ngThumb', ['$window', function($window) {
         var helper = {
             support: !!($window.FileReader && $window.CanvasRenderingContext2D),
             isFile: function(item) {

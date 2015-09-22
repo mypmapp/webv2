@@ -43,7 +43,7 @@ var googlePlacesDirective = function() {
         link: function(scope, element, attrs, model) {
 
             var options = {
-                // componentRestrictions: { country: 'nz' },
+                componentRestrictions: { country: 'gb' },
                 types: ['geocode']
             };
 
@@ -80,4 +80,4 @@ var googlePlacesDirective = function() {
         }
     };
 };
-angular.module('my-pmdirectives').directive('googlePlaces',[googlePlacesDirective]);
+angular.module('core').directive('googlePlaces',[googlePlacesDirective]);
