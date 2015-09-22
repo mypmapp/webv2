@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('my-pmdirectives').directive('editRegistration', ['Vendors','Purchasers','$location',
+angular.module('core').directive('editRegistration', ['Vendors','Purchasers','$location',
 	function(Vendors,Purchasers,$location) {
 		return {
-			templateUrl: '../modules/my-pmdirectives/views/edit-registration.client.view.html',
+			templateUrl: '../modules/core/views/edit-registration.client.view.html',
 			restrict: 'E',
 			scope: {
 				customer: '=',

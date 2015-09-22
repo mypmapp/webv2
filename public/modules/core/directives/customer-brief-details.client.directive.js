@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('my-pmdirectives').directive('customerBriefDetails', [
+angular.module('core').directive('customerBriefDetails', [
 	function() {
 		return {
-			templateUrl: '../modules/my-pmdirectives/views/customer-brief-details.client.view.html',
+			templateUrl: '../modules/core/views/customer-brief-details.client.view.html',
 			restrict: 'E',
 			scope: {
 				customer: '=',
