@@ -1,73 +1,172 @@
 'use strict';
 
 // Properties controller
-angular.module('properties').controller('PropertiesController', ['$scope', '$stateParams', '$location','$http', 'Authentication', 'Properties',
-	function($scope, $stateParams, $location,$http, Authentication, Properties) {
-		$scope.authentication = Authentication;
+angular.module('properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', '$http', 'Authentication', 'Properties', 'FileUploader', 'Vendors',
+    function ($scope, $stateParams, $location, $http, Authentication, Properties, FileUploader, Vendors) {
+        $scope.authentication = Authentication;
 
-		// Create new Property
-		$scope.create = function() {
-			// Create new Property object
-			var property = new Properties ({
-				name: this.name
-			});
+        $scope.user = Authentication.user;
 
-			$scope.goNext = function(i){
+        // If user is not signed in then redirect back home
+        if (!$scope.user) $location.path('/');
 
-				$('[href=#step'+(i+1)+']').tab('show');
-				return false;
 
-			};
+        $scope.ChkRegAddressChanged = function()
+        {
+            var chkStatus = parseInt($scope.chkRegAddress);
 
-			// Redirect after save
-			property.$save(function(response) {
-				$location.path('properties/' + response._id);
+            if(chkStatus)
+                _updateAddressSameAsRegisterd();
+            if(!chkStatus)
+                _resetAddress();
+        };
 
-				// Clear form fields
-				$scope.name = '';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+        function _resetAddress() {
+            $scope.addressLine1 = '';
+            $scope.addressLine2 = '';
+            $scope.addressLine3 = '';
+            $scope.addressLine4 = '';
+            $scope.postcode = '';
+            $scope.country = '';
 
-		// Remove existing Property
-		$scope.remove = function(property) {
-			if ( property ) { 
-				property.$remove();
+        }
 
-				for (var i in $scope.properties) {
-					if ($scope.properties [i] === property) {
-						$scope.properties.splice(i, 1);
-					}
-				}
-			} else {
-				$scope.property.$remove(function() {
-					$location.path('properties');
-				});
-			}
-		};
+        function _updateAddressSameAsRegisterd() {
+            $scope.addressLine1 = $scope.vendor.addressLine1;
+            $scope.addressLine2 = $scope.vendor.addressLine2;
+            $scope.addressLine3 = $scope.vendor.addressLine3;
+            $scope.addressLine4 = $scope.vendor.addressLine4;
+            $scope.postcode = $scope.vendor.postcode;
+            $scope.country = $scope.vendor.country;
+        }
 
-		// Update existing Property
-		$scope.update = function() {
-			var property = $scope.property;
+        // Find existing Vendor
+        $scope.findVendor = function () {
+            $scope.vendor = Vendors.get({
+                vendorId: $stateParams.vendorId
+            });
+        };
 
-			property.$update(function() {
-				$location.path('properties/' + property._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+        //File Upload Stuff
+        var uploader = $scope.uploader = new FileUploader({
+            url: 'upload.php'
+        });
 
-		// Find a list of Properties
-		$scope.find = function() {
-			$scope.properties = Properties.query();
-		};
+        // FILTERS
 
-		// Find existing Property
-		$scope.findOne = function() {
-			$scope.property = Properties.get({ 
-				propertyId: $stateParams.propertyId
-			});
-		};
-	}
+        uploader.filters.push({
+            name: 'imageFilter',
+            fn: function (item /*{File|FileLikeObject}*/, options) {
+                var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+            }
+        });
+
+        // CALLBACKS
+
+        uploader.onWhenAddingFileFailed = function (item /*{File|FileLikeObject}*/, filter, options) {
+            console.info('onWhenAddingFileFailed', item, filter, options);
+        };
+        uploader.onAfterAddingFile = function (fileItem) {
+            console.info('onAfterAddingFile', fileItem);
+        };
+        uploader.onAfterAddingAll = function (addedFileItems) {
+            console.info('onAfterAddingAll', addedFileItems);
+        };
+        uploader.onBeforeUploadItem = function (item) {
+            console.info('onBeforeUploadItem', item);
+        };
+        uploader.onProgressItem = function (fileItem, progress) {
+            console.info('onProgressItem', fileItem, progress);
+        };
+        uploader.onProgressAll = function (progress) {
+            console.info('onProgressAll', progress);
+        };
+        uploader.onSuccessItem = function (fileItem, response, status, headers) {
+            console.info('onSuccessItem', fileItem, response, status, headers);
+        };
+        uploader.onErrorItem = function (fileItem, response, status, headers) {
+            console.info('onErrorItem', fileItem, response, status, headers);
+        };
+        uploader.onCancelItem = function (fileItem, response, status, headers) {
+            console.info('onCancelItem', fileItem, response, status, headers);
+        };
+        uploader.onCompleteItem = function (fileItem, response, status, headers) {
+            console.info('onCompleteItem', fileItem, response, status, headers);
+        };
+        uploader.onCompleteAll = function () {
+            console.info('onCompleteAll');
+        };
+
+        console.info('uploader', uploader);
+
+        //Finish Upload Stuff
+
+        $scope.CallBackFinishSearch = function (mode) {
+            if ($scope.address.FormattedAddress.Unit) $scope.addressLine1 = $scope.address.FormattedAddress.Unit;
+            if ($scope.address.FormattedAddress.Street) $scope.addressLine2 = $scope.address.FormattedAddress.Street;
+            if ($scope.address.FormattedAddress.Town) $scope.addressLine3 = $scope.address.FormattedAddress.Town;
+            if ($scope.address.FormattedAddress.County) $scope.addressLine4 = $scope.address.FormattedAddress.County;
+            if ($scope.address.FormattedAddress.PostCode) $scope.postcode = $scope.address.FormattedAddress.PostCode;
+            if ($scope.address.FormattedAddress.Country) $scope.country = $scope.address.FormattedAddress.Country;
+        };
+
+        // Create new Property
+        $scope.create = function () {
+            // Create new Property object
+            var property = new Properties({
+                name: this.name
+            });
+
+            // Redirect after save
+            property.$save(function (response) {
+                $location.path('properties/' + response._id);
+
+                // Clear form fields
+                $scope.name = '';
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
+        // Remove existing Property
+        $scope.remove = function (property) {
+            if (property) {
+                property.$remove();
+
+                for (var i in $scope.properties) {
+                    if ($scope.properties [i] === property) {
+                        $scope.properties.splice(i, 1);
+                    }
+                }
+            } else {
+                $scope.property.$remove(function () {
+                    $location.path('properties');
+                });
+            }
+        };
+
+        // Update existing Property
+        $scope.update = function () {
+            var property = $scope.property;
+
+            property.$update(function () {
+                $location.path('properties/' + property._id);
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
+        // Find a list of Properties
+        $scope.find = function () {
+            $scope.properties = Properties.query();
+        };
+
+        // Find existing Property
+        $scope.findOne = function () {
+            $scope.property = Properties.get({
+                propertyId: $stateParams.propertyId
+            });
+        };
+    }
 ]);

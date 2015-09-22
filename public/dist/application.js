@@ -4,7 +4,7 @@
 var ApplicationConfiguration = (function() {
 	// Init module configuration options
 	var applicationModuleName = 'mypm';
-	var applicationModuleVendorDependencies = ['ngResource', 'ngCookies',  'ngAnimate',  'ngTouch',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils','rcWizard', 'rcForm', 'rcDisabledBootstrap','ui.gravatar','textAngular'];
+	var applicationModuleVendorDependencies = ['ngResource', 'ngCookies',  'ngAnimate',  'ngTouch',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils','rcWizard', 'rcForm', 'rcDisabledBootstrap','ui.gravatar','textAngular','angularFileUpload'];
 
 	// Add a new vertical module
 	var registerModule = function(moduleName, dependencies) {
@@ -502,7 +502,7 @@ angular.module('core').controller('SidebarController', ['$scope', 'Authenticatio
                 {navUrl:'/#!/notes/vendors',navText:'Vendor Notes', navGroup:'comments',navIon:'glyphicon glyphicon-pencil'},
 
                 {navUrl:'+',navText:'Property', navGroup:'property',navIon:'divider'},
-                {navUrl:'#!/properties/create',navText:'Register Property', navGroup:'property',navIon:'glyphicon glyphicon-home'},
+                //{navUrl:'#!/properties/create',navText:'Register Property', navGroup:'property',navIon:'glyphicon glyphicon-home'},
                 {navUrl:'#!//properties/pdf',navText:'Create Property PDF', navGroup:'property',navIon:'glyphicon glyphicon-file'},
                 {navUrl:'#!//properties/view',navText:'Search Property', navGroup:'property',navIon:'glyphicon glyphicon-zoom-in'},
                 {navUrl:'#!/purchaser/register/search',navText:'Purchaser Request(s)', navGroup:'property',navIon:'glyphicon glyphicon-copy'},
@@ -734,6 +734,9 @@ angular.module('my-pmdirectives').directive('editRegistration', ['Vendors','Purc
 			controller: ["$scope", function ($scope) {
 				$scope.update = function()
 				{
+					$scope.$broadcast('show-errors-check-validity');
+					if ($scope.regEditForm.$invalid) { return; }
+
 					if($scope.templateOptions.customerType==='vendor')
 					{
 						$scope.updateVendor();
@@ -903,29 +906,6 @@ angular.module('my-pmdirectives').directive('googlePlaces',[googlePlacesDirectiv
 
 'use strict';
 
-angular.module('my-pmdirectives').directive('newProperty', [
-	function() {
-		return {
-			templateUrl: '../modules/my-pmdirectives/views/new-property.client.view.html',
-			restrict: 'E',
-			controller: ["$scope", function ($scope) {
-
-				$scope.CallBackFinishSearch = function(mode) {
-					if($scope.address.FormattedAddress.Unit) $scope.addressLine1 = $scope.address.FormattedAddress.Unit;
-					if($scope.address.FormattedAddress.Street) $scope.addressLine2 = $scope.address.FormattedAddress.Street;
-					if($scope.address.FormattedAddress.Town) $scope.addressLine3 = $scope.address.FormattedAddress.Town;
-					if($scope.address.FormattedAddress.County) $scope.addressLine4 = $scope.address.FormattedAddress.County;
-					if($scope.address.FormattedAddress.PostCode) $scope.postcode = $scope.address.FormattedAddress.PostCode;
-					if($scope.address.FormattedAddress.Country) $scope.country = $scope.address.FormattedAddress.Country;
-				};
-
-			}]
-		};
-	}
-]);
-
-'use strict';
-
 angular.module('my-pmdirectives').directive('newRegistration', ['Vendors','Purchasers','$location',
 	function(Vendors,Purchasers,$location) {
 		return {
@@ -948,6 +928,8 @@ angular.module('my-pmdirectives').directive('newRegistration', ['Vendors','Purch
 
 				$scope.create = function()
 				{
+					$scope.$broadcast('show-errors-check-validity');
+					if ($scope.regForm.$invalid) { return; }
 					console.log('Create Called Do Something');
 					if($scope.templateOptions.customerType==='vendor')
 					{
@@ -1026,6 +1008,61 @@ angular.module('my-pmdirectives').directive('newRegistration', ['Vendors','Purch
 	}
 ]);
 
+/**
+ * Created by sri on 21/09/15.
+ */
+'use strict';
+
+/**
+ * The ng-thumb directive
+ * @author: nerv
+ * @version: 0.1.2, 2014-01-09
+ */
+angular.module('my-pmdirectives').directive('ngThumb', ['$window', function($window) {
+        var helper = {
+            support: !!($window.FileReader && $window.CanvasRenderingContext2D),
+            isFile: function(item) {
+                return angular.isObject(item) && item instanceof $window.File;
+            },
+            isImage: function(file) {
+                var type =  '|' + file.type.slice(file.type.lastIndexOf('/') + 1) + '|';
+                return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+            }
+        };
+
+        return {
+            restrict: 'A',
+            template: '<canvas/>',
+            link: function(scope, element, attributes) {
+                if (!helper.support) return;
+
+                var params = scope.$eval(attributes.ngThumb);
+
+                if (!helper.isFile(params.file)) return;
+                if (!helper.isImage(params.file)) return;
+
+                var canvas = element.find('canvas');
+                var reader = new FileReader();
+
+                reader.onload = onLoadFile;
+                reader.readAsDataURL(params.file);
+
+                function onLoadFile(event) {
+                    var img = new Image();
+                    img.onload = onLoadImage;
+                    img.src = event.target.result;
+                }
+
+                function onLoadImage() {
+                    var width = params.width || this.width / this.height * params.height;
+                    var height = params.height || this.height / this.width * params.width;
+                    canvas.attr({ width: width, height: height });
+                    canvas[0].getContext('2d').drawImage(this, 0, 0, width, height);
+                }
+            }
+        };
+    }]);
+
 'use strict';
 
 // Configuring the Articles module
@@ -1049,7 +1086,7 @@ angular.module('properties').config(['$stateProvider',
 			templateUrl: 'modules/properties/views/list-properties.client.view.html'
 		}).
 		state('createProperty', {
-			url: '/properties/create',
+			url: '/properties/vendors/:vendorId/create',
 			templateUrl: 'modules/properties/views/create-property.client.view.html'
 		}).
 		state('viewProperty', {
@@ -1062,78 +1099,178 @@ angular.module('properties').config(['$stateProvider',
 		});
 	}
 ]);
+
 'use strict';
 
 // Properties controller
-angular.module('properties').controller('PropertiesController', ['$scope', '$stateParams', '$location','$http', 'Authentication', 'Properties',
-	function($scope, $stateParams, $location,$http, Authentication, Properties) {
-		$scope.authentication = Authentication;
+angular.module('properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', '$http', 'Authentication', 'Properties', 'FileUploader', 'Vendors',
+    function ($scope, $stateParams, $location, $http, Authentication, Properties, FileUploader, Vendors) {
+        $scope.authentication = Authentication;
 
-		// Create new Property
-		$scope.create = function() {
-			// Create new Property object
-			var property = new Properties ({
-				name: this.name
-			});
+        $scope.user = Authentication.user;
 
-			$scope.goNext = function(i){
+        // If user is not signed in then redirect back home
+        if (!$scope.user) $location.path('/');
 
-				$('[href=#step'+(i+1)+']').tab('show');
-				return false;
 
-			};
+        $scope.ChkRegAddressChanged = function()
+        {
+            var chkStatus = parseInt($scope.chkRegAddress);
 
-			// Redirect after save
-			property.$save(function(response) {
-				$location.path('properties/' + response._id);
+            if(chkStatus)
+                _updateAddressSameAsRegisterd();
+            if(!chkStatus)
+                _resetAddress();
+        };
 
-				// Clear form fields
-				$scope.name = '';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+        function _resetAddress() {
+            $scope.addressLine1 = '';
+            $scope.addressLine2 = '';
+            $scope.addressLine3 = '';
+            $scope.addressLine4 = '';
+            $scope.postcode = '';
+            $scope.country = '';
 
-		// Remove existing Property
-		$scope.remove = function(property) {
-			if ( property ) { 
-				property.$remove();
+        }
 
-				for (var i in $scope.properties) {
-					if ($scope.properties [i] === property) {
-						$scope.properties.splice(i, 1);
-					}
-				}
-			} else {
-				$scope.property.$remove(function() {
-					$location.path('properties');
-				});
-			}
-		};
+        function _updateAddressSameAsRegisterd() {
+            $scope.addressLine1 = $scope.vendor.addressLine1;
+            $scope.addressLine2 = $scope.vendor.addressLine2;
+            $scope.addressLine3 = $scope.vendor.addressLine3;
+            $scope.addressLine4 = $scope.vendor.addressLine4;
+            $scope.postcode = $scope.vendor.postcode;
+            $scope.country = $scope.vendor.country;
+        }
 
-		// Update existing Property
-		$scope.update = function() {
-			var property = $scope.property;
+        // Find existing Vendor
+        $scope.findVendor = function () {
+            $scope.vendor = Vendors.get({
+                vendorId: $stateParams.vendorId
+            });
+        };
 
-			property.$update(function() {
-				$location.path('properties/' + property._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+        //File Upload Stuff
+        var uploader = $scope.uploader = new FileUploader({
+            url: 'upload.php'
+        });
 
-		// Find a list of Properties
-		$scope.find = function() {
-			$scope.properties = Properties.query();
-		};
+        // FILTERS
 
-		// Find existing Property
-		$scope.findOne = function() {
-			$scope.property = Properties.get({ 
-				propertyId: $stateParams.propertyId
-			});
-		};
-	}
+        uploader.filters.push({
+            name: 'imageFilter',
+            fn: function (item /*{File|FileLikeObject}*/, options) {
+                var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+            }
+        });
+
+        // CALLBACKS
+
+        uploader.onWhenAddingFileFailed = function (item /*{File|FileLikeObject}*/, filter, options) {
+            console.info('onWhenAddingFileFailed', item, filter, options);
+        };
+        uploader.onAfterAddingFile = function (fileItem) {
+            console.info('onAfterAddingFile', fileItem);
+        };
+        uploader.onAfterAddingAll = function (addedFileItems) {
+            console.info('onAfterAddingAll', addedFileItems);
+        };
+        uploader.onBeforeUploadItem = function (item) {
+            console.info('onBeforeUploadItem', item);
+        };
+        uploader.onProgressItem = function (fileItem, progress) {
+            console.info('onProgressItem', fileItem, progress);
+        };
+        uploader.onProgressAll = function (progress) {
+            console.info('onProgressAll', progress);
+        };
+        uploader.onSuccessItem = function (fileItem, response, status, headers) {
+            console.info('onSuccessItem', fileItem, response, status, headers);
+        };
+        uploader.onErrorItem = function (fileItem, response, status, headers) {
+            console.info('onErrorItem', fileItem, response, status, headers);
+        };
+        uploader.onCancelItem = function (fileItem, response, status, headers) {
+            console.info('onCancelItem', fileItem, response, status, headers);
+        };
+        uploader.onCompleteItem = function (fileItem, response, status, headers) {
+            console.info('onCompleteItem', fileItem, response, status, headers);
+        };
+        uploader.onCompleteAll = function () {
+            console.info('onCompleteAll');
+        };
+
+        console.info('uploader', uploader);
+
+        //Finish Upload Stuff
+
+        $scope.CallBackFinishSearch = function (mode) {
+            if ($scope.address.FormattedAddress.Unit) $scope.addressLine1 = $scope.address.FormattedAddress.Unit;
+            if ($scope.address.FormattedAddress.Street) $scope.addressLine2 = $scope.address.FormattedAddress.Street;
+            if ($scope.address.FormattedAddress.Town) $scope.addressLine3 = $scope.address.FormattedAddress.Town;
+            if ($scope.address.FormattedAddress.County) $scope.addressLine4 = $scope.address.FormattedAddress.County;
+            if ($scope.address.FormattedAddress.PostCode) $scope.postcode = $scope.address.FormattedAddress.PostCode;
+            if ($scope.address.FormattedAddress.Country) $scope.country = $scope.address.FormattedAddress.Country;
+        };
+
+        // Create new Property
+        $scope.create = function () {
+            // Create new Property object
+            var property = new Properties({
+                name: this.name
+            });
+            
+            // Redirect after save
+            property.$save(function (response) {
+                $location.path('properties/' + response._id);
+
+                // Clear form fields
+                $scope.name = '';
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
+        // Remove existing Property
+        $scope.remove = function (property) {
+            if (property) {
+                property.$remove();
+
+                for (var i in $scope.properties) {
+                    if ($scope.properties [i] === property) {
+                        $scope.properties.splice(i, 1);
+                    }
+                }
+            } else {
+                $scope.property.$remove(function () {
+                    $location.path('properties');
+                });
+            }
+        };
+
+        // Update existing Property
+        $scope.update = function () {
+            var property = $scope.property;
+
+            property.$update(function () {
+                $location.path('properties/' + property._id);
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
+        // Find a list of Properties
+        $scope.find = function () {
+            $scope.properties = Properties.query();
+        };
+
+        // Find existing Property
+        $scope.findOne = function () {
+            $scope.property = Properties.get({
+                propertyId: $stateParams.propertyId
+            });
+        };
+    }
 ]);
 
 'use strict';

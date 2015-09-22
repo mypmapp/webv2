@@ -10,7 +10,7 @@ angular.module('properties').config(['$stateProvider',
 			templateUrl: 'modules/properties/views/list-properties.client.view.html'
 		}).
 		state('createProperty', {
-			url: '/properties/create',
+			url: '/properties/vendors/:vendorId/create',
 			templateUrl: 'modules/properties/views/create-property.client.view.html'
 		}).
 		state('viewProperty', {
