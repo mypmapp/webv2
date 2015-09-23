@@ -1,0 +1,67 @@
+<div class="bs-callout bs-callout-success">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>
+                <span data-ng-bind="property.vendor.title"></span>
+                <span data-ng-bind="property.vendor.firstName"></span>
+                <span data-ng-bind="property.vendor.lastName"></span>
+            </h2>
+            <p class="pull-right"><span class="label label-info">{{property.propertyStatus | propertyStatus}}</span></p>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4><strong>Property Address:</strong></h4>
+                    <h5 data-ng-bind="property.addressLine1"></h5>
+                    <h5 data-ng-bind="property.addressLine2"></h5>
+                    <h5 data-ng-bind="property.addressLine3"></h5>
+                    <h5 data-ng-bind="property.addressLine4"></h5>
+                    <h5 data-ng-bind="property.postcode"></h5>
+                    <h5 data-ng-bind="property.country"></h5>
+                </div>
+                <div class="col-lg-4">
+                    <h4><strong>Property Details:</strong></h4>
+                    <h5 ng-show="property.priceAsking"><b>Asking price</b></h5>
+                    <h5 data-ng-bind="property.priceAsking"></h5>
+                    <h5 ng-show="property.numberOfBeds"><b>No. of bedrooms</b></h5>
+                    <h5 data-ng-bind="property.numberOfBeds"></h5>
+                    <h5 ng-show="property.numberOfBathrooms"><b>No. of bedrooms</b></h5>
+                    <h5 data-ng-bind="property.numberOfBathrooms"></h5>
+                </div>
+                <div class="col-lg-4">
+                    <h4><strong>Other Details:</strong></h4>
+                    <h5 ng-show="property.chainType"><b>Chain Type</b></h5>
+                    <h5 data-ng-bind="property.chainType"></h5>
+                    <h5 ng-show="property.propertyType"><b>Property Type</b></h5>
+                    <h5 data-ng-bind="property.propertyType"></h5>
+                    <h5 ng-show="property.tenureType"><b>Tenure</b></h5>
+                    <h5 data-ng-bind="property.tenureType"></h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <small>
+                        <em class="text-muted">
+                            Created on
+                            <span data-ng-bind="property.created | date:'mediumDate'"></span>
+                            by
+                            <span data-ng-bind="property.user.displayName"></span>
+                        </em>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button ng-show="templateOptions.enableVendorDetails" type="button" ng-click="ToggleShowVendorDetails()" class="btn btn-success">
+                       <div ng-show="showVendorDetails">Show vendor details</div>
+                        <div ng-show="!showVendorDetails">Hide vendor details</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<customer-brief-details class="animate-if" ng-show="showVendorDetails" customer="property.vendor" to="{customerType:'vendors',}"></customer-brief-details>

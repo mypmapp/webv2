@@ -15,7 +15,7 @@ angular.module('core').controller('SidebarController', ['$scope', 'Authenticatio
                 {navUrl:'+',navText:'Property', navGroup:'property',navIon:'divider'},
                 //{navUrl:'#!/properties/create',navText:'Register Property', navGroup:'property',navIon:'glyphicon glyphicon-home'},
                 {navUrl:'#!//properties/pdf',navText:'Create Property PDF', navGroup:'property',navIon:'glyphicon glyphicon-file'},
-                {navUrl:'#!//properties/view',navText:'Search Property', navGroup:'property',navIon:'glyphicon glyphicon-zoom-in'},
+                {navUrl:'#!/properties',navText:'Search Property', navGroup:'property',navIon:'glyphicon glyphicon-zoom-in'},
                 {navUrl:'#!/purchaser/register/search',navText:'Purchaser Request(s)', navGroup:'property',navIon:'glyphicon glyphicon-copy'},
 
                 {navUrl:'+',navText:'Purchaser', navGroup:'purchaser',navIon:'divider'},

@@ -60,15 +60,17 @@ angular.module('vendorcontactnotes').controller('VendorcontactnotesController', 
 
 		// Find a list of Vendorcontactnotes
 		$scope.find = function() {
-			console.log('find');
 			$scope.vendorcontactnotes = Vendorcontactnotes.query();
+			console.log($scope.vendorcontactnotes);
 		};
 
 		// Find existing Vendorcontactnote
 		$scope.findOne = function() {
 			$scope.vendorcontactnote = Vendorcontactnotes.get({ 
 				vendorcontactnoteId: $stateParams.vendorcontactnoteId
+
 			});
+			console.log($scope.vendorcontactnote);
 		};
 
 		// Find existing Vendor

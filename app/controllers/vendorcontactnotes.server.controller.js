@@ -73,7 +73,7 @@ exports.delete = function(req, res) {
  * List of Vendorcontactnotes
  */
 exports.list = function(req, res) { 
-	Vendorcontactnote.find().sort('-created').populate('Vendor').populate('user', 'displayName').exec(function(err, vendorcontactnotes) {
+	Vendorcontactnote.find().sort('-created').populate('vendor').populate('user', 'displayName').exec(function(err, vendorcontactnotes) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -88,11 +88,12 @@ exports.list = function(req, res) {
  * Vendorcontactnote middleware
  */
 exports.vendorcontactnoteByID = function(req, res, next, id) { 
-	Vendorcontactnote.findById(id).populate('Vendor').populate('user', 'displayName').exec(function(err, vendorcontactnote) {
+	Vendorcontactnote.findById(id).populate('vendor').populate('user', 'displayName').exec(function(err, vendorcontactnote) {
 		if (err) return next(err);
 		if (! vendorcontactnote) return next(new Error('Failed to load Vendorcontactnote ' + id));
 		req.vendorcontactnote = vendorcontactnote ;
 		next();
+
 	});
 };
 

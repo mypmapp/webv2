@@ -125,11 +125,41 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
             if ($scope.address.FormattedAddress.Country) $scope.country = $scope.address.FormattedAddress.Country;
         };
 
+        $scope.SaveDraft = function () {
+            // Create new Property object
+            var property = new Properties({
+                propertyStatus:2,
+                //Address
+                addressLine1:$scope.addressLine1,
+                addressLine2:$scope.addressLine2,
+                addressLine3:$scope.addressLine3,
+                addressLine4:$scope.addressLine4,
+                postcode:$scope.postcode,
+                country:$scope.country,
+                vendor:$scope.vendor._id
+            });
+
+            // Redirect after save
+            property.$save(function (response) {
+                $location.path('properties/' + response._id);
+
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
         // Create new Property
         $scope.create = function () {
             // Create new Property object
             var property = new Properties({
-                name: this.name,
+                //Address
+                addressLine1:$scope.addressLine1,
+                addressLine2:$scope.addressLine2,
+                addressLine3:$scope.addressLine3,
+                addressLine4:$scope.addressLine4,
+                postcode:$scope.postcode,
+                country:$scope.country,
+                //
                 vendor:$scope.vendor._id,
             });
 
@@ -175,6 +205,7 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
         // Find a list of Properties
         $scope.find = function () {
             $scope.properties = Properties.query();
+            console.log($scope.properties);
         };
 
         // Find existing Property
@@ -182,6 +213,7 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
             $scope.property = Properties.get({
                 propertyId: $stateParams.propertyId
             });
+            console.log($scope.property);
         };
     }
 ]);

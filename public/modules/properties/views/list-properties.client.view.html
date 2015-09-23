@@ -2,17 +2,46 @@
     <div class="page-header">
         <h1>Properties</h1>
     </div>
-    <div class="list-group">
-        <a data-ng-repeat="property in properties" data-ng-href="#!/properties/{{property._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="property.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="property.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="property.name"></h4>
-        </a>
+    <div class="row" data-ng-show="!properties.$resolved || properties.length">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                        <input type="text" class="form-control" placeholder="Search any part of property"
+                               ng-model="searchText">
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+    <div data-ng-repeat="property in properties  | filter:searchText">
+        <property-brief-details property="property" to="{
+			enableEdit: true,
+			enableView: false,
+			enableViewNotes: false,
+			enableVendorDetails:true,
+		}">
+        </property-brief-details>
+    </div>
+    <!--<div class="list-group">-->
+        <!--<a data-ng-repeat="property in properties" data-ng-href="#!/properties/{{property._id}}" class="list-group-item">-->
+			<!--<small class="list-group-item-text">-->
+				<!--Posted on-->
+				<!--<span data-ng-bind="property.created | date:'medium'"></span>-->
+				<!--by-->
+				<!--<span data-ng-bind="property.user.displayName"></span>-->
+			<!--</small>-->
+            <!--<h4 class="list-group-item-heading">-->
+                <!--<span ng-bind="vendor.title"/> <span ng-bind="vendor.firstName"/> <span ng-bind="vendor.lastName"/>-->
+            <!--</h4>-->
+            <!--<p class="list-group-item-text">-->
+                <!--<b>Address:</b><br>-->
+                <!--<span ng-bind="addressLine1"/><span ng-bind="vendor.addressLine2"/><span ng-bind="vendor.addressLine3"/>-->
+                <!--<span ng-bind="vendor.addressLine4"/><span ng-bind="vendor.postcode"/><span ng-bind="vendor.country"/>-->
+            <!--</p>-->
+        <!--</a>-->
+    <!--</div>-->
     <div class="alert alert-warning text-center" data-ng-hide="!properties.$resolved || properties.length">
     	No Properties yet, why don't you <a href="/#!/properties/create">create one</a>?
     </div>
