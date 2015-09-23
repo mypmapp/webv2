@@ -11,6 +11,8 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
         if (!$scope.user) $location.path('/');
 
 
+        $scope.enableSaveDraft = false;
+
         $scope.ChkRegAddressChanged = function()
         {
             var chkStatus = parseInt($scope.chkRegAddress);
@@ -39,6 +41,18 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
             $scope.postcode = $scope.vendor.postcode;
             $scope.country = $scope.vendor.country;
         }
+
+        $scope.$watchCollection('[addressLine1,addressLine2,addressLine3,addressLine4,postcode,country]',function(newVal, oldVal)
+        {
+            //console.log("foo is greater than 4: ", $scope.addressLine1, oldVal, newVal);
+            $scope.enableSaveDraft = false;
+
+            if($scope.addressLine1 && $scope.addressLine2 && $scope.addressLine3 && $scope.addressLine4 && $scope.postcode && $scope.country)
+                $scope.enableSaveDraft=true;
+
+            //console.log($scope.enableSaveDraft);
+
+        },true);
 
         // Find existing Vendor
         $scope.findVendor = function () {
@@ -98,7 +112,7 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
             console.info('onCompleteAll');
         };
 
-        console.info('uploader', uploader);
+        //console.info('uploader', uploader);
 
         //Finish Upload Stuff
 
@@ -115,7 +129,8 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
         $scope.create = function () {
             // Create new Property object
             var property = new Properties({
-                name: this.name
+                name: this.name,
+                vendor:$scope.vendor._id,
             });
 
             // Redirect after save

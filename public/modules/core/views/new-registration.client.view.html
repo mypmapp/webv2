@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<h1 data-ng-show="templateOptions.customerType==='vendor'">Register Vendor</h1>
 		<h1 data-ng-show="templateOptions.customerType==='purchaser'">Register Purchaser</h1>
-		<form name="regForm" data-ng-submit="create()" novalidate>
+		<ng-form name="regForm" data-ng-submit="create()" novalidate>
 			<fieldset>
 				<div class="well">
 					<h2>Personal Details</h2>
@@ -13,7 +13,7 @@
 						<div class="controls">
 							<input name="title" type="text" data-ng-model="title" id="title"
 								   class="form-control input-lg" placeholder="Title" required>
-							<p ng-show="regForm.title.$invalid && !regForm.title.$pristine" class="help-block">You title is required.</p>
+							<p ng-show="regForm.title.$invalid && !regForm.title.$pristine" class="help-block">Your title is required.</p>
 						</div>
 					</div>
 					<div class="form-group required"
@@ -22,7 +22,7 @@
 						<div class="controls">
 							<input name="firstName" type="text" data-ng-model="firstName" id="firstName"
 								   class="form-control input-lg" placeholder="First Name" required>
-							<p ng-show="regForm.firstName.$invalid && !regForm.firstName.$pristine" class="help-block">You first name is required.</p>
+							<p ng-show="regForm.firstName.$invalid && !regForm.firstName.$pristine" class="help-block">Your first name is required.</p>
 						</div>
 					</div>
 					<div class="form-group required"
@@ -31,6 +31,7 @@
 						<div class="controls">
 							<input name="lastName" type="text" data-ng-model="lastName" id="lastName"
 								   class="form-control input-lg" placeholder="Last Name" required>
+							<p ng-show="regForm.lastName.$invalid && !regForm.lastName.$pristine" class="help-block">Your last name is required.</p>
 						</div>
 					</div>
 
@@ -43,6 +44,7 @@
 						<div class="controls">
 							<input name="phonePrimary" type="text" data-ng-model="phonePrimary" id="phonePrimary"
 								   class="form-control input-lg" placeholder="Phone Primary" required>
+							<p ng-show="regForm.phonePrimary.$invalid && !regForm.phonePrimary.$pristine" class="help-block">Your primary phone is required.</p>
 						</div>
 					</div>
 					<div class="form-group"
@@ -60,6 +62,7 @@
 						<div class="controls">
 							<input name="emailPrimary" type="text" data-ng-model="emailPrimary" id="emailPrimary"
 								   class="form-control input-lg" placeholder="Email Primary" required>
+							<p ng-show="regForm.emailPrimary.$invalid && !regForm.emailPrimary.$pristine" class="help-block">Your primary email is required.</p>
 						</div>
 					</div>
 					<div class="form-group"
@@ -89,6 +92,7 @@
 						<div class="controls">
 							<input name="addressLine1" type="text" data-ng-model="addressLine1" id="addressLine1"
 								   class="form-control input-lg" placeholder="Address Line1" required>
+							<p ng-show="regForm.addressLine1.$invalid && !regForm.addressLine1.$pristine" class="help-block">Your address line1 is required.</p>
 						</div>
 					</div>
 					<div class="form-group required"
@@ -97,6 +101,7 @@
 						<div class="controls">
 							<input name="addressLine2" type="text" data-ng-model="addressLine2" id="addressLine2"
 								   class="form-control input-lg" placeholder="Address Line2" required>
+							<p ng-show="regForm.addressLine2.$invalid && !regForm.addressLine2.$pristine" class="help-block">Your address line2 is required.</p>
 						</div>
 					</div>
 					<div class="form-group required"
@@ -105,6 +110,7 @@
 						<div class="controls">
 							<input name="addressLine3" type="text" data-ng-model="addressLine3" id="addressLine3"
 								   class="form-control input-lg" placeholder="Address Line3" required>
+							<p ng-show="regForm.addressLine3.$invalid && !regForm.addressLine3.$pristine" class="help-block">Your address line3 is required.</p>
 						</div>
 					</div>
 					<div class="form-group required"
@@ -113,6 +119,7 @@
 						<div class="controls">
 							<input name="addressLine4" type="text" data-ng-model="addressLine4" id="addressLine4"
 								   class="form-control input-lg" placeholder="Address Line4" required>
+							<p ng-show="regForm.addressLine4.$invalid && !regForm.addressLine4.$pristine" class="help-block">Your address line4 is required.</p>
 						</div>
 					</div>
 					<div class="form-group required"
@@ -121,6 +128,7 @@
 						<div class="controls">
 							<input name="postcode" type="text" data-ng-model="postcode" id="postcode"
 								   class="form-control input-lg" placeholder="Zip/Postcode" required>
+							<p ng-show="regForm.postcode.$invalid && !regForm.postcode.$pristine" class="help-block">Your postcode is required.</p>
 						</div>
 					</div>
 					<div class="form-group required"
@@ -129,16 +137,17 @@
 						<div class="controls">
 							<input name="country" type="text" data-ng-model="country" id="country"
 								   class="form-control input-lg" placeholder="Country" required>
+							<p ng-show="regForm.country.$invalid && !regForm.country.$pristine" class="help-block">Your country is required.</p>
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" ng-disabled="userForm.$invalid" class="btn btn-default btn-lg">
+					<input type="submit" ng-disabled="regForm.$invalid" class="btn btn-default btn-lg">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
 			</fieldset>
-		</form>
+		</ng-form>
 	</div>
 </div>
