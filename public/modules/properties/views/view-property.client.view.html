@@ -1,30 +1,9 @@
 <section data-ng-controller="PropertiesController" data-ng-init="findOne()">
-	<div class="page-header">
-		<h1 data-ng-bind="property.name"></h1>
-	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == property.user._id))">
-		<a class="btn btn-primary" href="/#!/properties/{{property._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
-	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="property.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="property.user.displayName"></span>
-		</em>
-	</small>
-	<h4 class="list-group-item-heading">
-		<span ng-bind="property.vendor.title"/> <span ng-bind="property.vendor.firstName"/> <span ng-bind="property.vendor.lastName"/>
-	</h4>
-	<p class="list-group-item-text">
-		<b>Address:</b><br>
-		<span ng-bind="property.addressLine1"/>, <span ng-bind="property.addressLine2"/>, <span ng-bind="property.addressLine3"/>
-		<span ng-bind="property.addressLine4"/>, <span ng-bind="property.postcode"/>, <span ng-bind="property.country"/>
-	</p>
-
+	<property-brief-details property="property" to="{
+			enableEdit: true,
+			enableView: false,
+			enableViewNotes: false,
+			enableVendorDetails:true,
+		}">
+	</property-brief-details>
 </section>

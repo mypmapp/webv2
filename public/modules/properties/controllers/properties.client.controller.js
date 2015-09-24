@@ -11,7 +11,7 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
         if (!$scope.user) $location.path('/');
 
 
-        $scope.enableSaveDraft = false;
+        $scope.enableSave = false;
 
         $scope.ChkRegAddressChanged = function()
         {
@@ -44,13 +44,12 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
 
         $scope.$watchCollection('[addressLine1,addressLine2,addressLine3,addressLine4,postcode,country]',function(newVal, oldVal)
         {
-            //console.log("foo is greater than 4: ", $scope.addressLine1, oldVal, newVal);
-            $scope.enableSaveDraft = false;
+            $scope.enableSave = false;
 
             if($scope.addressLine1 && $scope.addressLine2 && $scope.addressLine3 && $scope.addressLine4 && $scope.postcode && $scope.country)
-                $scope.enableSaveDraft=true;
+                $scope.enableSave=true;
 
-            //console.log($scope.enableSaveDraft);
+            //console.log("address values: ", $scope.addressLine1, oldVal, newVal,$scope.enableSave);
 
         },true);
 
@@ -125,31 +124,10 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
             if ($scope.address.FormattedAddress.Country) $scope.country = $scope.address.FormattedAddress.Country;
         };
 
-        $scope.SaveDraft = function () {
-            // Create new Property object
-            var property = new Properties({
-                propertyStatus:2,
-                //Address
-                addressLine1:$scope.addressLine1,
-                addressLine2:$scope.addressLine2,
-                addressLine3:$scope.addressLine3,
-                addressLine4:$scope.addressLine4,
-                postcode:$scope.postcode,
-                country:$scope.country,
-                vendor:$scope.vendor._id
-            });
-
-            // Redirect after save
-            property.$save(function (response) {
-                $location.path('properties/' + response._id);
-
-            }, function (errorResponse) {
-                $scope.error = errorResponse.data.message;
-            });
-        };
-
         // Create new Property
         $scope.create = function () {
+
+            console.log($scope.priceAsking);
             // Create new Property object
             var property = new Properties({
                 //Address
@@ -159,7 +137,35 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
                 addressLine4:$scope.addressLine4,
                 postcode:$scope.postcode,
                 country:$scope.country,
-                //
+
+                priceAsking:$scope.priceAsking,
+                priceType:$scope.priceType,
+                chainType:$scope.chainType,
+
+                propertyType:$scope.propertyType,
+                tenureType:$scope.tenureType,
+                propertyAgeYrs:$scope.propertyAgeYrs,
+
+                numberOfBeds:$scope.numberOfBeds,
+                numberOfBathrooms:$scope.numberOfBathrooms,
+                numberOfReceptions:$scope.numberOfReceptions,
+
+                councilTaxBand:$scope.councilTaxBand,
+                councilTaxCost:$scope.councilTaxCost,
+                councilTaxCostTerm:$scope.councilTaxCostTerm,
+
+                keyFeatures:$scope.keyFeatures,
+                propertyDesc:$scope.propertyDesc,
+                heatingType:$scope.heatingType,
+
+                doubleGlazing:$scope.doubleGlazing,
+                solidWoodFlooring:$scope.solidWoodFlooring,
+                parkingType:$scope.parkingType,
+
+                haveLand:$scope.haveLand,
+                haveGarden:$scope.haveGarden,
+                propertyDirections:$scope.propertyDirections,
+
                 vendor:$scope.vendor._id,
             });
 
@@ -175,20 +181,33 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
         };
 
         // Remove existing Property
-        $scope.remove = function (property) {
-            if (property) {
-                property.$remove();
+        $scope.remove = function () {
 
-                for (var i in $scope.properties) {
-                    if ($scope.properties [i] === property) {
-                        $scope.properties.splice(i, 1);
-                    }
-                }
-            } else {
-                $scope.property.$remove(function () {
-                    $location.path('properties');
-                });
-            }
+            var property = $scope.property;
+
+            property.propertyState=3;
+
+            property.$update(function () {
+                $location.path('properties/' + property._id);
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+
+            //Old Code
+            //if (property) {
+            //    property.$remove();
+            //
+            //    for (var i in $scope.properties) {
+            //        if ($scope.properties [i] === property) {
+            //            $scope.properties.splice(i, 1);
+            //        }
+            //    }
+            //} else {
+            //    $scope.property.$remove(function () {
+            //        $location.path('properties');
+            //    });
+            //}
+
         };
 
         // Update existing Property
@@ -213,7 +232,8 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
             $scope.property = Properties.get({
                 propertyId: $stateParams.propertyId
             });
-            console.log($scope.property);
+            $scope.enableSave = true;
+            //console.log($scope.property);
         };
     }
 ]);

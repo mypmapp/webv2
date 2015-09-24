@@ -14,10 +14,10 @@ var PropertySchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	propertyStatus:
+	propertyState:
 	{
 		type: Number,
-		default: '7'
+        default: 2
 	},
 	addressLine1: {
 		type: String,
@@ -53,9 +53,7 @@ var PropertySchema = new Schema({
 		trim: true
 	},
 	priceAsking: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	priceType: {
 		type: String,

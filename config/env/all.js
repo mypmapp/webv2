@@ -43,6 +43,9 @@ module.exports = {
 				'public/lib/textAngular/dist/textAngular-sanitize.min.js',
 				'public/lib/textAngular/dist/textAngular.min.js',
 				'public/lib/angular-file-upload/dist/angular-file-upload.min.js',
+				'public/lib/angular-input-masks/angular-input-masks-standalone.min.js',
+				'public/lib/angular-i18n/angular-locale_en-gb.js',
+
 				//'public/lib/helpers/googleApis.js',
 				//'public/lib/helpers/googlePlacesDirective.js',
 				//'public/lib/helpers/ngThumb.js',
