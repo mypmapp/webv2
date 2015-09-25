@@ -96,6 +96,22 @@ exports.propertyByID = function(req, res, next, id) {
 	});
 };
 
+exports.propertyByVendorID = function(req, res) {
+	Property.find({"vendor._id":req.params.vendorId}).sort('-created').populate('vendor').populate('user', 'displayName').exec(function(err, properties) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(properties);
+		}
+	});
+};
+
+/**
+ * List of properties for a vendor
+ */
+
 /**
  * Property authorization middleware
  */

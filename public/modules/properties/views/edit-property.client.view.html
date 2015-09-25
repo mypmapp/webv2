@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Edit Property</h1>
+            <h1>Register New Property</h1>
 
             <accordion close-others="oneAtATime">
                 <accordion-group is-open="status.open">
@@ -113,7 +113,7 @@
                                     <label class="control-label" for="priceAsking">Asking Price</label>
 
                                     <div class="controls">
-                                        <input name="priceAsking" type="text" data-ng-model="property.priceAsking" currency-input
+                                        <input name="priceAsking" type="string" data-ng-model="property.priceAsking" ui-money-mask
                                                id="priceAsking"
                                                class="form-control input-lg" placeholder="Asking Price" required>
                                         <p ng-show="regPropertyForm.priceAsking.$invalid && !regPropertyForm.priceAsking.$pristine" class="help-block">Your asking price is required.</p>
@@ -248,8 +248,8 @@
                                     <label class="control-label" for="propertyAgeYrs">Property Age In Years</label>
 
                                     <div class="controls">
-                                        <input name="propertyAgeYrs" type="number" data-ng-model="property.propertyAgeYrs"
-                                               id="propertyAgeYrs"
+                                        <input name="propertyAgeYrs" type="text" data-ng-model="property.propertyAgeYrs"
+                                               id="propertyAgeYrs" ui-number-mask
                                                class="form-control input-lg" placeholder="Property Age In Years"
                                                required>
                                         <p ng-show="regPropertyForm.propertyAgeYrs.$invalid && !regPropertyForm.propertyAgeYrs.$pristine" class="help-block">Your property age is required.</p>
@@ -262,8 +262,8 @@
                                     <label class="control-label" for="numberOfBeds">No. of Beds</label>
 
                                     <div class="controls">
-                                        <input name="numberOfBeds" type="number" data-ng-model="property.numberOfBeds"
-                                               id="numberOfBeds"
+                                        <input name="numberOfBeds" type="text" data-ng-model="property.numberOfBeds"
+                                               id="numberOfBeds" ui-number-mask
                                                class="form-control input-lg" placeholder="No. of Beds" required>
                                         <p ng-show="regPropertyForm.numberOfBeds.$invalid && !regPropertyForm.numberOfBeds.$pristine" class="help-block">Your number of beds is required.</p>
                                     </div>
@@ -275,8 +275,8 @@
                                     <label class="control-label" for="numberOfReceptions">No. of Receptions</label>
 
                                     <div class="controls">
-                                        <input name="numberOfReceptions" type="number" data-ng-model="property.numberOfReceptions"
-                                               id="numberOfReceptions"
+                                        <input name="numberOfReceptions" type="text" data-ng-model="property.numberOfReceptions"
+                                               id="numberOfReceptions"  ui-number-mask
                                                class="form-control input-lg" placeholder="No. of Reception" required>
                                         <p ng-show="regPropertyForm.numberOfReceptions.$invalid && !regPropertyForm.numberOfReceptions.$pristine" class="help-block">Your number of receptions is required.</p>
                                     </div>
@@ -288,8 +288,8 @@
                                     <label class="control-label" for="numberOfBathrooms">No. of Bathrooms</label>
 
                                     <div class="controls">
-                                        <input name="numberOfBathrooms" type="number" data-ng-model="property.numberOfBathrooms"
-                                               id="numberOfBathrooms"
+                                        <input name="numberOfBathrooms" type="text" data-ng-model="property.numberOfBathrooms"
+                                               id="numberOfBathrooms"  ui-number-mask
                                                class="form-control input-lg" placeholder="No. of Bathrooms" required>
                                         <p ng-show="regPropertyForm.numberOfBathrooms.$invalid && !regPropertyForm.numberOfBathrooms.$pristine" class="help-block">Your number of bathrooms is required.</p>
                                     </div>
@@ -321,7 +321,7 @@
 
                                     <div class="controls">
                                         <input name="councilTaxCost" type="text" data-ng-model="property.councilTaxCost"
-                                               id="councilTaxCost" currency-input
+                                               id="councilTaxCost" ui-money-mask
                                                class="form-control input-lg" placeholder="Council Tax Cost" required>
                                         <p ng-show="regPropertyForm.councilTaxCost.$invalid && !regPropertyForm.councilTaxCost.$pristine" class="help-block">Your council tax cost is required.</p>
                                     </div>
@@ -626,7 +626,7 @@
                     <div class="well" ng-show="false">
                         <h2>Add EPC</h2>
 
-                        <div class="row">
+                        <div class="row" ng-show="false">
 
                         </div>
                     </div>
@@ -660,7 +660,8 @@
                         </div>
                     </div>
                     <div class="form-group pull-right">
-                        <input type="submit" ng-disabled="!enableSave" value="Save" class="btn btn-default btn-lg">
+                        <input type="submit" value="Save" class="btn btn-default btn-lg">
+                        {{enableSave}}
                     </div>
                     <div data-ng-show="error" class="text-danger">
                         <strong data-ng-bind="error"></strong>
@@ -669,7 +670,6 @@
             </form>
         </div>
     </div>
-
     <!--<div class="page-header">-->
         <!--<h1>Edit Property</h1>-->
     <!--</div>-->

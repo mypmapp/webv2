@@ -5,6 +5,10 @@ angular.module('vendors').config(['$stateProvider',
 	function($stateProvider) {
 		// Vendors state routing
 		$stateProvider.
+		state('vendor-profile', {
+			url: '/vendor-profile',
+			templateUrl: 'modules/vendors/views/vendor-profile.client.view.html'
+		}).
 			state('listVendors', {
 				url: '/vendors',
 				templateUrl: 'modules/vendors/views/list-vendors.client.view.html'

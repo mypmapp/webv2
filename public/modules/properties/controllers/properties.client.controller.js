@@ -224,7 +224,7 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
         // Find a list of Properties
         $scope.find = function () {
             $scope.properties = Properties.query();
-            console.log($scope.properties);
+            //console.log($scope.properties);
         };
 
         // Find existing Property

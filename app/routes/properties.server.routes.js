@@ -14,6 +14,9 @@ module.exports = function(app) {
 		.put(users.requiresLogin, properties.hasAuthorization, properties.update)
 		.delete(users.requiresLogin, properties.hasAuthorization, properties.delete);
 
+	app.route('/properties/vendors/:vendorId')
+		.get(properties.propertyByVendorID);
+
 	// Finish by binding the Property middleware
 	app.param('propertyId', properties.propertyByID);
 };
