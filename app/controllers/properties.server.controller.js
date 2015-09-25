@@ -96,8 +96,14 @@ exports.propertyByID = function(req, res, next, id) {
 	});
 };
 
+
+
+/**
+ * List of properties for a vendor
+ */
+
 exports.propertyByVendorID = function(req, res) {
-	Property.find({"vendor._id":req.params.vendorId}).sort('-created').populate('vendor').populate('user', 'displayName').exec(function(err, properties) {
+	Property.find({'vendor._id':req.params.vendorId}).sort('-created').populate('vendor').populate('user', 'displayName').exec(function(err, properties) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -107,10 +113,6 @@ exports.propertyByVendorID = function(req, res) {
 		}
 	});
 };
-
-/**
- * List of properties for a vendor
- */
 
 /**
  * Property authorization middleware

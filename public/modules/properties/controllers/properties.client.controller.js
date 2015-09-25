@@ -11,6 +11,32 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
         if (!$scope.user) $location.path('/');
 
 
+        $scope.roomsData = [];
+
+        $scope.addNewRoom = function()
+        {
+            console.log($scope.roomsData);
+            $scope.roomsData.push(
+                {
+                    roomName:'',
+                    roomType:'',
+                    unitOfMeasure:'',
+                    roomWidthFt:0,
+                    roomWidthIn:0,
+                    roomLengthFt:0,
+                    roomLengthIn:0,
+                    roomDetails:''
+                }
+            );
+
+        };
+        $scope.saveNewRoom = function(item)
+        {
+            $scope.lastRoomSaved = angular.copy(item);
+        };
+
+
+
         $scope.enableSave = false;
 
         $scope.ChkRegAddressChanged = function()

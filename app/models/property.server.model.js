@@ -172,24 +172,16 @@ var PropertySchema = new Schema({
 			trim: true
 		},
 		roomWidthFt: {
-			type: String,
-			default: '',
-			trim: true
+			type: Number
 		},
 		roomWidthIn: {
-			type: String,
-			default: '',
-			trim: true
+			type: Number
 		},
 		roomLengthFt: {
-			type: String,
-			default: '',
-			trim: true
+			type: Number
 		},
 		roomLengthIn: {
-			type: String,
-			default: '',
-			trim: true
+			type: Number
 		},
 		roomDetails: {
 			type: String,

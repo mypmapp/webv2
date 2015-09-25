@@ -24,7 +24,7 @@ angular.module('properties').filter('propertyStatus', [
 					cssText='Unknown State';
 
 			}
-			if(returnType=="css") return cssClass;
+			if(returnType==='css') return cssClass;
 
 			return cssText;
 		};
