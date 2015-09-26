@@ -249,7 +249,7 @@
 
                                     <div class="controls">
                                         <input name="propertyAgeYrs" type="text" data-ng-model="property.propertyAgeYrs"
-                                               id="propertyAgeYrs" ui-number-mask
+                                               id="propertyAgeYrs" ui-number-mask="0"
                                                class="form-control input-lg" placeholder="Property Age In Years"
                                                required>
                                         <p ng-show="regPropertyForm.propertyAgeYrs.$invalid && !regPropertyForm.propertyAgeYrs.$pristine" class="help-block">Your property age is required.</p>
@@ -263,7 +263,7 @@
 
                                     <div class="controls">
                                         <input name="numberOfBeds" type="text" data-ng-model="property.numberOfBeds"
-                                               id="numberOfBeds" ui-number-mask
+                                               id="numberOfBeds" ui-number-mask="0"
                                                class="form-control input-lg" placeholder="No. of Beds" required>
                                         <p ng-show="regPropertyForm.numberOfBeds.$invalid && !regPropertyForm.numberOfBeds.$pristine" class="help-block">Your number of beds is required.</p>
                                     </div>
@@ -276,7 +276,7 @@
 
                                     <div class="controls">
                                         <input name="numberOfReceptions" type="text" data-ng-model="property.numberOfReceptions"
-                                               id="numberOfReceptions"  ui-number-mask
+                                               id="numberOfReceptions"  ui-number-mask="0"
                                                class="form-control input-lg" placeholder="No. of Reception" required>
                                         <p ng-show="regPropertyForm.numberOfReceptions.$invalid && !regPropertyForm.numberOfReceptions.$pristine" class="help-block">Your number of receptions is required.</p>
                                     </div>
@@ -289,7 +289,7 @@
 
                                     <div class="controls">
                                         <input name="numberOfBathrooms" type="text" data-ng-model="property.numberOfBathrooms"
-                                               id="numberOfBathrooms"  ui-number-mask
+                                               id="numberOfBathrooms"  ui-number-mask="0"
                                                class="form-control input-lg" placeholder="No. of Bathrooms" required>
                                         <p ng-show="regPropertyForm.numberOfBathrooms.$invalid && !regPropertyForm.numberOfBathrooms.$pristine" class="help-block">Your number of bathrooms is required.</p>
                                     </div>
@@ -496,8 +496,6 @@
                             </div>
                         </div>
                     </div>
-                    <div id="roomEntry"
-                         data-ng-include="'/modules/properties/views/room-form.client.view.html'"></div>
                     <div class="well" ng-show="false">
                         <h2>Add Property Images</h2>
 
@@ -670,25 +668,4 @@
             </form>
         </div>
     </div>
-    <!--<div class="page-header">-->
-        <!--<h1>Edit Property</h1>-->
-    <!--</div>-->
-    <!--<div class="col-md-12">-->
-        <!--<form class="form-horizontal" data-ng-submit="update()" novalidate>-->
-            <!--<fieldset>-->
-                <!--<div class="form-group">-->
-                    <!--<label class="control-label" for="name">Name</label>-->
-                    <!--<div class="controls">-->
-                        <!--<input type="text" data-ng-model="property.name" id="name" class="form-control" placeholder="Name" required>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="form-group">-->
-                    <!--<input type="submit" value="Update" class="btn btn-default">-->
-                <!--</div>-->
-				<!--<div data-ng-show="error" class="text-danger">-->
-					<!--<strong data-ng-bind="error"></strong>-->
-				<!--</div>-->
-            <!--</fieldset>-->
-        <!--</form>-->
-    <!--</div>-->
 </section>
