@@ -12,10 +12,12 @@ angular.module('properties').directive('propertyBriefDetails', [
 				},
 
 				controller: function ($scope) {
+					//console.log($scope.property);
 					$scope.showVendorDetails=false;
 					$scope.ToggleShowVendorDetails = function()
 					{
 						$scope.showVendorDetails = !$scope.showVendorDetails;
+
 					};
 				}
 			};

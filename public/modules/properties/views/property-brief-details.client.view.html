@@ -7,66 +7,99 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <h4><strong>Property Address:</strong></h4>
-                    <h5 data-ng-bind="property.addressLine1"></h5>
-                    <h5 data-ng-bind="property.addressLine2"></h5>
-                    <h5 data-ng-bind="property.addressLine3"></h5>
-                    <h5 data-ng-bind="property.addressLine4"></h5>
-                    <h5 data-ng-bind="property.postcode"></h5>
-                    <h5 data-ng-bind="property.country"></h5>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4><strong>Property Address:</strong></h4>
+                            <h5 data-ng-bind="property.addressLine1"></h5>
+                            <h5 data-ng-bind="property.addressLine2"></h5>
+                            <h5 data-ng-bind="property.addressLine3"></h5>
+                            <h5 data-ng-bind="property.addressLine4"></h5>
+                            <h5 data-ng-bind="property.postcode"></h5>
+                            <h5 data-ng-bind="property.country"></h5>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4><strong>Property Details:</strong></h4>
+                            <h5 ng-show="property.priceAsking"><b>Asking price</b></h5>
+                            <h5 data-ng-bind="property.priceAsking| currency:'£':0"></h5>
+                            <h5 ng-show="property.numberOfBeds"><b>No. of bedrooms</b></h5>
+                            <h5 data-ng-bind="property.numberOfBeds"></h5>
+                            <h5 ng-show="property.numberOfBathrooms"><b>No. of bathrooms</b></h5>
+                            <h5 data-ng-bind="property.numberOfBathrooms"></h5>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4><strong>Other Details:</strong></h4>
+                            <h5 ng-show="property.chainType"><b>Chain Type</b></h5>
+                            <h5 data-ng-bind="property.chainType"></h5>
+                            <h5 ng-show="property.propertyType"><b>Property Type</b></h5>
+                            <h5 data-ng-bind="property.propertyType"></h5>
+                            <h5 ng-show="property.tenureType"><b>Tenure</b></h5>
+                            <h5 data-ng-bind="property.tenureType"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12"><br>
+                            <h4><strong>Vendor Name:</strong></h4>
+                            <h5>
+                                <span data-ng-bind="property.vendor.title"></span>
+                                <span data-ng-bind="property.vendor.firstName"></span>
+                                <span data-ng-bind="property.vendor.lastName"></span>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <small>
+                                <em class="text-muted">
+                                    Created on
+                                    <span data-ng-bind="property.created | date:'mediumDate'"></span>
+                                    by
+                                    <span data-ng-bind="property.user.displayName"></span>
+                                </em>
+                            </small>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4">
-                    <h4><strong>Property Details:</strong></h4>
-                    <h5 ng-show="property.priceAsking"><b>Asking price</b></h5>
-                    <h5 data-ng-bind="property.priceAsking| currency:'£':0"></h5>
-                    <h5 ng-show="property.numberOfBeds"><b>No. of bedrooms</b></h5>
-                    <h5 data-ng-bind="property.numberOfBeds"></h5>
-                    <h5 ng-show="property.numberOfBathrooms"><b>No. of bathrooms</b></h5>
-                    <h5 data-ng-bind="property.numberOfBathrooms"></h5>
-                </div>
-                <div class="col-lg-4">
-                    <h4><strong>Other Details:</strong></h4>
-                    <h5 ng-show="property.chainType"><b>Chain Type</b></h5>
-                    <h5 data-ng-bind="property.chainType"></h5>
-                    <h5 ng-show="property.propertyType"><b>Property Type</b></h5>
-                    <h5 data-ng-bind="property.propertyType"></h5>
-                    <h5 ng-show="property.tenureType"><b>Tenure</b></h5>
-                    <h5 data-ng-bind="property.tenureType"></h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12"><br>
-                    <h4><strong>Vendor Name:</strong></h4>
-                    <h5>
-                        <span data-ng-bind="property.vendor.title"></span>
-                        <span data-ng-bind="property.vendor.firstName"></span>
-                        <span data-ng-bind="property.vendor.lastName"></span>
-                    </h5>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <small>
-                        <em class="text-muted">
-                            Created on
-                            <span data-ng-bind="property.created | date:'mediumDate'"></span>
-                            by
-                            <span data-ng-bind="property.user.displayName"></span>
-                        </em>
-                    </small>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12"><br>
-                    <a ng-show="templateOptions.enableVendorDetails" ng-click="ToggleShowVendorDetails()" class="btn btn-success" role="button">
-                        <div ng-show="showVendorDetails">Hide vendor details</div>
-                        <div ng-show="!showVendorDetails">Show vendor details</div>
-                    </a>
-                    <a ng-show="property.propertyState!=3" class="btn btn-success" role="button" href="#!/properties/{{property._id}}/edit">
-                        Update property details
-                    </a>
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="col-lg-12">
+                                    <a ng-show="property.propertyState!=3 && templateOptions.showUpdatePropery" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/edit">
+                                        <span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Update property details
+                                    </a>
+                                    <!--Property Images-->
+                                    <a ng-show="property.propertyImages.length<=0 && templateOptions.showUpdatePics" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/Images/New">
+                                        <span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Upload Property Pics
+                                    </a>
+                                    <a ng-show="property.propertyImages.length>0 && templateOptions.showUpdatePics" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/Images/Update">
+                                        <span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Update Property Pics
+                                    </a>
+                                    <!--Vendor Property Id-->
+                                    <a ng-show="property.vendorIdentification.length<=0 && templateOptions.showUpdateVendorIds" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/VendorId/New">
+                                        <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;Upload Vendor Id (s)
+                                    </a>
+                                    <a ng-show="property.vendorIdentification.length>0 && templateOptions.showUpdateVendorIds" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/Images/Update">
+                                        <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;Update Vendor Id(s)
+                                    </a>
+                                    <!--Property Floor Plans-->
+                                    <a ng-show="property.floorPlans.length<=0 && templateOptions.showUpdateFloorPlans" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/FloorPlans/New">
+                                        <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;Upload Floor plan(s)
+                                    </a>
+                                    <a ng-show="property.floorPlans.length>0 && templateOptions.showUpdateFloorPlans" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/FloorPlans/Update">
+                                        <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;Update Floor plan(s)
+                                    </a>
+                                    <!--Property EPC Docs-->
+                                    <a ng-show="property.epcDocument.length<=0 && templateOptions.showUpdateEPC" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/EPC/New">
+                                        <span class="glyphicon glyphicon-signal"></span>&nbsp;&nbsp;Upload EPC Doc
+                                    </a>
+                                    <a ng-show="property.epcDocument.length>0 && templateOptions.showUpdateEPC" class="btn btn-success btn-block" role="butdton" href="#!/properties/{{property._id}}/Upload/EPC/Update">
+                                        <span class="glyphicon glyphicon-signal"></span>&nbsp;&nbsp;Update EPC Doc
+                                    </a>
+                                    <a ng-show="templateOptions.enableVendorDetails" ng-click="ToggleShowVendorDetails()" class="btn btn-success btn-block" role="button">
+                                        <div ng-show="showVendorDetails"><span class="glyphicon glyphicon-eye-close"></span>&nbsp;&nbsp;Hide vendor details</div>
+                                        <div ng-show="!showVendorDetails"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Show vendor details</div>
+                                    </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

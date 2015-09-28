@@ -14,11 +14,7 @@
         <div data-ng-repeat="cnote in vendorcontactnotes | filter: { vendor: vendor._id }">
             <div class="row">
                 <div class="col-md-12">
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-pencil"></span>
                     <i>Posted By</i>
                     <span data-ng-bind="cnote.user.displayName"></span>
                     <span class="pull-right" data-ng-bind="cnote.created | date:'mediumDate'"></span>

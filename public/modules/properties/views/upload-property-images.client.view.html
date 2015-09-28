@@ -1,0 +1,20 @@
+<section data-ng-controller="UploadPropertyImagesControllerController" data-ng-init="findOne()">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Property Images</h1>
+			<accordion close-others="oneAtATime">
+				<accordion-group is-open="status.open">
+					<accordion-heading>
+						Property: <b><span ng-bind="property.addressLine1"/> <span ng-bind="property.addressLine2"/>
+						<span ng-bind="property.addressLine2"/><span ng-bind="property.addressLine4"/>
+						<span ng-bind="property.postcode"/><span ng-bind="property.country"/></b>
+						<i class="pull-right glyphicon"
+						   ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+					</accordion-heading>
+					<property-brief-details property="property"></property-brief-details>
+				</accordion-group>
+			</accordion>
+		</div>
+	</div>
+
+</section>

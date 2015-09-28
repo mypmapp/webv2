@@ -5,6 +5,10 @@ angular.module('properties').config(['$stateProvider',
 	function($stateProvider) {
 		// Properties state routing
 		$stateProvider.
+		state('upload-property-images', {
+			url: '/properties/:propertyId/Upload/Images/New',
+			templateUrl: 'modules/properties/views/upload-property-images.client.view.html'
+		}).
 		state('listProperties', {
 			url: '/properties',
 			templateUrl: 'modules/properties/views/list-properties.client.view.html'

@@ -155,6 +155,82 @@ var PropertySchema = new Schema({
 		default: '',
 		trim: true
 	},
+	propertyImages:[
+		{
+			imageName:{
+				type: String,
+				default: '',
+				trim: true
+			},
+			imagePath:{
+				type: String,
+				default: '',
+				trim: true
+			},
+			imageDesc:{
+				type: String,
+				default: '',
+				trim: true
+			}
+		}
+	],
+	vendorIdentification:[
+		{
+			documentName:{
+				type: String,
+				default: '',
+				trim: true
+			},
+			documentPath:{
+				type: String,
+				default: '',
+				trim: true
+			},
+			documentDesc:{
+				type: String,
+				default: '',
+				trim: true
+			}
+		}
+	],
+	floorPlans:[
+		{
+			imageName:{
+				type: String,
+				default: '',
+				trim: true
+			},
+			imagePath:{
+				type: String,
+				default: '',
+				trim: true
+			},
+			imageDesc:{
+				type: String,
+				default: '',
+				trim: true
+			}
+		}
+	],
+	epcDocument:[
+		{
+			documentName:{
+				type: String,
+				default: '',
+				trim: true
+			},
+			documentPath:{
+				type: String,
+				default: '',
+				trim: true
+			},
+			documentDesc: {
+				type: String,
+				default: '',
+				trim: true
+			}
+		}
+	],
 	roomDetails:[{
 		roomName: {
 			type: String,

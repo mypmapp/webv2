@@ -17,9 +17,11 @@
     </div>
     <div data-ng-repeat="property in properties  | filter:searchText">
         <property-brief-details property="property" to="{
-			enableEdit: true,
-			enableView: false,
-			enableViewNotes: false,
+			showUpdatePropery: true,
+			showUpdatePics: true,
+			showUpdateVendorIds: true,
+			showUpdateFloorPlans: true,
+			showUpdateEPC: true,
 			enableVendorDetails:true,
 		}">
         </property-brief-details>
