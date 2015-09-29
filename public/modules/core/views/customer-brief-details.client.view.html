@@ -1,86 +1,89 @@
 <div class="bs-callout bs-callout-info">
     <div class="row">
         <div class="col-lg-12">
-            <h2 ng-show="templateOptions.showSectionTitle">Vendor Details</h2>
-            <h3>
-                <span data-ng-bind="customer.title"></span>
-                <span data-ng-bind="customer.firstName"></span>
-                <span data-ng-bind="customer.lastName"></span>
-            </h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
             <div class="row">
-                <div class="col-lg-4">
-                    <h4><strong>Address:</strong></h4>
-                    <h5 data-ng-bind="customer.addressLine1"></h5>
-                    <h5 data-ng-bind="customer.addressLine2"></h5>
-                    <h5 data-ng-bind="customer.addressLine3"></h5>
-                    <h5 data-ng-bind="customer.addressLine4"></h5>
-                    <h5 data-ng-bind="customer.postcode"></h5>
-                    <h5 data-ng-bind="customer.country"></h5>
-                </div>
-                <div class="col-lg-4">
-                    <h4><strong>Contact Phone:</strong></h4>
-                    <h5 data-ng-bind="customer.phonePrimary"></h5>
-                    <h5 data-ng-bind="customer.phoneSecondary"></h5>
-                </div>
-                <div class="col-lg-4">
-                    <h4><strong>Contact Email:</strong></h4>
-                    <h5 data-ng-bind="customer.emailPrimary"></h5>
-                    <h5 data-ng-bind="customer.emailSecondary"></h5>
+                <div class="col-lg-12">
+                    <h3>
+                    <span data-ng-bind="customer.title"></span>
+                    <span data-ng-bind="customer.firstName"></span>
+                    <span data-ng-bind="customer.lastName"></span>
+                    </h3>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
-                    <small>
-                        <em class="text-muted">
-                            Created on
-                            <span data-ng-bind="customer.created | date:'mediumDate'"></span>
-                            by
-                            <span data-ng-bind="customer.user.displayName"></span>
-                        </em>
-                    </small>
+                <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4><strong>Address:</strong></h4>
+                                <h5 data-ng-bind="customer.addressLine1"></h5>
+                                <h5 data-ng-bind="customer.addressLine2"></h5>
+                                <h5 data-ng-bind="customer.addressLine3"></h5>
+                                <h5 data-ng-bind="customer.addressLine4"></h5>
+                                <h5 data-ng-bind="customer.postcode"></h5>
+                                <h5 data-ng-bind="customer.country"></h5>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4><strong>Contact Phone:</strong></h4>
+                                <h5 data-ng-bind="customer.phonePrimary"></h5>
+                                <h5 data-ng-bind="customer.phoneSecondary"></h5>
+                                <h4><strong>Contact Email:</strong></h4>
+                                <h5 data-ng-bind="customer.emailPrimary"></h5>
+                                <h5 data-ng-bind="customer.emailSecondary"></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <small>
+                                    <em class="text-muted">
+                                        Created on
+                                        <span data-ng-bind="customer.created | date:'mediumDate'"></span>
+                                        by
+                                        <span data-ng-bind="customer.user.displayName"></span>
+                                    </em>
+                                </small>
+                            </div>
+                        </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                            <a ng-show="templateOptions.enableEdit" class="btn btn-info" role="button"
-                               href="#!/{{templateOptions.customerType}}/{{customer._id}}/edit">Edit Customer</a>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-12 pull-left">
+                            <a ng-show="templateOptions.enableEdit" class="btn btn-info btn-block" role="button"
+                               href="#!/{{templateOptions.customerType}}/{{customer._id}}/edit"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Edit Customer</a>
 
-                            <a ng-show="templateOptions.enableViewNotes" class="btn btn-info" role="button"
-                               href="#!/notes/{{templateOptions.customerType}}/{{customer._id}}/view">View Notes</a>
+                            <a ng-show="templateOptions.enableViewNotes" class="btn btn-info btn-block" role="button"
+                               href="#!/notes/{{templateOptions.customerType}}/{{customer._id}}/view"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;View Notes</a>
 
-                            <a ng-show="templateOptions.enableCreateNotes" class="btn btn-info"
+                            <a ng-show="templateOptions.enableCreateNotes" class="btn btn-info btn-block"
                                role="button"
-                               href="#!/notes/{{templateOptions.customerType}}/{{customer._id}}/create">Create
+                               href="#!/notes/{{templateOptions.customerType}}/{{customer._id}}/create"><span class="glyphicon glyphicon-file"></span>&nbsp;&nbsp;Create
                                 Notes</a>
 
-                            <a ng-show="templateOptions.enableProfileView" class="btn btn-info"
+                            <a ng-show="templateOptions.enableProfileView" class="btn btn-info btn-block"
                                role="button"
-                               href="#!/{{templateOptions.customerType}}/{{customer._id}}">View
+                               href="#!/{{templateOptions.customerType}}/{{customer._id}}"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;View
                                 Complete Profile</a>
 
-                            <a ng-show="templateOptions.enablePropertyCreate" class="btn btn-info"
-                               href="#!/properties/{{templateOptions.customerType}}/{{customer._id}}/create">Register New
+                            <a ng-show="templateOptions.enablePropertyCreate" class="btn btn-info btn-block"
+                               href="#!/properties/{{templateOptions.customerType}}/{{customer._id}}/create"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Register
+                                New
                                 Property</a>
 
                             <a ng-show="templateOptions.enableCreatePropertySearchProfile"
-                                    class="btn btn-info"
-                                    role="button"
-                                    href="#!/purchaser/searchprofile/{{templateOptions.customerType}}/{{customer._id}}/create">Create
+                               class="btn btn-info btn-block"
+                               role="button"
+                               href="#!/purchaser/searchprofile/{{templateOptions.customerType}}/{{customer._id}}/create"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Create
                                 Search Profile</a>
 
                             <a ng-show="templateOptions.enableViewPropertySearchProfile"
-                                    class="btn btn-info"
-                                    role="button"
-                                    href="#!/purchaser/searchprofile/{{templateOptions.customerType}}/{{customer._id}}/view">View
+                               class="btn btn-info btn-block"
+                               role="button"
+                               href="#!/purchaser/searchprofile/{{templateOptions.customerType}}/{{customer._id}}/view"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;View
                                 Search Profile</a>
 
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

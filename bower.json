@@ -17,6 +17,7 @@
     "bootstrap": "~3",
     "font-awesome": "fontawesome#~4.4.0",
     "jquery": "~2.1.4",
-    "twitter-bootstrap-wizard": "~1.0.0"
+    "twitter-bootstrap-wizard": "~1.0.0",
+    "ng-file-upload": "~8.0.1"
   }
 }

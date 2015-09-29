@@ -1,7 +1,7 @@
 <section data-ng-controller="UploadPropertyImagesControllerController" data-ng-init="findOne()">
 	<div class="row">
 		<div class="col-md-12">
-			<h1>Property Images</h1>
+			<h1>Property Details</h1>
 			<accordion close-others="oneAtATime">
 				<accordion-group is-open="status.open">
 					<accordion-heading>
@@ -11,9 +11,14 @@
 						<i class="pull-right glyphicon"
 						   ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
 					</accordion-heading>
-					<property-brief-details property="property"></property-brief-details>
+					<property-brief-details property="property" to="{enableVendorDetails:true}"></property-brief-details>
 				</accordion-group>
 			</accordion>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Property Images</h3>
 		</div>
 	</div>
 

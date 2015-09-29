@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-8">
                     <div class="row">
                         <div class="col-lg-4">
                             <h4><strong>Property Address:</strong></h4>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <div class="row">
                         <div class="col-lg-12">
                                     <a ng-show="property.propertyState!=3 && templateOptions.showUpdatePropery" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/edit">
@@ -68,31 +68,34 @@
                                     </a>
                                     <!--Property Images-->
                                     <a ng-show="property.propertyImages.length<=0 && templateOptions.showUpdatePics" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/Images/New">
-                                        <span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Upload Property Pics
+                                        <span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Upload Property Images
                                     </a>
                                     <a ng-show="property.propertyImages.length>0 && templateOptions.showUpdatePics" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/Images/Update">
-                                        <span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Update Property Pics
+                                        <span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;Update Property Images
                                     </a>
                                     <!--Vendor Property Id-->
                                     <a ng-show="property.vendorIdentification.length<=0 && templateOptions.showUpdateVendorIds" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/VendorId/New">
-                                        <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;Upload Vendor Id (s)
+                                        <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;Upload Vendor Identification(S)
                                     </a>
                                     <a ng-show="property.vendorIdentification.length>0 && templateOptions.showUpdateVendorIds" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/Images/Update">
-                                        <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;Update Vendor Id(s)
+                                        <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;Update Vendor Identification(S)
                                     </a>
                                     <!--Property Floor Plans-->
                                     <a ng-show="property.floorPlans.length<=0 && templateOptions.showUpdateFloorPlans" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/FloorPlans/New">
-                                        <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;Upload Floor plan(s)
+                                        <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;Upload Property Floor plan(s)
                                     </a>
                                     <a ng-show="property.floorPlans.length>0 && templateOptions.showUpdateFloorPlans" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/FloorPlans/Update">
-                                        <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;Update Floor plan(s)
+                                        <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;Update Propery Floor plan(s)
                                     </a>
                                     <!--Property EPC Docs-->
                                     <a ng-show="property.epcDocument.length<=0 && templateOptions.showUpdateEPC" class="btn btn-success btn-block" role="button" href="#!/properties/{{property._id}}/Upload/EPC/New">
-                                        <span class="glyphicon glyphicon-signal"></span>&nbsp;&nbsp;Upload EPC Doc
+                                        <span class="glyphicon glyphicon-signal"></span>&nbsp;&nbsp;Upload Property EPC Doc
                                     </a>
                                     <a ng-show="property.epcDocument.length>0 && templateOptions.showUpdateEPC" class="btn btn-success btn-block" role="butdton" href="#!/properties/{{property._id}}/Upload/EPC/Update">
-                                        <span class="glyphicon glyphicon-signal"></span>&nbsp;&nbsp;Update EPC Doc
+                                        <span class="glyphicon glyphicon-signal"></span>&nbsp;&nbsp;Update Property EPC Doc
+                                    </a>
+                                    <a ng-show="templateOptions.showPropertyPDF" class="btn btn-success btn-block" role="butdton" href="#!/properties/{{property._id}}/PDF">
+                                        <span class="glyphicon glyphicon-file"></span>&nbsp;&nbsp;Download/View Property PDF
                                     </a>
                                     <a ng-show="templateOptions.enableVendorDetails" ng-click="ToggleShowVendorDetails()" class="btn btn-success btn-block" role="button">
                                         <div ng-show="showVendorDetails"><span class="glyphicon glyphicon-eye-close"></span>&nbsp;&nbsp;Hide vendor details</div>
