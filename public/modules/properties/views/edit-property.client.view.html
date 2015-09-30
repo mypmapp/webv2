@@ -128,7 +128,6 @@
                                     <div class="controls">
                                         <select name="priceType" class="form-control input-lg" id="priceType"
                                                 ng-model="property.priceType" ng-options="priceType.value as priceType.name for priceType in priceTypes track by priceType.value">
-                                            <option value="">-- Choose --</option>
                                         </select>
                                         {{property.priceType}}
                                         <p ng-show="regPropertyForm.priceType.$error.required" class="help-block">Your price type is required.</p>
@@ -143,7 +142,6 @@
                                     <div class="controls">
                                         <select name="chainType" class="form-control input-lg" id="chainType"
                                                 ng-model="property.chainType" ng-options="itemType.value as itemType.name for itemType in chainTypes">
-                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.chainType.$error.required" class="help-block">Your chain type is required.</p>
                                     </div>
@@ -163,7 +161,6 @@
                                     <div class="controls">
                                         <select name="propertyType" class="form-control input-lg" id="propertyType"
                                                 ng-model="property.propertyType" ng-options="itemType.value as itemType.name for itemType in propertyTypes">
-                                                <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.propertyType.$error.required" class="help-block">Your property type is required.</p>
                                     </div>
@@ -177,8 +174,6 @@
                                     <div class="controls">
                                         <select name="tenureType" class="form-control input-lg" id="tenureType"
                                                 ng-model="property.tenureType"  ng-options="itemType.value as itemType.name for itemType in tenureTypes">
-                                            <option value="">-- Choose --</option>
-
                                         </select>
                                         <p ng-show="regPropertyForm.tenureType.$error.required" class="help-block">Your tenure type is required.</p>
                                     </div>
@@ -277,7 +272,6 @@
                                     <div class="controls">
                                         <select name="councilTaxCostTerm" class="form-control input-lg"
                                                 id="councilTaxCostTerm" ng-model="property.councilTaxCostTerm" ng-model="councilTaxCostTerm" ng-options="itemType.value as itemType.name for itemType in councilTaxTypes">
-                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.councilTaxCostTerm.$error.required" class="help-block">Your council tax term is required.</p>
                                     </div>
@@ -320,7 +314,6 @@
                                     <div class="controls">
                                         <select name="heatingType" class="form-control input-lg" id="heatingType"
                                                 ng-model="property.heatingType" ng-options="itemType.value as itemType.name for itemType in heatingTypes">
-                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.heatingType.$error.required" class="help-block">Your heating type is required.</p>
                                     </div>
@@ -334,7 +327,6 @@
                                     <div class="controls">
                                         <select name="doubleGlazing" class="form-control input-lg" id="doubleGlazing"
                                                 ng-model="property.doubleGlazing" ng-options="itemType.value as itemType.name for itemType in doubleGlazingTypes">
-                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.doubleGlazing.$error.required" class="help-block">Your double glazing is required.</p>
                                     </div>
@@ -348,7 +340,6 @@
                                     <div class="controls">
                                         <select name="solidWoodFlooring" class="form-control input-lg"
                                                 id="solidWoodFlooring" ng-model="property.solidWoodFlooring"  ng-options="itemType.value as itemType.name for itemType in solidWoodFlooringTypes">
-                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.solidWoodFlooring.$error.required" class="help-block">Your flooring type is required.</p>
                                     </div>
@@ -368,7 +359,6 @@
                                     <div class="controls">
                                         <select name="parkingType" class="form-control input-lg" id="parkingType"
                                                 ng-model="property.parkingType" ng-options="itemType.value as itemType.name for itemType in parkingTypes">
-                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.parkingType.$error.required" class="help-block">Your parking type is required.</p>
                                     </div>
@@ -382,9 +372,6 @@
                                     <div class="controls">
                                         <select name="haveLand" class="form-control input-lg" id="haveLand"
                                                 ng-model="property.haveLand">
-                                            <option value="">-- Choose --</option>
-                                            <option value="none">Yes</option>
-                                            <option value="part">No</option>
                                         </select>
                                         <p ng-show="regPropertyForm.haveLand.$error.required" class="help-block">Your land is required.</p>
                                     </div>
@@ -398,7 +385,6 @@
                                     <div class="controls">
                                         <select name="haveGarden" class="form-control input-lg" id="haveGarden"
                                                 ng-model="property.haveGarden"  ng-options="itemType.value as itemType.name for itemType in haveLandTypes">
-                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.haveGarden.$error.required" class="help-block">Your garden is required.</p>
                                     </div>
@@ -406,15 +392,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="well" ng-show="false">
-                        <h2>Google Location</h2>
+                    <!--<div class="well" ng-show="false">-->
+                        <h2>Google Location</h2>-->
 
                         <div class="row">
 
                         </div>
                     </div>
-                    <div class="well">
-                        <h2>Add Directions</h2>
+                    <!--<div class="well">-->
+                        <h2>Add Directions</h2>-->
 
                         <div class="row">
                             <div class="col-md-12">

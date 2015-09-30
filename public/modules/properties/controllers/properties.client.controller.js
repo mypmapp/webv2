@@ -61,7 +61,7 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
                 $scope.haveGardenTypes = haveGardenTypes;
             });
 
-        }
+        };
 
 
         $scope.addNewRoom = function()

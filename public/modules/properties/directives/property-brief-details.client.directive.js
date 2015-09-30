@@ -19,21 +19,21 @@ angular.module('properties').directive('propertyBriefDetails', ['lookupTypes',
 						{
 							lookupTypes.findChainType($scope.property.chainType, function(retVal) {
 								$scope.property.chainType = retVal.name;
-							})
+							});
 						}
 
 						if(!angular.isUndefined($scope.property.propertyType))
 						{
 							lookupTypes.findPropertyType($scope.property.propertyType, function(retVal) {
 								$scope.property.propertyType = retVal.name;
-							})
+							});
 						}
 
 						if(!angular.isUndefined($scope.property.tenureType))
 						{
 							lookupTypes.findTenureType($scope.property.tenureType, function(retVal) {
 								$scope.property.tenureType = retVal.name;
-							})
+							});
 						}
 					}
 
