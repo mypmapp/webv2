@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('properties').directive('propertyBriefDetails', [
-	function() {
+angular.module('properties').directive('propertyBriefDetails', ['lookupTypes',
+	function(lookupTypes) {
 		{
 			return {
 				templateUrl: '../modules/properties/views/property-brief-details.client.view.html',
@@ -12,7 +12,31 @@ angular.module('properties').directive('propertyBriefDetails', [
 				},
 
 				controller: function ($scope) {
-					//console.log($scope.property);
+
+					if($scope.property)
+					{
+						if(!angular.isUndefined($scope.property.chainType))
+						{
+							lookupTypes.findChainType($scope.property.chainType, function(retVal) {
+								$scope.property.chainType = retVal.name;
+							})
+						}
+
+						if(!angular.isUndefined($scope.property.propertyType))
+						{
+							lookupTypes.findPropertyType($scope.property.propertyType, function(retVal) {
+								$scope.property.propertyType = retVal.name;
+							})
+						}
+
+						if(!angular.isUndefined($scope.property.tenureType))
+						{
+							lookupTypes.findTenureType($scope.property.tenureType, function(retVal) {
+								$scope.property.tenureType = retVal.name;
+							})
+						}
+					}
+
 					$scope.showVendorDetails=false;
 					$scope.ToggleShowVendorDetails = function()
 					{

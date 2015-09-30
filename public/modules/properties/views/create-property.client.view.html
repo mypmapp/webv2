@@ -1,4 +1,4 @@
-<section data-ng-controller="PropertiesController" data-ng-init="findVendor()">
+<section data-ng-controller="PropertiesController" data-ng-init="findVendor();initOnCreate();">
     <div class="row">
         <div class="col-md-12">
             <h1>Register New Property</h1>
@@ -144,7 +144,7 @@
                                     <div class="controls">
 
                                         <select name="priceType" class="form-control input-lg" id="priceType"
-                                                ng-model="priceType" ng-options="priceType.value as priceType.name for priceType in priceTypes">
+                                                ng-model="priceType" ng-options="itemType.value as itemType.name for itemType in priceTypes">
                                             <option value="">-- Choose --</option>
                                         </select>
 
@@ -156,7 +156,7 @@
                             <div class="col-md-4">
                                 <div class="form-group required"
                                      ng-class="{ 'has-error': regPropertyForm.chainType.$dirty && regPropertyForm.chainType.$invalid }">
-                                    <label class="control-label" for="priceType">Chain Situation</label>
+                                    <label class="control-label" for="chainType">Chain Situation</label>
 
                                     <div class="controls">
                                         <select name="chainType" class="form-control input-lg" id="chainType"
@@ -314,8 +314,6 @@
                                         <select name="councilTaxCostTerm" class="form-control input-lg"
                                                 id="councilTaxCostTerm" ng-model="councilTaxCostTerm" ng-options="itemType.value as itemType.name for itemType in councilTaxTypes">
                                             <option value="">-- Choose --</option>
-                                            <!--<option value="Per Annum">Per Annum</option>-->
-                                            <!--<option value="Per Month">Per Month</option>-->
                                         </select>
 
                                         <p ng-show="regPropertyForm.councilTaxCostTerm.$error.required"

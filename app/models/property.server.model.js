@@ -56,44 +56,28 @@ var PropertySchema = new Schema({
 		type: Number
 	},
 	priceType: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	chainType: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	propertyType: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	tenureType: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	propertyAgeYrs: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	numberOfBeds: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	numberOfReceptions: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	numberOfBathrooms: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	councilTaxBand: {
 		type: String,
@@ -106,9 +90,7 @@ var PropertySchema = new Schema({
 		trim: true
 	},
 	councilTaxCostTerm: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	keyFeatures: {
 		type: String,
@@ -121,34 +103,22 @@ var PropertySchema = new Schema({
 		trim: true
 	},
 	heatingType: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	doubleGlazing: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	solidWoodFlooring: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	parkingType: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	haveLand: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	haveGarden: {
-		type: String,
-		default: '',
-		trim: true
+		type: Number
 	},
 	propertyDirections: {
 		type: String,

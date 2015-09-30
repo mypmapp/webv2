@@ -5,6 +5,6 @@ module.exports = function(app) {
     var vendorproperties = require('../../app/controllers/vendorproperties.server.controller');
 
     // Routing logic
-    app.route('/vendors/properties/:vendorId')
+    app.route('/vendors/properties/:vendorId');
 
 };

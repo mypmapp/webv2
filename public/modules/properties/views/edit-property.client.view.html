@@ -1,4 +1,4 @@
-<section data-ng-controller="PropertiesController" data-ng-init="findOne()">
+<section data-ng-controller="PropertiesController" data-ng-init="findOne();initOnCreate();">
 
     <div class="row">
         <div class="col-md-12">
@@ -127,25 +127,10 @@
 
                                     <div class="controls">
                                         <select name="priceType" class="form-control input-lg" id="priceType"
-                                                ng-model="property.priceType">
+                                                ng-model="property.priceType" ng-options="priceType.value as priceType.name for priceType in priceTypes track by priceType.value">
                                             <option value="">-- Choose --</option>
-                                            <option value="Unknown" selected="selected">Unknown</option>
-                                            <option value="none">None</option>
-                                            <option value="ono">Or Nearest Offer</option>
-                                            <option value="guide">Guide Price</option>
-                                            <option value="fixed">Fixed Price</option>
-                                            <option value="oieo">Offers in Excess of</option>
-                                            <option value="oiro">Offers in Region of</option>
-                                            <option value="sbt">Sale by Tender</option>
-                                            <option value="poa">POA</option>
-                                            <option value="from">From</option>
-                                            <option value="lease">Leasehold</option>
-                                            <option value="shared">Shared ownership</option>
-                                            <option value="over">Offers Over</option>
-                                            <option value="part">Part buy, part rent</option>
-                                            <option value="equity">Shared Equity</option>
-                                            <option value="loan">Equity loan</option>
                                         </select>
+                                        {{property.priceType}}
                                         <p ng-show="regPropertyForm.priceType.$error.required" class="help-block">Your price type is required.</p>
                                     </div>
                                 </div>
@@ -153,20 +138,12 @@
                             <div class="col-md-4">
                                 <div class="form-group required"
                                      ng-class="{ 'has-error': regPropertyForm.chainType.$dirty && regPropertyForm.chainType.$invalid }">
-                                    <label class="control-label" for="priceType">Chain Situation</label>
+                                    <label class="control-label" for="chainType">Chain Situation</label>
 
                                     <div class="controls">
                                         <select name="chainType" class="form-control input-lg" id="chainType"
-                                                ng-model="property.chainType">
+                                                ng-model="property.chainType" ng-options="itemType.value as itemType.name for itemType in chainTypes">
                                             <option value="">-- Choose --</option>
-                                            <option value="unknown">Unknown</option>
-                                            <option value="no_chain" selected="selected">No chain</option>
-                                            <option value="already_bought">Already purchased</option>
-                                            <option value="currently_looking">Currently looking</option>
-                                            <option value="moving_abroad">Moving abroad</option>
-                                            <option value="moving_to_rented">Moving to rented</option>
-                                            <option value="other">Other</option>
-                                            <option value="tenanted">Tenanted</option>
                                         </select>
                                         <p ng-show="regPropertyForm.chainType.$error.required" class="help-block">Your chain type is required.</p>
                                     </div>
@@ -185,40 +162,8 @@
 
                                     <div class="controls">
                                         <select name="propertyType" class="form-control input-lg" id="propertyType"
-                                                ng-model="property.propertyType">
-                                            <option value="">-- Choose --</option>
-                                            <option value="2" selected="selected">Bungalow</option>
-                                            <option value="1">Detached House</option>
-                                            <option value="3">Terraced House</option>
-                                            <option value="4">Semi-detached House</option>
-                                            <option value="5">Townhouse</option>
-                                            <option value="6">Flat</option>
-                                            <option value="7">End of terrace House</option>
-                                            <option value="8">Link-Detached House</option>
-                                            <option value="9">Penthouse</option>
-                                            <option value="10">Maisonette</option>
-                                            <option value="11">Apartment</option>
-                                            <option value="12">Studio Flat</option>
-                                            <option value="13">House Share</option>
-                                            <option value="18">Land</option>
-                                            <option value="19">End Town House</option>
-                                            <option value="20">Link-Terraced House</option>
-                                            <option value="21">End Property</option>
-                                            <option value="26">Detached Barn Conversion</option>
-                                            <option value="35">Barn Conversion</option>
-                                            <option value="27">Cottage</option>
-                                            <option value="28">House</option>
-                                            <option value="31">Retirement Property</option>
-                                            <option value="32">House/Flats</option>
-                                            <option value="33">Equestrian Property</option>
-                                            <option value="34">Houseboat</option>
-                                            <option value="36">Coach House</option>
-                                            <option value="37">Static Caravan</option>
-                                            <option value="38">Farm House</option>
-                                            <option value="39">Bungalow with Annexe</option>
-                                            <option value="40">Garage</option>
-                                            <option value="41">Mobile Home</option>
-                                            <option value="42">Block of Apartments</option>
+                                                ng-model="property.propertyType" ng-options="itemType.value as itemType.name for itemType in propertyTypes">
+                                                <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.propertyType.$error.required" class="help-block">Your property type is required.</p>
                                     </div>
@@ -231,12 +176,9 @@
 
                                     <div class="controls">
                                         <select name="tenureType" class="form-control input-lg" id="tenureType"
-                                                ng-model="property.tenureType">
+                                                ng-model="property.tenureType"  ng-options="itemType.value as itemType.name for itemType in tenureTypes">
                                             <option value="">-- Choose --</option>
-                                            <option value="unknown" selected="selected">Unknown</option>
-                                            <option value="freehold">Freehold</option>
-                                            <option value="shared freehold">Shared Freehold</option>
-                                            <option value="leasehold">Leasehold</option>
+
                                         </select>
                                         <p ng-show="regPropertyForm.tenureType.$error.required" class="help-block">Your tenure type is required.</p>
                                     </div>
@@ -334,10 +276,8 @@
 
                                     <div class="controls">
                                         <select name="councilTaxCostTerm" class="form-control input-lg"
-                                                id="councilTaxCostTerm" ng-model="property.councilTaxCostTerm">
+                                                id="councilTaxCostTerm" ng-model="property.councilTaxCostTerm" ng-model="councilTaxCostTerm" ng-options="itemType.value as itemType.name for itemType in councilTaxTypes">
                                             <option value="">-- Choose --</option>
-                                            <option value="Per Annum">Per Annum</option>
-                                            <option value="Per Month">Per Month</option>
                                         </select>
                                         <p ng-show="regPropertyForm.councilTaxCostTerm.$error.required" class="help-block">Your council tax term is required.</p>
                                     </div>
@@ -379,13 +319,8 @@
 
                                     <div class="controls">
                                         <select name="heatingType" class="form-control input-lg" id="heatingType"
-                                                ng-model="property.heatingType">
-                                            <option value="" selected="selected">-- Choose --</option>
-                                            <option value="gas">Gas</option>
-                                            <option value="oil">Oil</option>
-                                            <option value="electric">Electric</option>
-                                            <option value="solid fuel">Solid Fuel</option>
-                                            <option value="other">Other</option>
+                                                ng-model="property.heatingType" ng-options="itemType.value as itemType.name for itemType in heatingTypes">
+                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.heatingType.$error.required" class="help-block">Your heating type is required.</p>
                                     </div>
@@ -398,11 +333,8 @@
 
                                     <div class="controls">
                                         <select name="doubleGlazing" class="form-control input-lg" id="doubleGlazing"
-                                                ng-model="property.doubleGlazing">
-                                            <option value="" selected="selected">-- Choose --</option>
-                                            <option value="none">None</option>
-                                            <option value="part">Part</option>
-                                            <option value="all">All</option>
+                                                ng-model="property.doubleGlazing" ng-options="itemType.value as itemType.name for itemType in doubleGlazingTypes">
+                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.doubleGlazing.$error.required" class="help-block">Your double glazing is required.</p>
                                     </div>
@@ -415,11 +347,8 @@
 
                                     <div class="controls">
                                         <select name="solidWoodFlooring" class="form-control input-lg"
-                                                id="solidWoodFlooring" ng-model="property.solidWoodFlooring">
-                                            <option value="" selected="selected">-- Choose --</option>
-                                            <option value="none">None</option>
-                                            <option value="part">Part</option>
-                                            <option value="all">All</option>
+                                                id="solidWoodFlooring" ng-model="property.solidWoodFlooring"  ng-options="itemType.value as itemType.name for itemType in solidWoodFlooringTypes">
+                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.solidWoodFlooring.$error.required" class="help-block">Your flooring type is required.</p>
                                     </div>
@@ -438,25 +367,8 @@
 
                                     <div class="controls">
                                         <select name="parkingType" class="form-control input-lg" id="parkingType"
-                                                ng-model="property.parkingType">
-                                            <option value="" selected="selected">-- Choose --</option>
-                                            <option value="none">None</option>
-                                            <option value="street-parking">Street Parking</option>
-                                            <option value="Off-street-parking">Off Street Parking</option>
-                                            <option value="garage">Garage</option>
-                                            <option value="single-garage-and-driveway">Single Garage and Driveway
-                                            </option>
-                                            <option value="double garage">Double Garage</option>
-                                            <option value="double-garage-and-driveway">Double Garage and Driveway
-                                            </option>
-                                            <option value="private-driveway">Private Driveway</option>
-                                            <option value="permit-holder">Permit Holder</option>
-                                            <option value="allocated-parking-spot">Allocated Parking Spot</option>
-                                            <option value="underground-parking">Underground Parking</option>
-                                            <option value="secure-gated-allocated-parking">Secure Gated Allocated
-                                                Parking
-                                            </option>
-
+                                                ng-model="property.parkingType" ng-options="itemType.value as itemType.name for itemType in parkingTypes">
+                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.parkingType.$error.required" class="help-block">Your parking type is required.</p>
                                     </div>
@@ -470,7 +382,7 @@
                                     <div class="controls">
                                         <select name="haveLand" class="form-control input-lg" id="haveLand"
                                                 ng-model="property.haveLand">
-                                            <option value="" selected="selected">-- Choose --</option>
+                                            <option value="">-- Choose --</option>
                                             <option value="none">Yes</option>
                                             <option value="part">No</option>
                                         </select>
@@ -485,10 +397,8 @@
 
                                     <div class="controls">
                                         <select name="haveGarden" class="form-control input-lg" id="haveGarden"
-                                                ng-model="property.haveGarden">
-                                            <option value="" selected="selected">-- Choose --</option>
-                                            <option value="none">Yes</option>
-                                            <option value="part">No</option>
+                                                ng-model="property.haveGarden"  ng-options="itemType.value as itemType.name for itemType in haveLandTypes">
+                                            <option value="">-- Choose --</option>
                                         </select>
                                         <p ng-show="regPropertyForm.haveGarden.$error.required" class="help-block">Your garden is required.</p>
                                     </div>

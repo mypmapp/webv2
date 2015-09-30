@@ -86,7 +86,9 @@ var councilTaxCostTerm = [
 
 var tenureType = [
     {value:'1', name:'Unknown'},
-    {value:'2', name:'Per Month'}
+    {value:'2', name:'Freehold'},
+    {value:'3', name:'Shared Freehold'},
+    {value:'4', name:'Leasehold'}
 ];
 
 var heatingType = [

@@ -10,53 +10,59 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
         // If user is not signed in then redirect back home
         if (!$scope.user) $location.path('/');
 
-
-        lookupTypes.priceTypeList(function(priceTypes) {
-            $scope.priceTypes = priceTypes;
-        });
-
-        lookupTypes.chainTypeList(function(chainTypes) {
-            $scope.chainTypes = chainTypes;
-        });
-
-        lookupTypes.propertyTypeList(function(propertyTypes) {
-            $scope.propertyTypes = propertyTypes;
-        });
-
-        lookupTypes.tenureTypeList(function(tenureTypes) {
-            $scope.tenureTypes = tenureTypes;
-        });
-
-        lookupTypes.councilTaxCostTermList(function(councilTaxTypes) {
-            $scope.councilTaxTypes = councilTaxTypes;
-        });
-
-        lookupTypes.heatingTypeList(function(heatingTypes) {
-            $scope.heatingTypes = heatingTypes;
-        });
-
-        lookupTypes.solidWoodFlooringTypeList(function(solidWoodFlooringTypes) {
-            $scope.solidWoodFlooringTypes = solidWoodFlooringTypes;
-        });
-
-        lookupTypes.doubleGlazingTypeList(function(doubleGlazingTypes) {
-            $scope.doubleGlazingTypes = doubleGlazingTypes;
-        });
-
-        lookupTypes.parkingTypeList(function(parkingTypes) {
-            $scope.parkingTypes = parkingTypes;
-        });
-
-        lookupTypes.haveLandTypeList(function(haveLandTypes) {
-            $scope.haveLandTypes = haveLandTypes;
-        });
-
-        lookupTypes.haveGardenTypeList(function(haveGardenTypes) {
-            $scope.haveGardenTypes = haveGardenTypes;
-        });
-
-
         $scope.roomsData = [];
+        $scope.enableSave = false;
+
+        $scope.initOnCreate = function()
+        {
+            console.log('Called initOnCreate');
+
+            lookupTypes.priceTypeList(function(priceTypes) {
+                $scope.priceTypes = priceTypes;
+            });
+
+            lookupTypes.chainTypeList(function(chainTypes) {
+                $scope.chainTypes = chainTypes;
+            });
+
+            lookupTypes.propertyTypeList(function(propertyTypes) {
+                $scope.propertyTypes = propertyTypes;
+            });
+
+            lookupTypes.tenureTypeList(function(tenureTypes) {
+                $scope.tenureTypes = tenureTypes;
+            });
+
+            lookupTypes.councilTaxCostTermList(function(councilTaxTypes) {
+                $scope.councilTaxTypes = councilTaxTypes;
+            });
+
+            lookupTypes.heatingTypeList(function(heatingTypes) {
+                $scope.heatingTypes = heatingTypes;
+            });
+
+            lookupTypes.solidWoodFlooringTypeList(function(solidWoodFlooringTypes) {
+                $scope.solidWoodFlooringTypes = solidWoodFlooringTypes;
+            });
+
+            lookupTypes.doubleGlazingTypeList(function(doubleGlazingTypes) {
+                $scope.doubleGlazingTypes = doubleGlazingTypes;
+            });
+
+            lookupTypes.parkingTypeList(function(parkingTypes) {
+                $scope.parkingTypes = parkingTypes;
+            });
+
+            lookupTypes.haveLandTypeList(function(haveLandTypes) {
+                $scope.haveLandTypes = haveLandTypes;
+            });
+
+            lookupTypes.haveGardenTypeList(function(haveGardenTypes) {
+                $scope.haveGardenTypes = haveGardenTypes;
+            });
+
+        }
+
 
         $scope.addNewRoom = function()
         {
@@ -79,10 +85,6 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
         {
             $scope.lastRoomSaved = angular.copy(item);
         };
-
-
-
-        $scope.enableSave = false;
 
         $scope.ChkRegAddressChanged = function()
         {
@@ -250,8 +252,8 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
             $scope.property = Properties.get({
                 propertyId: $stateParams.propertyId
             });
+
             $scope.enableSave = true;
-            //console.log($scope.property);
         };
     }
 ]);

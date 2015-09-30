@@ -17,7 +17,7 @@
     </div>
     <div data-ng-repeat="property in properties  | filter:searchText">
         <property-brief-details property="property" to="{
-			showUpdatePropery: true,
+			showUpdateProperty: true,
 			showUpdatePics: true,
 			showUpdateVendorIds: true,
 			showUpdateFloorPlans: true,
@@ -28,6 +28,6 @@
         </property-brief-details>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!properties.$resolved || properties.length">
-    	No Properties yet, why don't you <a href="/#!/properties/create">create one</a>?
+    	No Properties yet.
     </div>
 </section>
