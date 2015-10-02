@@ -16,5 +16,11 @@ module.exports = function(app) {
     app.route('/lookup/parkingTypes').get(lookupData.parkingTypes);
     app.route('/lookup/haveLandTypes').get(lookupData.haveLandTypes);
     app.route('/lookup/haveGardenTypes').get(lookupData.haveGardenTypes);
+    
+    //Find Values
+    app.route('/lookup/chainTypes/:value').get(lookupData.findChainTypeByValue);
+    app.route('/lookup/propertyTypes/:value').get(lookupData.findPropertyTypeByValue);
+    app.route('/lookup/tenureTypes/:value').get(lookupData.findTenureTypeByValue);
+    
 
 };

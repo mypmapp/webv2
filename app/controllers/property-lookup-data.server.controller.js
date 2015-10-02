@@ -180,3 +180,53 @@ exports.haveLandTypes = function(req, res) {
 exports.haveGardenTypes = function(req, res) {
     res.json(haveGardenType);
 };
+
+exports.findChainTypeByValue = function(req,res){
+    
+    var value = req.params.value;
+    
+    if(value)
+    {
+    	var vType = chainType.filter(function(entry){
+			return entry.value === ''+value;
+		})[0];
+	    res.json(vType);
+    }
+    else
+    {
+        res.json(null);
+    }
+   
+     
+};
+
+exports.findPropertyTypeByValue = function(req,res){
+    var value = req.params.value;
+    if(value)
+    {
+    	var vType = propertyType.filter(function(entry){
+			return entry.value === ''+value;
+		})[0];
+	    res.json(vType);
+    }
+    else
+    {
+        res.json(null);
+    }
+    
+};
+
+exports.findTenureTypeByValue = function(req,res){
+    var value = req.params.value;
+    if(value)
+    {
+    	var vType = tenureType.filter(function(entry){
+			return entry.value === ''+value;
+		})[0];
+	    res.json(vType);
+    }
+    else
+    {
+        res.json(null);
+    }
+};

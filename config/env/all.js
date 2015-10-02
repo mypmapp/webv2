@@ -38,7 +38,7 @@ module.exports = {
 				//'public/lib/angularjs-utilities-master/src/modules/rcForm.js',
 				//'public/lib/angularjs-utilities-master/src/modules/rcDisabled.js',
 				//'public/lib/angularjs-utilities-master/src/modules/rcWizard.js',
-				'public/lib/angular-ui-gravatar/dist/angular-ui-gravatar.js',
+				//'public/lib/angular-ui-gravatar/dist/angular-ui-gravatar.js',
 				'public/lib/textAngular/dist/textAngular-rangy.min.js',
 				'public/lib/textAngular/dist/textAngular-sanitize.min.js',
 				'public/lib/textAngular/dist/textAngular.min.js',
