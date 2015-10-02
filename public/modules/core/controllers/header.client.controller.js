@@ -14,5 +14,10 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		$scope.$on('$stateChangeSuccess', function() {
 			$scope.isCollapsed = false;
 		});
+		
+		$scope.toggleClass = function(){
+			console.log('fired');
+		    angular.element('#wrapper').toggleClass('toggled')
+		};
 	}
 ]);

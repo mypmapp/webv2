@@ -37,25 +37,34 @@
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 
-	<!-- HTML5 Shim -->
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body class="ng-cloak">
-	<div class="wrapper">
-		<!-- Sidebar -->
-		<div class="sidebar-wrapper" data-ng-include="'/modules/core/views/sidebar.client.view.html'"  data-ng-controller="SidebarController"></div>
-		<div data-ng-include="'/modules/core/views/header.client.view.html'" data-ng-controller="HeaderController"></div>
-		<!-- /#sidebar-wrapper -->
-		<!-- Page Content -->
-		<div class="page-content-wrapper">
-			<div class="container-fluid">
-					{% block content %}{% endblock %}
-			</div>
-		</div>
-	</div>
+	 <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-wrapper" data-ng-include="'/modules/core/views/sidebar.client.view.html'"  data-ng-controller="SidebarController"></div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+        	<div data-ng-include="'/modules/core/views/header.client.view.html'" data-ng-controller="HeaderController"></div>
+            <div class="container-fluid">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
 
 	<!--Embedding The User Object-->
 	<script type="text/javascript">
@@ -67,6 +76,13 @@
 	<!--Application JavaScript Files-->
 	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
 
+	 <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 
 	{% if process.env.NODE_ENV === 'development' %}
 	<!--Livereload script rendered -->
